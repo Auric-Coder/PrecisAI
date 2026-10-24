@@ -3,3 +3,11 @@ data/cache*/
 checkpoints*/
 results_smoke/
 *.pyc
+train.log
+*.log
+.vscode/
+.idea/
+.ipynb_checkpoints/
+.streamlit/secrets.toml
+.env
+.DS_Store
