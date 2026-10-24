@@ -6,7 +6,6 @@
 - Data: CNN/DM 3.0.0 subset 40k/2k/500 (HF `abisee/cnn_dailymail`, shuffle seed 42), 400/60 tokens, 30k train-only vocab, cached in data/cache/ (gitignored).
 - Models: TextRank (TF-IDF PageRank, top-3), BiGRU+GRU seq2seq with `--attn bahdanau|luong|none`; greedy + beam4 (GNMT lp 0.6, no-repeat-trigram, min_len 10).
 - Trained all 3 variants, 10 epochs each (AMP, bs64, Adam 1e-3, ~30/28/18 min). Eval, loss curves, attention heatmap in results/. Streamlit app (app.py) written; NOT launched or browser-tested.
-- Smoke mode (`--smoke`) verified end to end for all stages.
 
 ## Commands
 ```
@@ -32,7 +31,6 @@ conda run -n precisai streamlit run app.py
 - Luong ended worse than `none` (val CE 5.22 vs 4.83 vs 4.19 bahdanau). Not diagnosed: likely slow optimisation of the post-GRU "general" score, not a verified conclusion. Treat the attention ablation ordering for luong as unreliable until retrained/debugged.
 - ROUGE uses full reference highlights; models see 400 tokens, so long-article tail is invisible. Single seed, no variance estimates.
 - Lowercased whitespace-joined output (no detokenisation). Circulars (data/circulars/) are empty; domain shift from CNN/DM is untested.
-- Stored train.log has only per-epoch lines; app.py untested in browser.
 
 ## TODO (priority)
 1. Launch app.py and verify all model/decoding combos, attn=none path, empty/short input.
