@@ -1,0 +1,32 @@
+[
+ {
+  "ref": "CNN's Dr. Sanjay Gupta says we should legalize medical marijuana now .\nHe says he knows how easy it is do nothing \"because I did nothing for too long\"",
+  "textrank": "I see this medical marijuana revolution in surprising places. \"Marijuana...?\" They want marijuana to be rescheduled.",
+  "seq2seq-bahdanau-greedy": "michael <unk> : the college of the revolution is a key problem . she says she is a good issue in the middle of the revolution . she says she is a good problem in the middle of the revolution .",
+  "seq2seq-bahdanau-beam4": "michael <unk> : i ' m a revolution of the revolution , he says . she says she ' s not a relationship in the middle of the americans . he says it ' s a folly in the background of the country .",
+  "seq2seq-luong-greedy": "new : the u . s . says he is ' very ' in the world ' s most common . he says he is ' very ' in the world ' s most common . he says he is ' very ' in the world ' s most common .",
+  "seq2seq-luong-beam4": "<unk> <unk> : the u . s . says he ' s not to be able to be a <unk> . he says he is the first of the first time in the world .",
+  "seq2seq-none-greedy": "ruben navarrette : the u . s . is a good thing of the <unk> , but the <unk> is a good thing . she says the u . s . is a good thing of the <unk> , she says . she says the u . s . is a good tool of the <unk> , she says .",
+  "seq2seq-none-beam4": "ruben navarrette : the u . s . does not want to know what she says . she says it ' s tempting to help people who do not know how to do . kohn : \" we need to be a good thing , \" he says ."
+ },
+ {
+  "ref": "Child has amassed thousands of Twitter followers with 'gang life' photos .\nIn one video he points gun at camera as adults look on unfazed .\nHis tweets have prompted backlash with calls for intervention .",
+  "textrank": "The baby-faced boy from Memphis, Tennessee, poses with guns, cash, and bags of what looks like marijuana. Baby-faced: This little boy has amassed more than 3,000 followers on Twitter with pictures like these . In many pictures he is smoking suspicious substances, with captions such as 'High Life' Backlash: The boy, from Memphis, has prompted a wave of critics calling his stunts 'sad' In one video he laughs and points the gun at the camera in an apparent attempt to look menacing - as adults laugh in the background.",
+  "seq2seq-bahdanau-greedy": "boy , from memphis , tennessee , has been a string of followers . he has been charged with a child and has been charged with his life . he has been charged with a man and has a gun .",
+  "seq2seq-bahdanau-beam4": "boy , from memphis , tennessee , has been a string of followers . he has been charged with his mother and reads .",
+  "seq2seq-luong-greedy": "the former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former former president ' s father , who is now a ' <unk> ' and",
+  "seq2seq-luong-beam4": "the couple ' s ex - wife , who has been charged with a <unk> . he said he is ' very ' ' very very ' in a ' <unk> ' , he says .",
+  "seq2seq-none-greedy": "ethan <unk> , 17 , is a member of the boy , who is a ' <unk> '",
+  "seq2seq-none-beam4": "boy ' s father - of - two , 13 , says he ' appreciates ' the boy is a ' <unk> '"
+ },
+ {
+  "ref": "The presidential hopeful held a town hall meeting in Kenilworth on Tuesday .\nDuring the meeting, high school English teacher Kathy Mooney got up to ask the governor a question about pensions .\nShe asked why he didn't seek a higher legal settlement in a case with ExxonMobil that would have contributed to the state's pension system .\nChristie responded by repeatedly asking how much Mooney knew about the deal instead of answering her question .",
+  "textrank": "'You do know that? You know that?' Perhaps the reason why Wollmer and his union responded sharply to Christie's town hall meeting Tuesday night, is that he blamed the union for their role in the current pension system.",
+  "seq2seq-bahdanau-greedy": "christie ' s governor says christie ' s remarks are ' out of the party education ' christie ' s <unk> is a ' <unk> ' and ' <unk> state ' s decision to make the announcement ' s decision to the governor ' s pension plans for a ' <unk> ' s decision . the state ' s",
+  "seq2seq-bahdanau-beam4": "christie ' s lawyer says he ' s not a choice for a job at a town hall hall . the state ' s largest teacher has been a teacher for 27 years . he has been called for a ' <unk> ' and ' <unk> state '",
+  "seq2seq-luong-greedy": "the former president ' s president says he is ' very ' in the ' <unk> ' he is a ' <unk> ' and ' ' the former president ' s president ' s ' <unk> '",
+  "seq2seq-luong-beam4": "former president barack barack obama ' s lawyer says he is ' very ' in the first time . he says he ' s not to be able to be mentioned in the world .",
+  "seq2seq-none-greedy": "christie ' s governor has been a ' <unk> ' for the past few years . christie ' s governor has been appointed a ' <unk> ' for the impeachment . he said he was ' too much ' to be ' a good thing ' he said : ' i am not going to do , ' he says",
+  "seq2seq-none-beam4": "christie ' s attorney general eric cantona said he would not be able to leave the city ' s governor ' s decision to resign . he said he was ' too much ' to get rid of the conversation ."
+ }
+]

@@ -1,0 +1,61 @@
+{
+ "n_test": 500,
+ "metrics": {
+  "textrank": {
+   "rouge1": 35.8,
+   "rouge2": 14.1,
+   "rougeL": 23.38,
+   "avg_len": 76.0,
+   "unk_rate": 0.0,
+   "trigram_repeat_rate": 0.664
+  },
+  "seq2seq-bahdanau-greedy": {
+   "rouge1": 25.18,
+   "rouge2": 5.75,
+   "rougeL": 18.12,
+   "avg_len": 49.5,
+   "unk_rate": 0.044,
+   "trigram_repeat_rate": 0.916
+  },
+  "seq2seq-bahdanau-beam4": {
+   "rouge1": 28.65,
+   "rouge2": 7.93,
+   "rougeL": 19.3,
+   "avg_len": 44.5,
+   "unk_rate": 0.0408,
+   "trigram_repeat_rate": 0.0
+  },
+  "seq2seq-luong-greedy": {
+   "rouge1": 14.02,
+   "rouge2": 1.57,
+   "rougeL": 11.83,
+   "avg_len": 39.3,
+   "unk_rate": 0.1161,
+   "trigram_repeat_rate": 0.962
+  },
+  "seq2seq-luong-beam4": {
+   "rouge1": 16.49,
+   "rouge2": 2.44,
+   "rougeL": 12.07,
+   "avg_len": 30.7,
+   "unk_rate": 0.0925,
+   "trigram_repeat_rate": 0.0
+  },
+  "seq2seq-none-greedy": {
+   "rouge1": 17.76,
+   "rouge2": 2.59,
+   "rougeL": 13.62,
+   "avg_len": 42.5,
+   "unk_rate": 0.0805,
+   "trigram_repeat_rate": 0.95
+  },
+  "seq2seq-none-beam4": {
+   "rouge1": 19.37,
+   "rouge2": 3.41,
+   "rougeL": 13.81,
+   "avg_len": 34.3,
+   "unk_rate": 0.0584,
+   "trigram_repeat_rate": 0.0
+  }
+ }
+}
