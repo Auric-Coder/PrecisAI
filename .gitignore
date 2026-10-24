@@ -11,3 +11,7 @@ train.log
 .streamlit/secrets.toml
 .env
 .DS_Store
+HANDOFF.md
+viva.md
+VIVA.md
+run_all.sh
