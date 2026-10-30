@@ -1,0 +1,1680 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css?v=1" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css?v=1" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css?v=1" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=7" type="text/css" />
+    <script type="text/javascript">
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+    </script>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+            });
+    </script>
+    <style type="text/css">
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        full-width {
+            width: 100%;
+        }
+
+        .logo-left, .logo-center, .countdown {
+            display: flex;
+            align-items: center;
+        }
+
+            .logo-left img, .logo-center img {
+                height: 70px;
+            }
+
+        .countdown {
+            text-align: center;
+            background-color: var(--dbim-text, #150202);
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid grey;
+        }
+
+        .firstnumber {
+            color: #000000;
+            position: absolute;
+            top: 50px;
+            right: 90px;
+            font-size: 30px;
+        }
+
+        .secondnumber {
+            position: absolute;
+            color: #000000;
+            right: 45px;
+            top: 50px;
+            font-size: 30px;
+        }
+
+        .countdown .days {
+            font-size: 35px;
+            color: gold;
+        }
+
+        .countdown p {
+            margin: 0;
+        }
+
+        .countdown .text {
+            font-size: 16px;
+        }
+
+        a {
+            word-break: break-all;
+        }
+
+        iframe, img {
+            max-width: 100%;
+        }
+
+        /* === DBIM 3.0 Option 4 Separator Line & Reading Meta Styling === */
+        .pr-share--footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-top: 1px solid var(--dbim-border, #d1d5db);
+            padding-top: 16px;
+            margin-top: 24px;
+        }
+
+        .pr-share__left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pr-reading-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--dbim-text-secondary, #475569);
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .pr-reading-meta__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pr-reading-meta__divider {
+            color: var(--dbim-border, #cbd5e1);
+            font-weight: 300;
+        }
+
+        .pib-hc .pr-reading-meta,
+        .pib-hc .pr-reading-meta svg {
+            color: currentColor !important;
+        }
+
+        @media (max-width: 680px) {
+            .pr-share--footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pr-reading-meta {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media(max-width:1199px) {
+            .firstnumber {
+                top: 40px;
+                right: 72px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 35px;
+                top: 40px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:990px) {
+            .firstnumber {
+                top: 25px;
+                right: 54px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 25px;
+                top: 25px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .countdown, .days {
+                font-size: 12px !important;
+            }
+
+            .firstnumber {
+                top: 25%;
+                right: 8%;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 4.5%;
+                top: 25%;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:475px) {
+            .countdown, .days {
+                font-size: 10px !important;
+                top: 20%;
+            }
+
+            .bannerimgdiv {
+                padding: 0 !important;
+            }
+
+            .bannerimg {
+                width: 108% !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+    </script>
+
+    <link id="pibConsentCss" href="/css/consent.css?v=8" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=1120" rel="stylesheet" type="text/css" /><meta property="og:title" content="  VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES" /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2223331" /><meta property="og:description" content="As on 30.01.2026, 129 Registered Vehicle Scrapping Facilities (RVSFs) are operational
+
+across 21 S" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="qc42rvix37zyg2xdqvdq-f-7b75634fd-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":23,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"b3af77","ak.r":38574,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":53564,"ak.gh":"23.223.243.68","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1793295687","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==Qs5VHw1A5/lNun9yTfu0cNcJUnvSnOMt3/HztM53eEjIexRL5vyJodvRsmN01d0LoI4hPkvgbLNLM3nsZhSnX7utIFn2Txm1SNDvlIE5vUPIFdOhHYt7YllSNCN52jldj98SCcFCD6zE76mb+Fvxl3iH7IsS+peuaZVOX+1Cduota5trLYOGRXgZ9sWonOFrapPTqjeqnKnTJbNS4in8xpt+iaBZE50b7FlffX0l9miWpuDtAa+cxSlzSXlwFbR3l6/jz4pkXHqbh2ZpJMQu2RvbDiGQKc0czw2fkJo/D9BdQsUOOyr+1zV0ZeDyGRe36c8oKN1MT5jMsRHb/FR0XdUH0LryI+sQW/EA49K/rZZO57XSYvGjjTGyNwjaTBgtRTByiG06VZLAdNr2oYEkKLyeNHjNbDeTZt61hpqCdgc=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 4.5v15l12-7.5z"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a9.5 9.5 0 0 0-8.1 14.5L2.4 21.6l4.8-1.4A9.5 9.5 0 1 0 12 2.4zm0 2.2a7.3 7.3 0 1 1-3.8 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.6z"/><path d="M9.4 7.8c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+    <form method="post" action="./PressReleasePage.aspx?PRID=2223331&amp;lang=1&amp;reg=3" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639191042600000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="Os3rxGdiV8l18v3hcrLPn52IhL/OdwSpGxHXhVnEcSouq7xyuZ/hY6LRCln65LpruTQyfqwuUzkQ9JL14uBLYaoDWMSGBFjsqc93ecNoFY1zbgE8OIAD9v1/+IBfR+1EpCG8KcBaHXFNKRTR9U6ErzKbvORPyt/hYk+s/3lwV1LjIx5x2KGP62UZ8X/XryS5Ih4BcSUVnJAscw50m7DmwCvBzYW8AIJSpr3kycfLBfnHsiZZhkh3ZF/x7WZcuHBDiB+PQfwfPWXOVr0OPyxiF5qJTIc=" />
+</div>
+        
+        <div id="templateCss"></div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+        <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+        <div class="container" style='margin-bottom: 50px;'>
+            <div id="accessories">
+                
+                <div class="pull-right" style="display: flex">
+                    <div id="voll"></div>
+                    <div id="vollDT"></div>
+                    
+
+<span class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</span>
+                </div>
+            </div>
+            <input type="hidden" name="hydpermid" id="hydpermid" value="2223331" />
+            
+
+            <div class="innner-page-main-about-us-content-right-part">
+                <div id="MinistryName" class="MinistryNameSubhead text-center">
+                    Ministry of Road Transport & Highways
+                </div>
+                <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2026/sep/ph_9768_20260902_10000501.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+                <div class="text-center event-heading-background">
+                    
+                    <h1 id="Titleh2">
+                          VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES
+                    </h1>
+                    <h3 id="Subtitleh3">
+                        <span id="ltrSubtitle"></span>
+                    </h3>
+                </div>
+
+                <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                    Posted On:
+                              04 FEB 2026 7:08PM by PIB Delhi
+                </div>
+                
+                <div class='pt20'>
+                </div>
+                <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                
+
+                <!-- Release content wrapper for client-side zero-reflow word count -->
+                <div id="pibReleaseBody">
+                    <p style="margin-left:35.95pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">As on 30.01.2026, 129 Registered Vehicle Scrapping Facilities (RVSFs) are operational</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">across 21 States and UTs in the country under Vehicle Scrapping Policy. Also, a total of 4,30,306 vehicles have been scrapped by these RVSFs till 30.01.2026.</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="margin-left:3pt; margin-right:0.05pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Ministry Finance, Department of Expenditure, vide letter dated 22.05.2025, has issued the scheme guidelines for Special Assistance to States for Capital Investment (SASCI) 2025-26. Incentives for &#39;Scrapping of Old vehicles&#39; has been extended as per Part-VI A of the guidelines and the allocated incentive amount for this year is Rs.2,000 Crore on First Come First Served basis. The incentives include:</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Lump-sum incentives ranging from Rs. 10 crore to Rs. 200 crore, based on the category of State/UT, linked to notification and implementation of additional Motor Vehicle tax concession as per Notification no. GSR 200(E) dated 26.03.2025.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="2" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Incentives for scrapping of Government-owned vehicles older than 15 years at Registered Vehicle Scrapping Facilities, wherein States are eligible for per-vehicle incentives on a graded scale ranging from Rs. 50,000 to 1,50,000 , linked to the number of Government vehicles scrapped during the financial year.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="3" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Incentives for scrapping of non-Government vehicles, wherein States are eligible for graded per-vehicle incentives ranging from Rs. 5,000 to 20,000, based on the volume of non-Government vehicles scrapped at Registered Vehicle Scrapping Facilities within the State.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="4" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">States are eligible for per Automated Testing Station (ATS) incentives ranging from Rs. 5 crore to Rs. 9 crore, depending on whether the ATS is established in a high- priority district or other district, with 25% of the incentive linked to award of work and the remaining 75% linked to operationalisation of the ATS. Additional incentive is admissible for timely operationalisation of ATSs, as per the scheme guidelines.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="margin-left:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">In accordance with the legal mandate under Section 162 of the Motor Vehicles Act, 1988, Cashless Treatment for Road Accident Victims Scheme, 2025 has been notified vide S.O. 2015(E) dated 05.05.2025. Furthermore, comprehensive guidelines detailing the process flow, roles and responsibilities of various stakeholders, and the Standard Operating Procedures (SOPs) for its implementation have been issued vide S.O. 2489 (E) dated 04.06.2025. The key features of the scheme are: -</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="5" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Treatment cover up to Rs. 1.5 lakh per victim will be provided, subject to a maximum cap of 7 days from date of accident. The treatment cover will be available to those victims who are involved in road accidents caused by use of motor vehicles.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="6" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Every road accident victim shall be provided with stabilization, treatment for upto</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="margin-left:36pt; margin-right:0.05pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">24 hours in non-life-threatening cases, upto 48 hours in life-threatening cases at designated hospitals, subject to police response.</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="7" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">This statutory scheme will take precedence over any other Central / State level schemes.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="8" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Scheme is being implemented through the amalgamation of two existing platforms, i.e. eDAR (electronic Detailed Accident Report) used by Police officials for reporting of accidents and TMS 2.0 (Transaction Management System) of National Health Authority (NHA) used by hospitals for treatment, claim submission and processing of payments.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="9" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The reimbursement to hospitals is being done through Motor Vehicle Accident Fund (MVAF) which is funded through contributions from General Insurance companies for cases where the offending Motor Vehicle is insured and through budgetary support for other-than-insured cases.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="margin-left:0cm; margin-right:0.3pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Details of various initiatives taken by the Government in Ministry of Road Transport and Highways to rectify accident black spots and enhance road safety on National Highways are as follows: -</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="10" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Government accords high priority to the identification and rectification of black spots on National Highways. Government has taken steps for immediate short-term rectification measures on such black spots like road markings, signages, crash barriers, road studs, delineators, closure of unauthorized median openings, traffic calming measures, etc. Long-term rectification measures like improvement of road geometrics, junction improvements, spot widening of carriageway, construction of underpasses/overpasses, etc. are also taken on such black spots based on site investigations.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="11" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Road Safety Audit (RSA) of all National Highways (NHs) has been made mandatory through third party auditors/ experts at all stages i.e. design, construction, operation and maintenance, etc.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="12" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Road Safety Officer (RSO) has been designated at each Regional Office of road owning agencies to look after RSA and other road safety related works.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="13" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Issued guidelines for the provision of signages on Expressways and National Highways to offer improved visibility and intuitive guidance to the drivers.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="14" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Administers the electronic Detailed Accident Report (e-DAR) Project to establish a central repository for reporting, management and analysis of road accidents data across the Country.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="15" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Issued rules for Electronic Monitoring and Enforcement of Road Safety. The rules specify the detailed provisions for placement of electronic enforcement devices on high risk &amp; high-density corridors on National Highways, State Highways and critical</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<div class="WordSection2">
+<p style="margin-left:36pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">junctions in cities having a population of more than one million in the country and cities under National Clean Air Programme (NCAP).</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="16" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The National Highways Authority of India has made provisions for ambulances with paramedical staff/Emergency Medical Technician/Nurse at toll plazas on the completed corridors of National Highways.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="17" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Notified the Cashless Treatment of Road Accident Victims Scheme, 2025 on 5th May, 2025. The detailed guidelines including process flow, stakeholder wise standard operating procedures and clearly delineated roles and responsibilities have also been notified on 4th June, 2025.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="18" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Revised the scheme guidelines (named as Rah-Veer) for the protection of Good Samaritan, who in good faith, voluntarily and without expectation of any reward or compensation renders emergency medical or non-medical care or assistance at the scene of an accident to the victim or transports such victim to the hospital. As per the scheme, the reward for Rah-Veer has been increased to Rs. 25,000 from Rs. 5,000.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">This information was given by the Union Minister for Road Transport and Highways, Shri Nitin Jairam Gadkari Ji in written reply to the Rajya Sabha.</span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">*****</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">GDH/HJ</span></span></strong></p>
+</div>
+
+                </div>
+
+                <div id="reel_pic">
+                </div>
+
+                <br />
+                <span id="ReleaseId">(Release ID: 2223331)</span>
+                <span id="lblViews">Visitor Counter : 2749</span>
+                <div>
+                    
+                </div>
+                
+
+                <span id="lblRefPhoto"></span>
+
+                <div class="BackgroundRelease">
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="ReleaseLang">Read this release in: 
+                
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2223623' target="_blank">
+                            Urdu </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2223514' target="_blank">
+                            हिन्दी </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2223520' target="_blank">
+                            Kannada </a>
+                    
+                </div>
+
+                <div class="RelTag">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+
+                <!-- DBIM 3.0 Option 4: Separator Line with Left Share Rail & Right Reading Metrics -->
+                <div class="pr-share pr-share--footer" role="region" aria-label="Share and reading details">
+                    <div class="pr-share__left">
+                        <span class="pr-share__label" aria-hidden="true">Share</span>
+                        <ul class="pr-share__list">
+                            <li><a class="pr-share__btn pr-share__btn--facebook"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2223331"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on Facebook">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-facebook" xlink:href="#icon-facebook"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--twitter"
+                                href="https://twitter.com/intent/tweet?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2223331"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on X">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-twitter" xlink:href="#icon-twitter"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--whatsapp"
+                                href="https://api.whatsapp.com/send?text=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2223331"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on WhatsApp">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-whatsapp" xlink:href="#icon-whatsapp"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--linkedin"
+                                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2223331"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on LinkedIn">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-linkedin" xlink:href="#icon-linkedin"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--mail"
+                                href="mailto:?subject=Press+release+from+PIB&amp;body=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2223331"
+                                aria-label="Share by email">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-mail" xlink:href="#icon-mail"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="pr-reading-meta" id="prReadingMeta" aria-label="Reading statistics">
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Document / Word Count Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                            </svg>
+                            <span id="prWordCount">-- words</span>
+                        </span>
+
+                        <span class="pr-reading-meta__divider" aria-hidden="true">|</span>
+
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Precision Clock / Read Time Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            <span id="prReadTime">-- min read</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="RelLink" class="RelLink">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <center>
+                    
+                </center>
+            </div>
+
+            <div id="update12">
+	
+                    
+                    <input type="hidden" name="Hidden" id="Hidden" />
+                    <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                        <div>
+                            <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                        </div>
+                        <div id="description">
+                        </div>
+                        <div class="text-center">
+                            <h2>
+                                
+                                <br>
+                                
+                            </h2>
+                        </div>
+                        <br />
+                        <div class="clear">
+                        </div>
+                        
+                    
+	</div>
+                
+</div>
+        </div>
+
+        <div id="PdfDiv" style="display: none;">
+            <table width="100%">
+                <tr>
+                    <td style="font-weight: 200; text-align: center">
+                        Ministry of Road Transport & Highways
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                              VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="text-align: center; font-size: 14px;">
+                            Posted On:
+                                          04 FEB 2026 7:08PM by PIB Delhi
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                            <p style="margin-left:35.95pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">As on 30.01.2026, 129 Registered Vehicle Scrapping Facilities (RVSFs) are operational</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">across 21 States and UTs in the country under Vehicle Scrapping Policy. Also, a total of 4,30,306 vehicles have been scrapped by these RVSFs till 30.01.2026.</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="margin-left:3pt; margin-right:0.05pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Ministry Finance, Department of Expenditure, vide letter dated 22.05.2025, has issued the scheme guidelines for Special Assistance to States for Capital Investment (SASCI) 2025-26. Incentives for &#39;Scrapping of Old vehicles&#39; has been extended as per Part-VI A of the guidelines and the allocated incentive amount for this year is Rs.2,000 Crore on First Come First Served basis. The incentives include:</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Lump-sum incentives ranging from Rs. 10 crore to Rs. 200 crore, based on the category of State/UT, linked to notification and implementation of additional Motor Vehicle tax concession as per Notification no. GSR 200(E) dated 26.03.2025.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="2" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Incentives for scrapping of Government-owned vehicles older than 15 years at Registered Vehicle Scrapping Facilities, wherein States are eligible for per-vehicle incentives on a graded scale ranging from Rs. 50,000 to 1,50,000 , linked to the number of Government vehicles scrapped during the financial year.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="3" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Incentives for scrapping of non-Government vehicles, wherein States are eligible for graded per-vehicle incentives ranging from Rs. 5,000 to 20,000, based on the volume of non-Government vehicles scrapped at Registered Vehicle Scrapping Facilities within the State.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="4" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">States are eligible for per Automated Testing Station (ATS) incentives ranging from Rs. 5 crore to Rs. 9 crore, depending on whether the ATS is established in a high- priority district or other district, with 25% of the incentive linked to award of work and the remaining 75% linked to operationalisation of the ATS. Additional incentive is admissible for timely operationalisation of ATSs, as per the scheme guidelines.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="margin-left:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">In accordance with the legal mandate under Section 162 of the Motor Vehicles Act, 1988, Cashless Treatment for Road Accident Victims Scheme, 2025 has been notified vide S.O. 2015(E) dated 05.05.2025. Furthermore, comprehensive guidelines detailing the process flow, roles and responsibilities of various stakeholders, and the Standard Operating Procedures (SOPs) for its implementation have been issued vide S.O. 2489 (E) dated 04.06.2025. The key features of the scheme are: -</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="5" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Treatment cover up to Rs. 1.5 lakh per victim will be provided, subject to a maximum cap of 7 days from date of accident. The treatment cover will be available to those victims who are involved in road accidents caused by use of motor vehicles.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="6" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Every road accident victim shall be provided with stabilization, treatment for upto</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="margin-left:36pt; margin-right:0.05pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">24 hours in non-life-threatening cases, upto 48 hours in life-threatening cases at designated hospitals, subject to police response.</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="7" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">This statutory scheme will take precedence over any other Central / State level schemes.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="8" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Scheme is being implemented through the amalgamation of two existing platforms, i.e. eDAR (electronic Detailed Accident Report) used by Police officials for reporting of accidents and TMS 2.0 (Transaction Management System) of National Health Authority (NHA) used by hospitals for treatment, claim submission and processing of payments.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="9" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The reimbursement to hospitals is being done through Motor Vehicle Accident Fund (MVAF) which is funded through contributions from General Insurance companies for cases where the offending Motor Vehicle is insured and through budgetary support for other-than-insured cases.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="margin-left:0cm; margin-right:0.3pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Details of various initiatives taken by the Government in Ministry of Road Transport and Highways to rectify accident black spots and enhance road safety on National Highways are as follows: -</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="10" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Government accords high priority to the identification and rectification of black spots on National Highways. Government has taken steps for immediate short-term rectification measures on such black spots like road markings, signages, crash barriers, road studs, delineators, closure of unauthorized median openings, traffic calming measures, etc. Long-term rectification measures like improvement of road geometrics, junction improvements, spot widening of carriageway, construction of underpasses/overpasses, etc. are also taken on such black spots based on site investigations.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="11" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Road Safety Audit (RSA) of all National Highways (NHs) has been made mandatory through third party auditors/ experts at all stages i.e. design, construction, operation and maintenance, etc.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="12" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Road Safety Officer (RSO) has been designated at each Regional Office of road owning agencies to look after RSA and other road safety related works.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="13" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Issued guidelines for the provision of signages on Expressways and National Highways to offer improved visibility and intuitive guidance to the drivers.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="14" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Administers the electronic Detailed Accident Report (e-DAR) Project to establish a central repository for reporting, management and analysis of road accidents data across the Country.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="15" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Issued rules for Electronic Monitoring and Enforcement of Road Safety. The rules specify the detailed provisions for placement of electronic enforcement devices on high risk &amp; high-density corridors on National Highways, State Highways and critical</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<div class="WordSection2">
+<p style="margin-left:36pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">junctions in cities having a population of more than one million in the country and cities under National Clean Air Programme (NCAP).</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="16" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The National Highways Authority of India has made provisions for ambulances with paramedical staff/Emergency Medical Technician/Nurse at toll plazas on the completed corridors of National Highways.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="17" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Notified the Cashless Treatment of Road Accident Victims Scheme, 2025 on 5th May, 2025. The detailed guidelines including process flow, stakeholder wise standard operating procedures and clearly delineated roles and responsibilities have also been notified on 4th June, 2025.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<ol>
+	<li style="list-style-type:none">
+	<ol start="18" style="list-style-type:lower-roman">
+		<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Revised the scheme guidelines (named as Rah-Veer) for the protection of Good Samaritan, who in good faith, voluntarily and without expectation of any reward or compensation renders emergency medical or non-medical care or assistance at the scene of an accident to the victim or transports such victim to the hospital. As per the scheme, the reward for Rah-Veer has been increased to Rs. 25,000 from Rs. 5,000.</span></span></li>
+	</ol>
+	</li>
+</ol>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">This information was given by the Union Minister for Road Transport and Highways, Shri Nitin Jairam Gadkari Ji in written reply to the Rajya Sabha.</span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">*****</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">GDH/HJ</span></span></strong></p>
+</div>
+
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                            (Release ID: 2223331)
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="section1">
+            <div id="frst_t">
+                <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331&text=  VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=  VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331&title=  VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+            <div id="second_t">
+                <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331&text=  VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=  VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2223331&title=  VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+        </div>
+        <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="  VEHICLE SCRAPPAGE POLICY AND ROAD SAFETY INITIATIVES" />
+        <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" />
+        <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;margin-left:35.95pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>As on 30.01.2026, 129 Registered Vehicle Scrapping Facilities (RVSFs) are operational&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>across 21 States and UTs in the country under Vehicle Scrapping Policy. Also, a total of 4,30,306 vehicles have been scrapped by these RVSFs till 30.01.2026.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p style=&quot;margin-left:3pt; margin-right:0.05pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Ministry Finance, Department of Expenditure, vide letter dated 22.05.2025, has issued the scheme guidelines for Special Assistance to States for Capital Investment (SASCI) 2025-26. Incentives for &amp;#39;Scrapping of Old vehicles&amp;#39; has been extended as per Part-VI A of the guidelines and the allocated incentive amount for this year is Rs.2,000 Crore on First Come First Served basis. The incentives include:&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Lump-sum incentives ranging from Rs. 10 crore to Rs. 200 crore, based on the category of State/UT, linked to notification and implementation of additional Motor Vehicle tax concession as per Notification no. GSR 200(E) dated 26.03.2025.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Incentives for scrapping of Government-owned vehicles older than 15 years at Registered Vehicle Scrapping Facilities, wherein States are eligible for per-vehicle incentives on a graded scale ranging from Rs. 50,000 to 1,50,000 , linked to the number of Government vehicles scrapped during the financial year.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Incentives for scrapping of non-Government vehicles, wherein States are eligible for graded per-vehicle incentives ranging from Rs. 5,000 to 20,000, based on the volume of non-Government vehicles scrapped at Registered Vehicle Scrapping Facilities within the State.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>States are eligible for per Automated Testing Station (ATS) incentives ranging from Rs. 5 crore to Rs. 9 crore, depending on whether the ATS is established in a high- priority district or other district, with 25% of the incentive linked to award of work and the remaining 75% linked to operationalisation of the ATS. Additional incentive is admissible for timely operationalisation of ATSs, as per the scheme guidelines.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>In accordance with the legal mandate under Section 162 of the Motor Vehicles Act, 1988, Cashless Treatment for Road Accident Victims Scheme, 2025 has been notified vide S.O. 2015(E) dated 05.05.2025. Furthermore, comprehensive guidelines detailing the process flow, roles and responsibilities of various stakeholders, and the Standard Operating Procedures (SOPs) for its implementation have been issued vide S.O. 2489 (E) dated 04.06.2025. The key features of the scheme are: -&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Treatment cover up to Rs. 1.5 lakh per victim will be provided, subject to a maximum cap of 7 days from date of accident. The treatment cover will be available to those victims who are involved in road accidents caused by use of motor vehicles.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Every road accident victim shall be provided with stabilization, treatment for upto&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;margin-left:36pt; margin-right:0.05pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>24 hours in non-life-threatening cases, upto 48 hours in life-threatening cases at designated hospitals, subject to police response.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>This statutory scheme will take precedence over any other Central / State level schemes.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Scheme is being implemented through the amalgamation of two existing platforms, i.e. eDAR (electronic Detailed Accident Report) used by Police officials for reporting of accidents and TMS 2.0 (Transaction Management System) of National Health Authority (NHA) used by hospitals for treatment, claim submission and processing of payments.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The reimbursement to hospitals is being done through Motor Vehicle Accident Fund (MVAF) which is funded through contributions from General Insurance companies for cases where the offending Motor Vehicle is insured and through budgetary support for other-than-insured cases.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0.3pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Details of various initiatives taken by the Government in Ministry of Road Transport and Highways to rectify accident black spots and enhance road safety on National Highways are as follows: -&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Government accords high priority to the identification and rectification of black spots on National Highways. Government has taken steps for immediate short-term rectification measures on such black spots like road markings, signages, crash barriers, road studs, delineators, closure of unauthorized median openings, traffic calming measures, etc. Long-term rectification measures like improvement of road geometrics, junction improvements, spot widening of carriageway, construction of underpasses/overpasses, etc. are also taken on such black spots based on site investigations.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Road Safety Audit (RSA) of all National Highways (NHs) has been made mandatory through third party auditors/ experts at all stages i.e. design, construction, operation and maintenance, etc.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Road Safety Officer (RSO) has been designated at each Regional Office of road owning agencies to look after RSA and other road safety related works.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Issued guidelines for the provision of signages on Expressways and National Highways to offer improved visibility and intuitive guidance to the drivers.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Administers the electronic Detailed Accident Report (e-DAR) Project to establish a central repository for reporting, management and analysis of road accidents data across the Country.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Issued rules for Electronic Monitoring and Enforcement of Road Safety. The rules specify the detailed provisions for placement of electronic enforcement devices on high risk &amp;amp; high-density corridors on National Highways, State Highways and critical&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;div class=&quot;WordSection2&quot;>
+&lt;p style=&quot;margin-left:36pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>junctions in cities having a population of more than one million in the country and cities under National Clean Air Programme (NCAP).&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The National Highways Authority of India has made provisions for ambulances with paramedical staff/Emergency Medical Technician/Nurse at toll plazas on the completed corridors of National Highways.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Notified the Cashless Treatment of Road Accident Victims Scheme, 2025 on 5th May, 2025. The detailed guidelines including process flow, stakeholder wise standard operating procedures and clearly delineated roles and responsibilities have also been notified on 4th June, 2025.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+
+	&lt;li style=&quot;list-style-type:none&quot;>
+	
+		&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Revised the scheme guidelines (named as Rah-Veer) for the protection of Good Samaritan, who in good faith, voluntarily and without expectation of any reward or compensation renders emergency medical or non-medical care or assistance at the scene of an accident to the victim or transports such victim to the hospital. As per the scheme, the reward for Rah-Veer has been increased to Rs. 25,000 from Rs. 5,000.&lt;/span>&lt;/span>&lt;/li>
+	
+	&lt;/li>
+
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>This information was given by the Union Minister for Road Transport and Highways, Shri Nitin Jairam Gadkari Ji in written reply to the Rajya Sabha.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>*****&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;strong>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>GDH/HJ&lt;/span>&lt;/span>&lt;/strong>&lt;/p>
+&lt;/div>
+" />
+        <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+        </script>
+        <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+                  function CleanHtml(html) {
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+        </script>
+        <script type="text/javascript">
+                  $(document).ready(function () {
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        }
+                  });
+        </script>
+        <style type="text/css">
+            @media print {
+                .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                    display: none !important;
+                }
+            }
+
+            .f_vl {
+                padding-right: 30px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+
+            .log_oo {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .log_oo img {
+                    width: 150px;
+                }
+
+            .sticky-social_mb {
+                position: fixed;
+                bottom: 0px;
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+
+            .social_mb {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                margin-bottom: -8px;
+            }
+
+                .social_mb a {
+                    padding: 8px 0px;
+                    font-size: 30px;
+                    transition: all 0.8s ease-in-out;
+                    width: 20% !important;
+                    text-align: center;
+                }
+        </style>
+        <style type="text/css">
+            .section1 {
+                position: relative;
+                padding: 10px 0px;
+                width: 100%;
+            }
+
+            .sticky-social {
+                position: fixed;
+                top: 20px;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .social {
+                list-style: none;
+            }
+
+                .social a li {
+                    padding: 8px 12px;
+                    font-size: 25px;
+                    transition: all 0.8s ease-in-out;
+                }
+
+                    .social a li:hover {
+                        margin-right: -30px;
+                        box-shadow: 2px 5px 10px grey;
+                    }
+
+                        .social a li:hover .fa {
+                            margin-left: 20px;
+                        }
+
+            .fb_b {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .twitter_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .whatsapp_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-envelope_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-linkedin_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+        </style>
+        <style type="text/css">
+            @media only screen and (max-device-width: 767px) {
+                p span img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                p img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                h2 {
+                    font-size: var(--dbim-h2, 20px);
+                    font-weight: 600 !important;
+                }
+
+                h3 {
+                    font-size: var(--dbim-h3, 16px);
+                    font-weight: 600 !important;
+                }
+            }
+        </style>
+        <style type="text/css">
+            .film-roll-badge {
+                position: absolute;
+                top: 82%;
+                right: 20px;
+                width: 230px;
+                height: 70px;
+                background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 18px, var(--dbim-text, #150202) 18px, var(--dbim-text, #150202) 36px );
+                border-top: 8px solid var(--dbim-green-key, #0F5757);
+                border-bottom: 8px solid var(--dbim-green-key, #0F5757);
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                animation: moveFilm 8s linear infinite;
+                z-index: 10;
+            }
+
+                .film-roll-badge::before,
+                .film-roll-badge::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 10px;
+                    background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 10px, #fff 10px, #fff 20px );
+                    left: 0;
+                    z-index: 2;
+                }
+
+                .film-roll-badge::before {
+                    top: -4px;
+                }
+
+                .film-roll-badge::after {
+                    bottom: -4px;
+                }
+
+            .film-roll-inner {
+                position: relative;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: flicker 2s infinite ease-in-out;
+            }
+
+            .countdown-text {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #fff;
+                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                white-space: nowrap;
+            }
+
+            @keyframes moveFilm {
+                0% {
+                    background-position: 0 0;
+                }
+
+                100% {
+                    background-position: 120px 0;
+                }
+            }
+
+            @keyframes flicker {
+                0%, 100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.9;
+                }
+
+                25% {
+                    opacity: 0.95;
+                }
+
+                75% {
+                    opacity: 0.85;
+                }
+            }
+
+            @media (max-width: 1500px) {
+                .film-roll-badge {
+                    top: 68%;
+                    right: 18px;
+                    height: 65px;
+                    font-size: 0.85rem;
+                }
+
+                .press-section {
+                    margin-top: 35px;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .film-roll-badge {
+                    top: 52%;
+                    right: 10px;
+                    width: 200px;
+                    height: 60px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .film-roll-badge {
+                    top: 56%;
+                    right: 10px;
+                    width: 124px;
+                    height: 55px;
+                }
+
+                .countdown-text {
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .film-roll-badge {
+                    top: 59%;
+                    right: 5px;
+                    height: 50px;
+                }
+
+                .countdown-text {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        <script type="text/javascript">
+                  const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                  const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+                  const countdownElement = document.getElementById("countdown");
+
+                  if (countdownElement) {
+                        const interval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < festivalStart) {
+                                    const diff = festivalStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                                    countdownElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to go`;
+                              } else if (now >= festivalStart && now <= festivalEnd) {
+                                    const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                              } else {
+                                    countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+                                    const elements = document.querySelectorAll('.film-roll-badge');
+                                    elements.forEach(el => el.style.width = "350px");
+                                    clearInterval(interval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+        <script type="text/javascript">
+                  const miffStart = new Date("2026-06-15T00:00:00").getTime();
+                  const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+                  const miffElement = document.getElementById("miff");
+
+                  if (miffElement) {
+                        const miffInterval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < miffStart) {
+                                    const diff = miffStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+                              } else if (now >= miffStart && now <= miffEnd) {
+                                    const dayNumber = Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                              } else {
+                                    miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+                                    document.querySelectorAll('.film-roll-badge').forEach(el => el.style.width = "350px");
+                                    clearInterval(miffInterval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="mipFic4sh3i9p8vrjquD4Yzd90hQbmcj9_lHbDt_2UjT3OaVUQe_l99182Y9jVVh9AaiJiI-n7ByXH6VtA16KSABm6LI9YvxLxB50oNN3yaZwwyc8omrwg=="/></form>
+    
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"Cookie consent","title":"Cookies on this website","body":"We use essential cookies to make this website work. We also set analytics cookies when you arrive, so we can see how the site is used and improve it - you can switch these off below or at any time from the Cookie Policy page. Cookies from embedded social media content are set only if you allow them.","policyLink":"Read our Cookie Policy","accept":"Accept all","reject":"Reject optional","customize":"Customise","prefsTitle":"Cookie preferences","prefsIntro":"Choose which cookies this website may set. Essential cookies cannot be switched off because the site does not work without them. Analytics cookies are on unless you turn them off. Social media cookies stay off until you allow them. You can change these choices at any time from the Cookie Policy page.","essentialName":"Essential cookies","essentialDesc":"Needed for the site to function. These remember your session, your language and region, your text size and colour theme, and verify the security check on forms. They are always on.","analyticsName":"Analytics cookies","analyticsDesc":"Help us understand how visitors use the site - which pages are read and how long people stay - so it can be improved. The information is collected in a form that does not directly identify you. These are on when you arrive; switching them off here stops them and deletes the ones already set.","socialName":"Social media cookies","socialDesc":"Set by content embedded from X, Facebook and YouTube, such as timelines and videos. These platforms may use them to track you across websites. They stay off until you allow them.","save":"Save preferences","cancel":"Cancel"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+
+    <!-- Minimal O(N) Time and O(1) Auxiliary Space Word Count & Read Time Calculation -->
+    <script type="text/javascript">
+            (function () {
+                  function calculateReadingStats() {
+                        var bodyEl = document.getElementById("pibReleaseBody");
+                        if (!bodyEl) return;
+
+                        // textContent extracts text without triggering expensive layout/reflow computations
+                        var text = bodyEl.textContent || "";
+                        var words = 0;
+                        var inWord = false;
+
+                        // O(N) single pass character code scan: achieves O(1) space with zero array allocations
+                        for (var i = 0, len = text.length; i < len; i++) {
+                              var code = text.charCodeAt(i);
+                              // Delimits on ASCII whitespace, control characters, tabs, newlines, and non-breaking spaces (160)
+                              if (code <= 32 || code === 160) {
+                                    inWord = false;
+                              } else if (!inWord) {
+                                    inWord = true;
+                                    words++;
+                              }
+                        }
+
+                        // Standard 250 WPM reading speed (e.g., 612 words yields 2 min read)
+                        var minutes = Math.max(1, Math.round(words / 250));
+
+                        var elWords = document.getElementById("prWordCount");
+                        var elTime = document.getElementById("prReadTime");
+
+                        if (elWords) elWords.textContent = words + (words === 1 ? " word" : " words");
+                        if (elTime) elTime.textContent = minutes + " min read";
+                  }
+
+                  if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", calculateReadingStats);
+                  } else {
+                        calculateReadingStats();
+                  }
+            })();
+    </script>
+
+    <script type="text/javascript">
+            (function () {
+                  try {
+                        if (window.self === window.top) { return; }
+                  } catch (e) { return; }
+                  var s = document.createElement("style");
+                  s.textContent = ".sticky-social, .sticky-social_mb { display: none !important; }";
+                  (document.head || document.documentElement).appendChild(s);
+            }());
+    </script>
+</body>
+</html>

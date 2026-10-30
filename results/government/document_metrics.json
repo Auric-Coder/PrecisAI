@@ -1,0 +1,3705 @@
+{
+  "n_documents": 9,
+  "n_evaluation_units": 9,
+  "evaluation_split": "government_evaluation",
+  "references_available": false,
+  "model_metrics": {
+    "textrank": {
+      "n_summaries": 9,
+      "avg_summary_length_tokens": 57.44,
+      "avg_compression_ratio": 6.4061,
+      "rouge1_f1": null,
+      "rouge2_f1": null,
+      "rougeL_f1": null
+    },
+    "bigru_gru_bahdanau_greedy": {
+      "n_summaries": 9,
+      "avg_summary_length_tokens": 52.78,
+      "avg_compression_ratio": 7.0911,
+      "rouge1_f1": null,
+      "rouge2_f1": null,
+      "rougeL_f1": null
+    },
+    "bigru_gru_bahdanau_beam": {
+      "n_summaries": 9,
+      "avg_summary_length_tokens": 46.44,
+      "avg_compression_ratio": 8.3544,
+      "rouge1_f1": null,
+      "rouge2_f1": null,
+      "rougeL_f1": null
+    },
+    "bigru_gru_luong_greedy": {
+      "n_summaries": 9,
+      "avg_summary_length_tokens": 51.11,
+      "avg_compression_ratio": 7.3058,
+      "rouge1_f1": null,
+      "rouge2_f1": null,
+      "rougeL_f1": null
+    },
+    "bigru_gru_luong_beam": {
+      "n_summaries": 9,
+      "avg_summary_length_tokens": 35.89,
+      "avg_compression_ratio": 10.2626,
+      "rouge1_f1": null,
+      "rouge2_f1": null,
+      "rougeL_f1": null
+    },
+    "bigru_gru_none_greedy": {
+      "n_summaries": 9,
+      "avg_summary_length_tokens": 52.67,
+      "avg_compression_ratio": 7.0119,
+      "rouge1_f1": null,
+      "rouge2_f1": null,
+      "rougeL_f1": null
+    },
+    "bigru_gru_none_beam": {
+      "n_summaries": 9,
+      "avg_summary_length_tokens": 46.67,
+      "avg_compression_ratio": 8.0094,
+      "rouge1_f1": null,
+      "rouge2_f1": null,
+      "rougeL_f1": null
+    }
+  },
+  "rouge": null,
+  "note": "No human-reviewed references are present; ROUGE is not computed. Compression is input tokens divided by output tokens. Factual audits are heuristic only.",
+  "documents": [
+    {
+      "document_id": "pib_2092717",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 256,
+      "retained_token_count": 256,
+      "truncation_ratio": 0.0,
+      "exceeds_400_token_limit": false,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 256,
+          "summaries": {
+            "textrank": {
+              "text": "union ministry of new and renewable energy has notified scheme guidelines for implementation of ‘ payment security mechanism ’ component and ‘ central financial assistance ’ component for resco models / utility led aggregation models under pm - surya ghar : muft bijli yojana . under this scheme component , ₹ 100 crore corpus fund has been earmarked for payment",
+              "summary_token_count": 60,
+              "compression_ratio": 4.2667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "100 crore",
+                    "₹"
+                  ],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ],
+                  "retained_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "< unk > < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , <",
+              "summary_token_count": 60,
+              "compression_ratio": 4.2667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "<unk> and <unk> energy will be unveiled in the uk . the fleet will be used by <unk> <unk> - <unk> models . the scheme will be available through other countries .",
+              "summary_token_count": 42,
+              "compression_ratio": 6.0952,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "<unk> <unk> is a new book for the uk ' s <unk> . the <unk> is the most popular - <unk> <unk> of the <unk> . the <unk> is the most popular - based <unk> and <unk> .",
+              "summary_token_count": 58,
+              "compression_ratio": 4.4138,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "<unk> ' s <unk> <unk> is the first time in the uk . it will be used for the uk ' s government .",
+              "summary_token_count": 30,
+              "compression_ratio": 8.5333,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "100 crore",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ],
+                  "retained_items": [
+                    "government"
+                  ],
+                  "unretained_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "<unk> <unk> is expected to be unveiled by <unk> and <unk> . the company will be installed by the <unk> of <unk> . the company will be installed by the <unk> of the <unk> .",
+              "summary_token_count": 51,
+              "compression_ratio": 5.0196,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "<unk> <unk> is expected to be unveiled by <unk> and <unk> <unk> . it is the first time of the country ' s <unk> <unk> , which will be built . the company will be installed in the next few years .",
+              "summary_token_count": 56,
+              "compression_ratio": 4.5714,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "100 crore",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of new and renewable energy has notified scheme guidelines for implementation of"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "document_id": "pib_2174715",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 319,
+      "retained_token_count": 319,
+      "truncation_ratio": 0.0,
+      "exceeds_400_token_limit": false,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 319,
+          "summaries": {
+            "textrank": {
+              "text": "2025 , the ministry of mines has issued the scheme guidelines on 02 . 2025 for implementation of the said incentive scheme . the modalities of the scheme are provided in detail in the scheme guidelines .",
+              "summary_token_count": 37,
+              "compression_ratio": 8.6216,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ],
+                  "retained_items": [
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ],
+                  "unretained_items": [
+                    "ministry of mines"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "scheme will be able to buy a new generation for the taxpayer value . the scheme will be able to buy in the new rules as part of the national action .",
+              "summary_token_count": 32,
+              "compression_ratio": 9.9688,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "scheme will be able to buy new machines . the scheme is set to be used for the eu .",
+              "summary_token_count": 20,
+              "compression_ratio": 15.95,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "the <unk> is the most popular - of - year - old <unk> <unk> . the <unk> is the most popular - of - year - old ' s <unk> <unk> .",
+              "summary_token_count": 44,
+              "compression_ratio": 7.25,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "new : new york city ' s <unk> <unk> <unk> is the first time in the uk . new : the government is believed to have been sent to the <unk> .",
+              "summary_token_count": 40,
+              "compression_ratio": 7.975,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "500 crore",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ],
+                  "retained_items": [
+                    "government"
+                  ],
+                  "unretained_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "<unk> is a <unk> - based company of <unk> . the company will be used to create a <unk> . the technology is expected to be used to make the impact of the uk .",
+              "summary_token_count": 43,
+              "compression_ratio": 7.4186,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "the <unk> is the first time to be used to create a <unk> . it will be used by <unk> <unk> and <unk> <unk> .",
+              "summary_token_count": 37,
+              "compression_ratio": 8.6216,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "500 crore",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "500 crore",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of mines",
+                    "ministry of mines has issued the scheme guidelines on 02"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "document_id": "pib_2186639",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 1041,
+      "retained_token_count": 400,
+      "truncation_ratio": 0.6158,
+      "exceeds_400_token_limit": true,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 400,
+          "summaries": {
+            "textrank": {
+              "text": "the ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors . ajay kumar sood , principal scientific adviser to the government of india , in the presence of shri s .",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ],
+                  "retained_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "< unk > < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , <",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "<unk> <unk> is the latest mission to raise awareness of india . <unk> <unk> , the secretary of india , <unk> <unk> and <unk> <unk> . <unk> is a guardian of the <unk> population .",
+              "summary_token_count": 55,
+              "compression_ratio": 7.2727,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "<unk> <unk> <unk> is a <unk> <unk> . the <unk> <unk> <unk> is the first time in the uk . the <unk> is the first time to be used to be <unk> .",
+              "summary_token_count": 53,
+              "compression_ratio": 7.5472,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "<unk> ' s <unk> <unk> <unk> is the first time in the uk . it is the most popular <unk> of the <unk> <unk> .",
+              "summary_token_count": 39,
+              "compression_ratio": 10.2564,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "< unk > < unk > is a < unk > of < unk > , < unk > and < unk > . the < unk > is the first time to be a < unk > - < unk > . the < unk > is the first time to be a < unk > - < unk",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "<unk> <unk> , <unk> <unk> and <unk> <unk> have been <unk> . it is the first time of the world ' s most prosperous countries . the <unk> is the most popular in the uk .",
+              "summary_token_count": 52,
+              "compression_ratio": 7.6923,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india",
+                    "ministry of electronics and information technology ( meity ) , under the indiaai mission , today unveiled the india ai governance guidelines , a comprehensive framework to ensure safe , inclusive , and responsible ai adoption across sectors"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "document_id": "pib_2263719",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 286,
+      "retained_token_count": 286,
+      "truncation_ratio": 0.0,
+      "exceeds_400_token_limit": false,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 286,
+          "summaries": {
+            "textrank": {
+              "text": "the ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education . in view of the concerns raised and after due consideration , the ministry , through a communication dated 20th may 2026 addressed to all states and",
+              "summary_token_count": 60,
+              "compression_ratio": 4.7667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ],
+                  "retained_items": [
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education"
+                  ],
+                  "unretained_items": [
+                    "authority",
+                    "government",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "however",
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "however",
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "education secretary <unk> <unk> <unk> <unk> . students at school and schools are being used to create <unk> . students are being taught to school , schools and <unk> .",
+              "summary_token_count": 42,
+              "compression_ratio": 6.8095,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "however",
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "however",
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "ministry of education has launched the school of <unk> . the school has been <unk> to <unk> <unk> and <unk> school . ofsted is the site of education , schools , parents and parents .",
+              "summary_token_count": 45,
+              "compression_ratio": 6.3556,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ],
+                  "retained_items": [
+                    "ministry of education has launched the school of"
+                  ],
+                  "unretained_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "however",
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "however",
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "the <unk> of the <unk> <unk> is the most common <unk> . the government is the most common - of - year - old <unk> . the government is the most common - up to the same - sex school .",
+              "summary_token_count": 51,
+              "compression_ratio": 5.6078,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ],
+                  "retained_items": [
+                    "government"
+                  ],
+                  "unretained_items": [
+                    "authority",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "however",
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "however",
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "<unk> <unk> : ' we don ' t know what ' s the most of the <unk> , ' he says .",
+              "summary_token_count": 28,
+              "compression_ratio": 10.2143,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "however",
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "however",
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "<unk> <unk> : the education is a ' moral education ' education secretary says the school is a ' moral education ' education secretary says the measure is a ' <unk> ' for the education .",
+              "summary_token_count": 42,
+              "compression_ratio": 6.8095,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "however",
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "however",
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "<unk> <unk> is a teacher of education , education and education . education secretary says it will be the first time in the country .",
+              "summary_token_count": 29,
+              "compression_ratio": 9.8621,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "authority",
+                    "government",
+                    "ministry of education , government of india , launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 with the objective of strengthening community participation in school education",
+                    "ministry of education has received representations and concerns from certain sections of society regarding the applicability of the guidelines over differently managed schools in context of section 21 of the rte act , 2009"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "however",
+                    "not"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "however",
+                    "not"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "document_id": "pib_2223331",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 1203,
+      "retained_token_count": 400,
+      "truncation_ratio": 0.6675,
+      "exceeds_400_token_limit": true,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 400,
+          "summaries": {
+            "textrank": {
+              "text": "incentives for scrapping of government - owned vehicles older than 15 years at registered vehicle scrapping facilities , wherein states are eligible for per - vehicle incentives on a graded scale ranging from rs . incentives for scrapping of non - government vehicles , wherein states are eligible for graded per - vehicle incentives ranging from rs . 5 ,",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [
+                    "eligible"
+                  ],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "department",
+                    "government"
+                  ],
+                  "retained_items": [
+                    "government"
+                  ],
+                  "unretained_items": [
+                    "department"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [
+                    "notification"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "notification"
+                  ]
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "< unk > < unk > , < unk > , < unk > , < unk > , 22 , 000 vehicles . the company has been suspended for 12 years . the company has a licence for the government to stop for the investment . the government has already been suspended as a part of the tube and",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "department",
+                    "government"
+                  ],
+                  "retained_items": [
+                    "government"
+                  ],
+                  "unretained_items": [
+                    "department"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [
+                    "notification"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "notification"
+                  ]
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "<unk> is driving in the high - definition district . it is a total of 4 , 30 , 000 vehicles , including vehicles , <unk> vehicles and <unk> . it ' s illegal in the country under vehicle in <unk> .",
+              "summary_token_count": 50,
+              "compression_ratio": 8.0,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "department",
+                    "government"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "department",
+                    "government"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [
+                    "notification"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "notification"
+                  ]
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "the < unk > is the most common < unk > of the < unk > , the < unk > , and < unk > . the < unk > is the most common < unk > of the < unk > . the < unk > is the most common < unk > of the < unk >",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "department",
+                    "government"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "department",
+                    "government"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [
+                    "notification"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "notification"
+                  ]
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "new : new york city is believed to have been found in the uk . the <unk> is the first of the first time in the country . it is the most common <unk> of the <unk> .",
+              "summary_token_count": 44,
+              "compression_ratio": 9.0909,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "department",
+                    "government"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "department",
+                    "government"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [
+                    "notification"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "notification"
+                  ]
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "< unk > < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > , < unk > and < unk > . < unk > : < unk > , <",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "department",
+                    "government"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "department",
+                    "government"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [
+                    "notification"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "notification"
+                  ]
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "<unk> <unk> , <unk> <unk> and <unk> <unk> are among those who have been affected . they are also offering $ 100 , 000 to pay $ 10 , 000 for more than a year .",
+              "summary_token_count": 48,
+              "compression_ratio": 8.3333,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "$"
+                  ],
+                  "unretained_items": [
+                    "000 crore",
+                    "10 crore",
+                    "200 crore",
+                    "25 %",
+                    "5 crore",
+                    "75 %",
+                    "9 crore",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "department",
+                    "government"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "department",
+                    "government"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [
+                    "notification"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "notification"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "document_id": "pib_2241731",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 699,
+      "retained_token_count": 400,
+      "truncation_ratio": 0.4278,
+      "exceeds_400_token_limit": true,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 400,
+          "summaries": {
+            "textrank": {
+              "text": "state - wise details of beneficiaries trained during the last three years are placed at annexure - i . this cell forms linkages of the trained jss beneficiaries especially women beneficiaries , with the self - help groups ( shgs ) / joint liability groups ( jlgs ) to promote their entrepreneurship and livelihood . the livelihood cell also links",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "100 %",
+                    "83 %"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "the scheme is to increase increase by a self - sex . at least 20 % of the scheme are non - < unk > , the < unk > - < unk > , < unk > , < unk > , < unk > and < unk > . the state of the scheme is to increase the",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "20 %"
+                  ],
+                  "unretained_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "the scheme is to increase increase rates in the age of 15 . 45 per cent of the scheme are non - <unk> , <unk> <unk> and <unk> <unk> . the state - based groups have launched the scheme .",
+              "summary_token_count": 50,
+              "compression_ratio": 8.0,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "the <unk> <unk> is the most common <unk> of the <unk> . the <unk> is the most common <unk> of the <unk> . the <unk> is the most common <unk> of the <unk> .",
+              "summary_token_count": 54,
+              "compression_ratio": 7.4074,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "<unk> <unk> , <unk> , and <unk> <unk> have been found in the uk . it is the first time in the country ' s <unk> <unk> .",
+              "summary_token_count": 42,
+              "compression_ratio": 9.5238,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "100 %",
+                    "83 %"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "<unk> <unk> is a <unk> - based group of <unk> . <unk> is a member of the <unk> - based group of <unk> .",
+              "summary_token_count": 38,
+              "compression_ratio": 10.5263,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "<unk> <unk> , <unk> <unk> and <unk> <unk> are among those who are unemployed . they say they are not allowed to adopt their lives in the uk .",
+              "summary_token_count": 41,
+              "compression_ratio": 9.7561,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "100 %",
+                    "83 %",
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "government of india"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "government of india"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [
+                    "not"
+                  ],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "document_id": "pib_2237650",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 14010,
+      "retained_token_count": 400,
+      "truncation_ratio": 0.9714,
+      "exceeds_400_token_limit": true,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 400,
+          "summaries": {
+            "textrank": {
+              "text": "the policy encourages states to formulate / reformulate their state cooperative policy , in a manner that both state and central governments work towards common goals for the development of cooperatives . ( c ) the ministry of cooperation has been pursuing state / ut governments to formulate their state - level cooperation policy in line with the ncp ,",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ],
+                  "retained_items": [
+                    "ministry of cooperation has been pursuing state"
+                  ],
+                  "unretained_items": [
+                    "ministry of cooperation"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "<unk> <unk> was a <unk> for the <unk> and <unk> . the policy is a <unk> and a <unk> and a <unk> . the <unk> <unk> is a <unk> and a <unk> .",
+              "summary_token_count": 57,
+              "compression_ratio": 7.0175,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "< unk > < unk > , < unk > , was launched on july july by the < unk > ’ s home home . the policy is a < unk > , a mission , and mission to be announced over the next 10 years . it is 6 , 000 under the six years , and under",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "new : the government is a new new new new york city . the government is the first time to be a new york . the government is a new <unk> .",
+              "summary_token_count": 34,
+              "compression_ratio": 11.7647,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ],
+                  "retained_items": [
+                    "government"
+                  ],
+                  "unretained_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "new : president barack obama ' s government will be able to make the country . <unk> : the government is the first time of the world ' s <unk> .",
+              "summary_token_count": 35,
+              "compression_ratio": 11.4286,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ],
+                  "retained_items": [
+                    "government"
+                  ],
+                  "unretained_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "< unk > < unk > : the < unk > is a < unk > of < unk > , but is a considerable - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "< unk > < unk > is the founder of < unk > < unk > , < unk > says . the < unk > is a key component of < unk > and < unk > < unk > . < unk > : it ' s important to be a considerable of < unk > , but",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of cooperation",
+                    "ministry of cooperation has been pursuing state"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "document_id": "pib_2225505",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 749,
+      "retained_token_count": 400,
+      "truncation_ratio": 0.466,
+      "exceeds_400_token_limit": true,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 400,
+          "summaries": {
+            "textrank": {
+              "text": "the report may be seen at https : / / pmay - urban . , beneficiary led construction ( blc ) , affordable housing in partnership ( ahp ) , affordable rental housing ( arh ) and interest subsidy scheme ( iss ) . 80 lakh in five annual instalments is provided to eligible beneficiaries having a loan tenure of",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "80 lakh",
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "9 lakh",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [
+                    "eligible"
+                  ],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "< unk > < unk > has launched a scheme approach to promote and lending . report has been < unk > with < unk > . < unk > . < unk > . < unk > . < unk > . < unk > . < unk > . < unk > . < unk > . <",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "<unk> <unk> has launched a scheme approach to promote . the <unk> is a <unk> approach to <unk> and <unk> . it has been <unk> <unk> <unk> since the 25 - year - olds .",
+              "summary_token_count": 53,
+              "compression_ratio": 7.5472,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "<unk> <unk> is the first time to be <unk> in the uk . the <unk> is the most common - - <unk> <unk> . the <unk> is the most common - - <unk> <unk> .",
+              "summary_token_count": 53,
+              "compression_ratio": 7.5472,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "<unk> , <unk> , and <unk> <unk> have been <unk> in the uk . it is the first time in the country ' s <unk> .",
+              "summary_token_count": 38,
+              "compression_ratio": 10.5263,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "< unk > < unk > is a < unk > - < unk > - < unk > in the uk . the < unk > is a < unk > - < unk > - < unk > - < unk > . the < unk > is a < unk > - < unk > - -",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "<unk> <unk> , <unk> <unk> and <unk> <unk> have been <unk> in the uk . the <unk> is the first of the country ' s most popular population .",
+              "summary_token_count": 45,
+              "compression_ratio": 8.8889,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "rs",
+                    "₹"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": [
+                    "0 %",
+                    "1 crore",
+                    "25 lakh",
+                    "35 lakh",
+                    "38 crore",
+                    "8 lakh",
+                    "80 lakh",
+                    "9 lakh",
+                    "₹"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [
+                    "eligible"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "eligible"
+                  ]
+                },
+                "ministries_authorities": {
+                  "source_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "ministry of housing and urban affairs ( mohua ) has been implementing pradhan mantri awas yojana - urban ( pmay - u ) since 25"
+                  ]
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "document_id": "pib_2244104",
+      "document_type": "press release",
+      "split": "government_evaluation",
+      "original_token_count": 1273,
+      "retained_token_count": 400,
+      "truncation_ratio": 0.6858,
+      "exceeds_400_token_limit": true,
+      "chunk_count": null,
+      "models": {
+        "document": {
+          "chunk_id": null,
+          "source_token_count": 400,
+          "summaries": {
+            "textrank": {
+              "text": "under the circular economy framework , waste management rules have been notified for different waste categories such as plastic waste , battery waste , e - waste , waste tyre , used oil , end - of - life vehicles , construction and demolition waste , non - ferrous scrap metal and solid waste . extended producer responsibility ( epr",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "obligated",
+                    "obligations"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "obligated",
+                    "obligations"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_greedy": {
+              "text": "<unk> is a waste of gm - based vehicles . it is a natural <unk> - based company and the company has been used for a waste . the company says it ' s a waste of the product .",
+              "summary_token_count": 44,
+              "compression_ratio": 9.0909,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "obligated",
+                    "obligations"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "obligated",
+                    "obligations"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_bahdanau_beam": {
+              "text": "<unk> is available on the list of <unk> . it has been approved by the company ' s <unk> <unk> . the company says it ' s a waste of <unk> products .",
+              "summary_token_count": 43,
+              "compression_ratio": 9.3023,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "obligated",
+                    "obligations"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "obligated",
+                    "obligations"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_greedy": {
+              "text": "researchers say the <unk> is the most common <unk> of the <unk> . the <unk> is the most common <unk> of the <unk> . the <unk> is the most common <unk> of the <unk> .",
+              "summary_token_count": 53,
+              "compression_ratio": 7.5472,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "obligated",
+                    "obligations"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "obligated",
+                    "obligations"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_luong_beam": {
+              "text": "researchers say it will be able to be used in the uk . it is the first time in the world ' s <unk> .",
+              "summary_token_count": 27,
+              "compression_ratio": 14.8148,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [
+                    "rs"
+                  ],
+                  "unretained_items": []
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "obligated",
+                    "obligations"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "obligated",
+                    "obligations"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_greedy": {
+              "text": "< unk > < unk > : the oil industry is a < unk > - - < unk > , which is a < unk > . the oil industry is a < unk > - - - < unk > - - - < unk > , which is prevalent . the oil industry is a < unk",
+              "summary_token_count": 60,
+              "compression_ratio": 6.6667,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "obligated",
+                    "obligations"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "obligated",
+                    "obligations"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            },
+            "bigru_gru_none_beam": {
+              "text": "<unk> <unk> : the oil industry is to create the oil spill of oil spills . it is the most expensive industry , but it is not clear , it says . it ' s not clear that the oil could be used to reduce carbon emissions .",
+              "summary_token_count": 52,
+              "compression_ratio": 7.6923,
+              "factual_audit_heuristics": {
+                "dates_deadlines": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "currency_amounts_percentages": {
+                  "source_items": [
+                    "rs"
+                  ],
+                  "retained_items": [],
+                  "unretained_items": [
+                    "rs"
+                  ]
+                },
+                "eligibility_exclusions": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "ministries_authorities": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                },
+                "obligations_negations_exceptions": {
+                  "source_items": [
+                    "obligated",
+                    "obligations"
+                  ],
+                  "retained_items": [
+                    "not"
+                  ],
+                  "unretained_items": [
+                    "obligated",
+                    "obligations"
+                  ]
+                },
+                "acts_rules_notifications": {
+                  "source_items": [],
+                  "retained_items": [],
+                  "unretained_items": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

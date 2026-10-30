@@ -1,8 +1,9 @@
 __pycache__/
+*.pyc
 data/cache*/
 checkpoints*/
 results_smoke/
-*.pyc
+scratch/
 train.log
 *.log
 .vscode/
@@ -11,6 +12,7 @@ train.log
 .streamlit/secrets.toml
 .env
 .DS_Store
+Thumbs.db
 viva.md
 VIVA.md
 run_all.sh

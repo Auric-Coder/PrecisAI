@@ -1,0 +1,1517 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css?v=1" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css?v=1" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css?v=1" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=7" type="text/css" />
+    <script type="text/javascript">
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+    </script>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+            });
+    </script>
+    <style type="text/css">
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        full-width {
+            width: 100%;
+        }
+
+        .logo-left, .logo-center, .countdown {
+            display: flex;
+            align-items: center;
+        }
+
+            .logo-left img, .logo-center img {
+                height: 70px;
+            }
+
+        .countdown {
+            text-align: center;
+            background-color: var(--dbim-text, #150202);
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid grey;
+        }
+
+        .firstnumber {
+            color: #000000;
+            position: absolute;
+            top: 50px;
+            right: 90px;
+            font-size: 30px;
+        }
+
+        .secondnumber {
+            position: absolute;
+            color: #000000;
+            right: 45px;
+            top: 50px;
+            font-size: 30px;
+        }
+
+        .countdown .days {
+            font-size: 35px;
+            color: gold;
+        }
+
+        .countdown p {
+            margin: 0;
+        }
+
+        .countdown .text {
+            font-size: 16px;
+        }
+
+        a {
+            word-break: break-all;
+        }
+
+        iframe, img {
+            max-width: 100%;
+        }
+
+        /* === DBIM 3.0 Option 4 Separator Line & Reading Meta Styling === */
+        .pr-share--footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-top: 1px solid var(--dbim-border, #d1d5db);
+            padding-top: 16px;
+            margin-top: 24px;
+        }
+
+        .pr-share__left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pr-reading-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--dbim-text-secondary, #475569);
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .pr-reading-meta__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pr-reading-meta__divider {
+            color: var(--dbim-border, #cbd5e1);
+            font-weight: 300;
+        }
+
+        .pib-hc .pr-reading-meta,
+        .pib-hc .pr-reading-meta svg {
+            color: currentColor !important;
+        }
+
+        @media (max-width: 680px) {
+            .pr-share--footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pr-reading-meta {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media(max-width:1199px) {
+            .firstnumber {
+                top: 40px;
+                right: 72px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 35px;
+                top: 40px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:990px) {
+            .firstnumber {
+                top: 25px;
+                right: 54px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 25px;
+                top: 25px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .countdown, .days {
+                font-size: 12px !important;
+            }
+
+            .firstnumber {
+                top: 25%;
+                right: 8%;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 4.5%;
+                top: 25%;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:475px) {
+            .countdown, .days {
+                font-size: 10px !important;
+                top: 20%;
+            }
+
+            .bannerimgdiv {
+                padding: 0 !important;
+            }
+
+            .bannerimg {
+                width: 108% !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+    </script>
+
+    <link id="pibConsentCss" href="/css/consent.css?v=8" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=1120" rel="stylesheet" type="text/css" /><meta property="og:title" content="PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility " /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2244104" /><meta property="og:description" content="Under the Circular Economy framework, Waste Management Rules have been notified for different waste " /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="qc42rvix37zyg2xdqvdq-f-7b75634fd-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":13,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"b3afc6","ak.r":38574,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":53569,"ak.gh":"23.223.243.68","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1793295687","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==2q30jDadN3YZ6rQiffhM98DBEzcwC6SYsFNPGL55jsbVdsxN3Ehcuou2mjFwXpobJRZ5qgcJhwJI70xJdQoensJrMYGizgwxAASFP2Rtg2nBr6pVXOymExYD3XvVmd14UqAvj9/8w7hgtqX0GigYzpg8y/N6pRBkDnt85MzLsQhuCnf3J6yLpuqtkqPPLMskdXKvOaiFBREU1MVxcbyiQESajEGxiT6VNrkHZkH5vfsWGuaWPGBxMuu5Npluqk3teMWl2mURLMRD0DjKvleDtuZ3TFUcP0IDS266g73HxLn7eZ5q+2n1W1p/15G6ilO/eSQ1e2DMclU80oVarKd45qQ8FlZxKHkbe8/+U8x4+wfMNRYZjRcF2Tw3T+mlBwvRFuNSPCfS7TcvYKycKX0ylnaeReBNkS6VO30oyJgxm+8=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 4.5v15l12-7.5z"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a9.5 9.5 0 0 0-8.1 14.5L2.4 21.6l4.8-1.4A9.5 9.5 0 1 0 12 2.4zm0 2.2a7.3 7.3 0 1 1-3.8 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.6z"/><path d="M9.4 7.8c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+    <form method="post" action="./PressReleasePage.aspx?PRID=2244104&amp;lang=2&amp;reg=3" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639191042600000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="bvE3KB2B3+0C7g0tM/AkyobKvigRsgJE3YWtbUEXIrsc3/r188IOs/Es8ig2pj4tKt2/zq9YwAQ6pMrpEjFETFCneW+0m+izctNjHG8a1eLtMnQpS0RoTe1AedFY3URirjYx5MTmjil7eYTezwSKe+rJLtH5A79nFLvY2Y0IITq0coPCgadbjCARdnDSx5o6cV5U1x5NmRHcKSF+V804N4atcTMLLC08jZPV6x/Uyt2apBqTjz+Pgho9DtrdCr2wuA2Dl8PBlQIRt/IZOF7qqtRv9C4=" />
+</div>
+        
+        <div id="templateCss"></div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+        <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+        <div class="container" style='margin-bottom: 50px;'>
+            <div id="accessories">
+                
+                <div class="pull-right" style="display: flex">
+                    <div id="voll"></div>
+                    <div id="vollDT"></div>
+                    
+
+<span class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</span>
+                </div>
+            </div>
+            <input type="hidden" name="hydpermid" id="hydpermid" value="2244104" />
+            
+
+            <div class="innner-page-main-about-us-content-right-part">
+                <div id="MinistryName" class="MinistryNameSubhead text-center">
+                    Ministry of Environment, Forest and Climate Change
+                </div>
+                <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2026/sep/ph_9768_20260902_10000501.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+                <div class="text-center event-heading-background">
+                    
+                    <h1 id="Titleh2">
+                        PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility 
+                    </h1>
+                    <h3 id="Subtitleh3">
+                        <span id="ltrSubtitle"></span>
+                    </h3>
+                </div>
+
+                <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                    Posted On:
+                              23 MAR 2026 6:48PM by PIB Delhi
+                </div>
+                
+                <div class='pt20'>
+                </div>
+                <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                
+
+                <!-- Release content wrapper for client-side zero-reflow word count -->
+                <div id="pibReleaseBody">
+                    <p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Under the Circular Economy framework, Waste Management Rules have been notified for different waste categories such as plastic waste, battery waste, e-waste, waste tyre, used oil, end-of-life vehicles, construction and demolition waste, non-ferrous scrap metal and Solid Waste.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The detail of Waste Management Rules linked to the circular economy is as follows:&nbsp;</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">i. Extended Producer Responsibility (EPR) for Waste Tyre, 2022 on 21.07.2022.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">ii. Battery Waste Management Rules, 2022 on 22.08.2022 and its amendments dated 25.10.2023 and 14.03.2024.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">iii. E-Waste (Management) Rules, 2022 on 02.11.2022 and its amendments dated 30.01.2023 and 24.07.2023.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">iv. Plastic Waste Management Rules, 2016 amended on 27.04.2023 for effective implementation of EPR guidelines.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">v. Extended Producer Responsibility (EPR) for Used Oil on 18.09.2023.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">vi. EPR Framework for Environment Protection (End-of-Life Vehicles) Rules, 2025 on 06.01.2025.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">vii. Environment (Construction and Demolition) Waste Management Rules, 2025 on 02.04.2025.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">viii. Extended Producer Responsibility for Scrap of Non-Ferrous Metals on 01.07.2025.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">MoEF&amp;CC has notified market based Extended Producer Responsibility (EPR) framework under the waste management rules with provisions for recycling and reuse, thus promoting circular economy in respective waste categories.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">As per the EPR framework, the producer, importer or brand owner (PIBOs)/ Original Equipment Manufacturers (OEMs) who introduces the product in the market are obligated for its environmentally sound management after end-of-life of such products. Along with the EPR targets, EPR framework also imposes mandatory annual targets for recycling and/ or use of recycled content. To promote ease of doing business, online EPR portals with features for registration, EPR obligations, EPR Certificate generation etc. have been developed and are operational for plastic packaging, e- waste, battery waste, waste tyre and used oil waste.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Under the EPR mechanism, the provision of transfer of EPR certificates provides financial incentives to recyclers, encouraging capacity expansion, technological upgradation and increased recycling activities, which collectively contribute to generation of jobs across the entire value chain of the recycling sector. Further, the EPR mechanism facilitates formalization of the recycling sector by integrating the informal recycling sector into organized systems. Status of implementation of EPR frameworks (as on 05.03.2026) is as follows:</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse">
+	<tbody>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Type of Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">No. of Registered Recyclers</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Waste recycled (MT)</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">EPR Certificate Generated (MT)</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Plastic Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2986</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">196.97 lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">196.97 lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Battery Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">520</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">69.37 Lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">16.14 Lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Tyre Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">579</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">122.29 Lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">116.94 Lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">E-Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">386</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">28.75 Lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">11.86 Lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Used Oil</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">103</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">0.19 Lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">0.02 Lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Total</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">4,574</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">417.57</span></span></p>
+
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Lakh MT</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">341.93</span></span></p>
+
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Lakh MT</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">NITI Aayog launched three Reports on &quot;Enhancing Circular Economy in End-of-Life Vehicles (ELVs), Waste Tyres and E-waste and Lithium-ion Batteries in India&quot; in January, 2026. These reports provide recommendations for infrastructure development, sector formalisation, strengthening the Extended Producer Responsibility (EPR) framework, and enhancing economic potential for revenue generation.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The 4th National Conference of Chief Secretaries (NCCS) held in New Delhi on 13-15 December 2024 had &lsquo;Circular Economy&rsquo; as one of the sub-themes. The Conference was attended by all the State/UTs and aimed at institutional orientation of all States/UTs for transition to circular economy.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">States including Bihar, Odisha, Arunachal Pradesh, Punjab, Madhya Pradesh, Himachal Pradesh, Uttar Pradesh, Meghalaya, Chhattisgarh have specific provisions for promotion of circular economy in their Industrial Policy Resolution. States have also launched capital subsidy schemes as well as investment promotion incentive schemes to promote recycling and waste processing industries.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Other initiatives of the government for mainstreaming circular economy are as follows:</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">i. Under the National Critical Mineral Mission (NCMM) of Ministry of Mines, launched on 2nd October, 2025, the Government has approved Rs. 1,500 crore incentive scheme for critical mineral recycling. The Scheme incentivizes creation of recycling capacity for the extraction of critical minerals, including lithium, nickel and cobalt, from used products like Spent Lithium- ion batteries (LiBs) and e-waste to build supply chain resilience and reduce import dependence in critical minerals.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">ii. Ministry of Electronics and Information Technology has taken initiative to create a complete eco-system to upgrade informal sector into formal value chain through a project on &ldquo;Informal Sector Capacity Building Upgradation with formation of recycling clusters under MSME scheme and Enabling Technology for Recovery of Resources from Electronic Waste thereby Promoting Resource Efficiency and Circular Economy&rdquo;.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">iii. MoEF&amp;CC has facilitated the signing of Memorandum of Understanding between CSIR laboratories and recycler organisations on 10th December, 2024, to facilitate technology transfer and technical support to establish state-of-theart recycling infrastructure and support domestic waste recycling.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">iv. Mission LiFE (Lifestyle for Environment), which is a citizen-led initiative that focuses on inspiring and enabling individuals to adopt sustainable lifestyles through day-to-day voluntary actions, addresses areas closely linked to circularity, including conservation of energy and water, waste reduction and segregation, e-waste management, reduced use of single-use plastics, and sustainable food systems. MoEF&amp;CC in collaboration with various stakeholders including Line Ministries, State/UT governments has undertaken several mass mobilisation campaigns and awareness initiatives aligned with the principles of Circular Economy.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">v. The Central Government has formulated the Voluntary Vehicle-Fleet Modernization Program (V-VMP) that inter-alia targets scrapping of unfit and polluting vehicles strictly based on their fitness, and promotes setting up of Registered Vehicle Scrapping Facilities, which is primarily focused towards the scrapping of unfit vehicles through automated equipment and its scientific recycling.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">vi. The Central Government also provides incentives to States/UTs under the Scheme for Special Assistance to States for Capital Investment (SASCI) 2025- 26. Rs. 2,000 crore has been earmarked under the Scheme to promote scrapping of vehicles at Registered Vehicle Scrapping Facilities (RVSFs) and related implementation measures under the Voluntary Vehicle-Fleet Modernization Program.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">This information was provided by UNION MINISTER OF STATE FOR ENVIRONMENT, FOREST AND CLIMATE CHANGE, SHRI KIRTI VARDHAN SINGH, in a written reply to a question in Lok Sabha today.</span></span></p>
+
+<p dir="ltr" style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;*****</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">VM/GS/SK<br />
+(Lok Sabha US Q4914)</span></span></p>
+
+                </div>
+
+                <div id="reel_pic">
+                </div>
+
+                <br />
+                <span id="ReleaseId">(Release ID: 2244104)</span>
+                <span id="lblViews">Visitor Counter : 7850</span>
+                <div>
+                    
+                </div>
+                
+
+                <span id="lblRefPhoto"></span>
+
+                <div class="BackgroundRelease">
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="ReleaseLang">Read this release in: 
+                
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2244236' target="_blank">
+                            Urdu </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2244145' target="_blank">
+                            हिन्दी </a>
+                    
+                </div>
+
+                <div class="RelTag">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+
+                <!-- DBIM 3.0 Option 4: Separator Line with Left Share Rail & Right Reading Metrics -->
+                <div class="pr-share pr-share--footer" role="region" aria-label="Share and reading details">
+                    <div class="pr-share__left">
+                        <span class="pr-share__label" aria-hidden="true">Share</span>
+                        <ul class="pr-share__list">
+                            <li><a class="pr-share__btn pr-share__btn--facebook"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2244104"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on Facebook">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-facebook" xlink:href="#icon-facebook"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--twitter"
+                                href="https://twitter.com/intent/tweet?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2244104"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on X">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-twitter" xlink:href="#icon-twitter"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--whatsapp"
+                                href="https://api.whatsapp.com/send?text=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2244104"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on WhatsApp">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-whatsapp" xlink:href="#icon-whatsapp"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--linkedin"
+                                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2244104"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on LinkedIn">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-linkedin" xlink:href="#icon-linkedin"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--mail"
+                                href="mailto:?subject=Press+release+from+PIB&amp;body=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2244104"
+                                aria-label="Share by email">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-mail" xlink:href="#icon-mail"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="pr-reading-meta" id="prReadingMeta" aria-label="Reading statistics">
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Document / Word Count Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                            </svg>
+                            <span id="prWordCount">-- words</span>
+                        </span>
+
+                        <span class="pr-reading-meta__divider" aria-hidden="true">|</span>
+
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Precision Clock / Read Time Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            <span id="prReadTime">-- min read</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="RelLink" class="RelLink">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <center>
+                    
+                </center>
+            </div>
+
+            <div id="update12">
+	
+                    
+                    <input type="hidden" name="Hidden" id="Hidden" />
+                    <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                        <div>
+                            <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                        </div>
+                        <div id="description">
+                        </div>
+                        <div class="text-center">
+                            <h2>
+                                
+                                <br>
+                                
+                            </h2>
+                        </div>
+                        <br />
+                        <div class="clear">
+                        </div>
+                        
+                    
+	</div>
+                
+</div>
+        </div>
+
+        <div id="PdfDiv" style="display: none;">
+            <table width="100%">
+                <tr>
+                    <td style="font-weight: 200; text-align: center">
+                        Ministry of Environment, Forest and Climate Change
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility 
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="text-align: center; font-size: 14px;">
+                            Posted On:
+                                          23 MAR 2026 6:48PM by PIB Delhi
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                            <p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Under the Circular Economy framework, Waste Management Rules have been notified for different waste categories such as plastic waste, battery waste, e-waste, waste tyre, used oil, end-of-life vehicles, construction and demolition waste, non-ferrous scrap metal and Solid Waste.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The detail of Waste Management Rules linked to the circular economy is as follows:&nbsp;</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">i. Extended Producer Responsibility (EPR) for Waste Tyre, 2022 on 21.07.2022.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">ii. Battery Waste Management Rules, 2022 on 22.08.2022 and its amendments dated 25.10.2023 and 14.03.2024.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">iii. E-Waste (Management) Rules, 2022 on 02.11.2022 and its amendments dated 30.01.2023 and 24.07.2023.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">iv. Plastic Waste Management Rules, 2016 amended on 27.04.2023 for effective implementation of EPR guidelines.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">v. Extended Producer Responsibility (EPR) for Used Oil on 18.09.2023.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">vi. EPR Framework for Environment Protection (End-of-Life Vehicles) Rules, 2025 on 06.01.2025.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">vii. Environment (Construction and Demolition) Waste Management Rules, 2025 on 02.04.2025.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">viii. Extended Producer Responsibility for Scrap of Non-Ferrous Metals on 01.07.2025.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">MoEF&amp;CC has notified market based Extended Producer Responsibility (EPR) framework under the waste management rules with provisions for recycling and reuse, thus promoting circular economy in respective waste categories.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">As per the EPR framework, the producer, importer or brand owner (PIBOs)/ Original Equipment Manufacturers (OEMs) who introduces the product in the market are obligated for its environmentally sound management after end-of-life of such products. Along with the EPR targets, EPR framework also imposes mandatory annual targets for recycling and/ or use of recycled content. To promote ease of doing business, online EPR portals with features for registration, EPR obligations, EPR Certificate generation etc. have been developed and are operational for plastic packaging, e- waste, battery waste, waste tyre and used oil waste.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Under the EPR mechanism, the provision of transfer of EPR certificates provides financial incentives to recyclers, encouraging capacity expansion, technological upgradation and increased recycling activities, which collectively contribute to generation of jobs across the entire value chain of the recycling sector. Further, the EPR mechanism facilitates formalization of the recycling sector by integrating the informal recycling sector into organized systems. Status of implementation of EPR frameworks (as on 05.03.2026) is as follows:</span></span></p>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse">
+	<tbody>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Type of Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">No. of Registered Recyclers</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Waste recycled (MT)</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">EPR Certificate Generated (MT)</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Plastic Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2986</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">196.97 lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">196.97 lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Battery Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">520</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">69.37 Lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">16.14 Lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Tyre Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">579</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">122.29 Lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">116.94 Lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">E-Waste</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">386</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">28.75 Lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">11.86 Lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Used Oil</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">103</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">0.19 Lakh</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">0.02 Lakh</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Total</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">4,574</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">417.57</span></span></p>
+
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Lakh MT</span></span></p>
+			</td>
+			<td>
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">341.93</span></span></p>
+
+			<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Lakh MT</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">NITI Aayog launched three Reports on &quot;Enhancing Circular Economy in End-of-Life Vehicles (ELVs), Waste Tyres and E-waste and Lithium-ion Batteries in India&quot; in January, 2026. These reports provide recommendations for infrastructure development, sector formalisation, strengthening the Extended Producer Responsibility (EPR) framework, and enhancing economic potential for revenue generation.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The 4th National Conference of Chief Secretaries (NCCS) held in New Delhi on 13-15 December 2024 had &lsquo;Circular Economy&rsquo; as one of the sub-themes. The Conference was attended by all the State/UTs and aimed at institutional orientation of all States/UTs for transition to circular economy.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">States including Bihar, Odisha, Arunachal Pradesh, Punjab, Madhya Pradesh, Himachal Pradesh, Uttar Pradesh, Meghalaya, Chhattisgarh have specific provisions for promotion of circular economy in their Industrial Policy Resolution. States have also launched capital subsidy schemes as well as investment promotion incentive schemes to promote recycling and waste processing industries.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Other initiatives of the government for mainstreaming circular economy are as follows:</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">i. Under the National Critical Mineral Mission (NCMM) of Ministry of Mines, launched on 2nd October, 2025, the Government has approved Rs. 1,500 crore incentive scheme for critical mineral recycling. The Scheme incentivizes creation of recycling capacity for the extraction of critical minerals, including lithium, nickel and cobalt, from used products like Spent Lithium- ion batteries (LiBs) and e-waste to build supply chain resilience and reduce import dependence in critical minerals.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">ii. Ministry of Electronics and Information Technology has taken initiative to create a complete eco-system to upgrade informal sector into formal value chain through a project on &ldquo;Informal Sector Capacity Building Upgradation with formation of recycling clusters under MSME scheme and Enabling Technology for Recovery of Resources from Electronic Waste thereby Promoting Resource Efficiency and Circular Economy&rdquo;.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">iii. MoEF&amp;CC has facilitated the signing of Memorandum of Understanding between CSIR laboratories and recycler organisations on 10th December, 2024, to facilitate technology transfer and technical support to establish state-of-theart recycling infrastructure and support domestic waste recycling.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">iv. Mission LiFE (Lifestyle for Environment), which is a citizen-led initiative that focuses on inspiring and enabling individuals to adopt sustainable lifestyles through day-to-day voluntary actions, addresses areas closely linked to circularity, including conservation of energy and water, waste reduction and segregation, e-waste management, reduced use of single-use plastics, and sustainable food systems. MoEF&amp;CC in collaboration with various stakeholders including Line Ministries, State/UT governments has undertaken several mass mobilisation campaigns and awareness initiatives aligned with the principles of Circular Economy.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">v. The Central Government has formulated the Voluntary Vehicle-Fleet Modernization Program (V-VMP) that inter-alia targets scrapping of unfit and polluting vehicles strictly based on their fitness, and promotes setting up of Registered Vehicle Scrapping Facilities, which is primarily focused towards the scrapping of unfit vehicles through automated equipment and its scientific recycling.</span></span></p>
+
+<p dir="ltr" style="margin-left:40px; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">vi. The Central Government also provides incentives to States/UTs under the Scheme for Special Assistance to States for Capital Investment (SASCI) 2025- 26. Rs. 2,000 crore has been earmarked under the Scheme to promote scrapping of vehicles at Registered Vehicle Scrapping Facilities (RVSFs) and related implementation measures under the Voluntary Vehicle-Fleet Modernization Program.</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">This information was provided by UNION MINISTER OF STATE FOR ENVIRONMENT, FOREST AND CLIMATE CHANGE, SHRI KIRTI VARDHAN SINGH, in a written reply to a question in Lok Sabha today.</span></span></p>
+
+<p dir="ltr" style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;*****</span></span></p>
+
+<p dir="ltr" style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">VM/GS/SK<br />
+(Lok Sabha US Q4914)</span></span></p>
+
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                            (Release ID: 2244104)
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="section1">
+            <div id="frst_t">
+                <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104&text=PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility ' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility &body=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104&title=PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility &summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+            <div id="second_t">
+                <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104&text=PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility ' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility &body=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2244104&title=PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility &summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+        </div>
+        <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="PARLIAMENT QUESTION: Circular Economy Framework and Extended Producer Responsibility " />
+        <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" />
+        <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Under the Circular Economy framework, Waste Management Rules have been notified for different waste categories such as plastic waste, battery waste, e-waste, waste tyre, used oil, end-of-life vehicles, construction and demolition waste, non-ferrous scrap metal and Solid Waste.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The detail of Waste Management Rules linked to the circular economy is as follows:&amp;nbsp;&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>i. Extended Producer Responsibility (EPR) for Waste Tyre, 2022 on 21.07.2022.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>ii. Battery Waste Management Rules, 2022 on 22.08.2022 and its amendments dated 25.10.2023 and 14.03.2024.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>iii. E-Waste (Management) Rules, 2022 on 02.11.2022 and its amendments dated 30.01.2023 and 24.07.2023.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>iv. Plastic Waste Management Rules, 2016 amended on 27.04.2023 for effective implementation of EPR guidelines.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>v. Extended Producer Responsibility (EPR) for Used Oil on 18.09.2023.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>vi. EPR Framework for Environment Protection (End-of-Life Vehicles) Rules, 2025 on 06.01.2025.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>vii. Environment (Construction and Demolition) Waste Management Rules, 2025 on 02.04.2025.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>viii. Extended Producer Responsibility for Scrap of Non-Ferrous Metals on 01.07.2025.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>MoEF&amp;amp;CC has notified market based Extended Producer Responsibility (EPR) framework under the waste management rules with provisions for recycling and reuse, thus promoting circular economy in respective waste categories.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>As per the EPR framework, the producer, importer or brand owner (PIBOs)/ Original Equipment Manufacturers (OEMs) who introduces the product in the market are obligated for its environmentally sound management after end-of-life of such products. Along with the EPR targets, EPR framework also imposes mandatory annual targets for recycling and/ or use of recycled content. To promote ease of doing business, online EPR portals with features for registration, EPR obligations, EPR Certificate generation etc. have been developed and are operational for plastic packaging, e- waste, battery waste, waste tyre and used oil waste.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Under the EPR mechanism, the provision of transfer of EPR certificates provides financial incentives to recyclers, encouraging capacity expansion, technological upgradation and increased recycling activities, which collectively contribute to generation of jobs across the entire value chain of the recycling sector. Further, the EPR mechanism facilitates formalization of the recycling sector by integrating the informal recycling sector into organized systems. Status of implementation of EPR frameworks (as on 05.03.2026) is as follows:&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;table border=&quot;1&quot; bordercolor=&quot;#ccc&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot; style=&quot;border-collapse:collapse&quot;>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Type of Waste&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>No. of Registered Recyclers&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Waste recycled (MT)&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>EPR Certificate Generated (MT)&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Plastic Waste&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2986&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>196.97 lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>196.97 lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Battery Waste&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>520&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>69.37 Lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>16.14 Lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Tyre Waste&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>579&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>122.29 Lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>116.94 Lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>E-Waste&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>386&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>28.75 Lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>11.86 Lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Used Oil&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>103&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>0.19 Lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>0.02 Lakh&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Total&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>4,574&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>417.57&lt;/span>&lt;/span>&lt;/p>
+
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Lakh MT&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td>
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>341.93&lt;/span>&lt;/span>&lt;/p>
+
+			&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Lakh MT&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>NITI Aayog launched three Reports on &amp;quot;Enhancing Circular Economy in End-of-Life Vehicles (ELVs), Waste Tyres and E-waste and Lithium-ion Batteries in India&amp;quot; in January, 2026. These reports provide recommendations for infrastructure development, sector formalisation, strengthening the Extended Producer Responsibility (EPR) framework, and enhancing economic potential for revenue generation.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The 4th National Conference of Chief Secretaries (NCCS) held in New Delhi on 13-15 December 2024 had &amp;lsquo;Circular Economy&amp;rsquo; as one of the sub-themes. The Conference was attended by all the State/UTs and aimed at institutional orientation of all States/UTs for transition to circular economy.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>States including Bihar, Odisha, Arunachal Pradesh, Punjab, Madhya Pradesh, Himachal Pradesh, Uttar Pradesh, Meghalaya, Chhattisgarh have specific provisions for promotion of circular economy in their Industrial Policy Resolution. States have also launched capital subsidy schemes as well as investment promotion incentive schemes to promote recycling and waste processing industries.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Other initiatives of the government for mainstreaming circular economy are as follows:&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>i. Under the National Critical Mineral Mission (NCMM) of Ministry of Mines, launched on 2nd October, 2025, the Government has approved Rs. 1,500 crore incentive scheme for critical mineral recycling. The Scheme incentivizes creation of recycling capacity for the extraction of critical minerals, including lithium, nickel and cobalt, from used products like Spent Lithium- ion batteries (LiBs) and e-waste to build supply chain resilience and reduce import dependence in critical minerals.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>ii. Ministry of Electronics and Information Technology has taken initiative to create a complete eco-system to upgrade informal sector into formal value chain through a project on &amp;ldquo;Informal Sector Capacity Building Upgradation with formation of recycling clusters under MSME scheme and Enabling Technology for Recovery of Resources from Electronic Waste thereby Promoting Resource Efficiency and Circular Economy&amp;rdquo;.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>iii. MoEF&amp;amp;CC has facilitated the signing of Memorandum of Understanding between CSIR laboratories and recycler organisations on 10th December, 2024, to facilitate technology transfer and technical support to establish state-of-theart recycling infrastructure and support domestic waste recycling.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>iv. Mission LiFE (Lifestyle for Environment), which is a citizen-led initiative that focuses on inspiring and enabling individuals to adopt sustainable lifestyles through day-to-day voluntary actions, addresses areas closely linked to circularity, including conservation of energy and water, waste reduction and segregation, e-waste management, reduced use of single-use plastics, and sustainable food systems. MoEF&amp;amp;CC in collaboration with various stakeholders including Line Ministries, State/UT governments has undertaken several mass mobilisation campaigns and awareness initiatives aligned with the principles of Circular Economy.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>v. The Central Government has formulated the Voluntary Vehicle-Fleet Modernization Program (V-VMP) that inter-alia targets scrapping of unfit and polluting vehicles strictly based on their fitness, and promotes setting up of Registered Vehicle Scrapping Facilities, which is primarily focused towards the scrapping of unfit vehicles through automated equipment and its scientific recycling.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;margin-left:40px; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>vi. The Central Government also provides incentives to States/UTs under the Scheme for Special Assistance to States for Capital Investment (SASCI) 2025- 26. Rs. 2,000 crore has been earmarked under the Scheme to promote scrapping of vehicles at Registered Vehicle Scrapping Facilities (RVSFs) and related implementation measures under the Voluntary Vehicle-Fleet Modernization Program.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>This information was provided by UNION MINISTER OF STATE FOR ENVIRONMENT, FOREST AND CLIMATE CHANGE, SHRI KIRTI VARDHAN SINGH, in a written reply to a question in Lok Sabha today.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&amp;nbsp;*****&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p dir=&quot;ltr&quot; style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>VM/GS/SK&lt;br />
+(Lok Sabha US Q4914)&lt;/span>&lt;/span>&lt;/p>
+" />
+        <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+        </script>
+        <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+                  function CleanHtml(html) {
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+        </script>
+        <script type="text/javascript">
+                  $(document).ready(function () {
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        }
+                  });
+        </script>
+        <style type="text/css">
+            @media print {
+                .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                    display: none !important;
+                }
+            }
+
+            .f_vl {
+                padding-right: 30px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+
+            .log_oo {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .log_oo img {
+                    width: 150px;
+                }
+
+            .sticky-social_mb {
+                position: fixed;
+                bottom: 0px;
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+
+            .social_mb {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                margin-bottom: -8px;
+            }
+
+                .social_mb a {
+                    padding: 8px 0px;
+                    font-size: 30px;
+                    transition: all 0.8s ease-in-out;
+                    width: 20% !important;
+                    text-align: center;
+                }
+        </style>
+        <style type="text/css">
+            .section1 {
+                position: relative;
+                padding: 10px 0px;
+                width: 100%;
+            }
+
+            .sticky-social {
+                position: fixed;
+                top: 20px;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .social {
+                list-style: none;
+            }
+
+                .social a li {
+                    padding: 8px 12px;
+                    font-size: 25px;
+                    transition: all 0.8s ease-in-out;
+                }
+
+                    .social a li:hover {
+                        margin-right: -30px;
+                        box-shadow: 2px 5px 10px grey;
+                    }
+
+                        .social a li:hover .fa {
+                            margin-left: 20px;
+                        }
+
+            .fb_b {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .twitter_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .whatsapp_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-envelope_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-linkedin_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+        </style>
+        <style type="text/css">
+            @media only screen and (max-device-width: 767px) {
+                p span img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                p img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                h2 {
+                    font-size: var(--dbim-h2, 20px);
+                    font-weight: 600 !important;
+                }
+
+                h3 {
+                    font-size: var(--dbim-h3, 16px);
+                    font-weight: 600 !important;
+                }
+            }
+        </style>
+        <style type="text/css">
+            .film-roll-badge {
+                position: absolute;
+                top: 82%;
+                right: 20px;
+                width: 230px;
+                height: 70px;
+                background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 18px, var(--dbim-text, #150202) 18px, var(--dbim-text, #150202) 36px );
+                border-top: 8px solid var(--dbim-green-key, #0F5757);
+                border-bottom: 8px solid var(--dbim-green-key, #0F5757);
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                animation: moveFilm 8s linear infinite;
+                z-index: 10;
+            }
+
+                .film-roll-badge::before,
+                .film-roll-badge::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 10px;
+                    background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 10px, #fff 10px, #fff 20px );
+                    left: 0;
+                    z-index: 2;
+                }
+
+                .film-roll-badge::before {
+                    top: -4px;
+                }
+
+                .film-roll-badge::after {
+                    bottom: -4px;
+                }
+
+            .film-roll-inner {
+                position: relative;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: flicker 2s infinite ease-in-out;
+            }
+
+            .countdown-text {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #fff;
+                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                white-space: nowrap;
+            }
+
+            @keyframes moveFilm {
+                0% {
+                    background-position: 0 0;
+                }
+
+                100% {
+                    background-position: 120px 0;
+                }
+            }
+
+            @keyframes flicker {
+                0%, 100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.9;
+                }
+
+                25% {
+                    opacity: 0.95;
+                }
+
+                75% {
+                    opacity: 0.85;
+                }
+            }
+
+            @media (max-width: 1500px) {
+                .film-roll-badge {
+                    top: 68%;
+                    right: 18px;
+                    height: 65px;
+                    font-size: 0.85rem;
+                }
+
+                .press-section {
+                    margin-top: 35px;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .film-roll-badge {
+                    top: 52%;
+                    right: 10px;
+                    width: 200px;
+                    height: 60px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .film-roll-badge {
+                    top: 56%;
+                    right: 10px;
+                    width: 124px;
+                    height: 55px;
+                }
+
+                .countdown-text {
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .film-roll-badge {
+                    top: 59%;
+                    right: 5px;
+                    height: 50px;
+                }
+
+                .countdown-text {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        <script type="text/javascript">
+                  const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                  const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+                  const countdownElement = document.getElementById("countdown");
+
+                  if (countdownElement) {
+                        const interval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < festivalStart) {
+                                    const diff = festivalStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                                    countdownElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to go`;
+                              } else if (now >= festivalStart && now <= festivalEnd) {
+                                    const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                              } else {
+                                    countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+                                    const elements = document.querySelectorAll('.film-roll-badge');
+                                    elements.forEach(el => el.style.width = "350px");
+                                    clearInterval(interval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+        <script type="text/javascript">
+                  const miffStart = new Date("2026-06-15T00:00:00").getTime();
+                  const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+                  const miffElement = document.getElementById("miff");
+
+                  if (miffElement) {
+                        const miffInterval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < miffStart) {
+                                    const diff = miffStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+                              } else if (now >= miffStart && now <= miffEnd) {
+                                    const dayNumber = Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                              } else {
+                                    miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+                                    document.querySelectorAll('.film-roll-badge').forEach(el => el.style.width = "350px");
+                                    clearInterval(miffInterval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="SLnQ95gNuF-v4Epo-v9_qMU-KoC8kC4Ro_2Zy2VgZ4QjY9JhYONJTQ2UvVQYVeTwCfiSgAKM9od9MLP-KDmMv0tRBQq-SKxYvy6MVNcQe0Yt0tjAk8g8gQ=="/></form>
+    
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"Cookie consent","title":"Cookies on this website","body":"We use essential cookies to make this website work. We also set analytics cookies when you arrive, so we can see how the site is used and improve it - you can switch these off below or at any time from the Cookie Policy page. Cookies from embedded social media content are set only if you allow them.","policyLink":"Read our Cookie Policy","accept":"Accept all","reject":"Reject optional","customize":"Customise","prefsTitle":"Cookie preferences","prefsIntro":"Choose which cookies this website may set. Essential cookies cannot be switched off because the site does not work without them. Analytics cookies are on unless you turn them off. Social media cookies stay off until you allow them. You can change these choices at any time from the Cookie Policy page.","essentialName":"Essential cookies","essentialDesc":"Needed for the site to function. These remember your session, your language and region, your text size and colour theme, and verify the security check on forms. They are always on.","analyticsName":"Analytics cookies","analyticsDesc":"Help us understand how visitors use the site - which pages are read and how long people stay - so it can be improved. The information is collected in a form that does not directly identify you. These are on when you arrive; switching them off here stops them and deletes the ones already set.","socialName":"Social media cookies","socialDesc":"Set by content embedded from X, Facebook and YouTube, such as timelines and videos. These platforms may use them to track you across websites. They stay off until you allow them.","save":"Save preferences","cancel":"Cancel"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+
+    <!-- Minimal O(N) Time and O(1) Auxiliary Space Word Count & Read Time Calculation -->
+    <script type="text/javascript">
+            (function () {
+                  function calculateReadingStats() {
+                        var bodyEl = document.getElementById("pibReleaseBody");
+                        if (!bodyEl) return;
+
+                        // textContent extracts text without triggering expensive layout/reflow computations
+                        var text = bodyEl.textContent || "";
+                        var words = 0;
+                        var inWord = false;
+
+                        // O(N) single pass character code scan: achieves O(1) space with zero array allocations
+                        for (var i = 0, len = text.length; i < len; i++) {
+                              var code = text.charCodeAt(i);
+                              // Delimits on ASCII whitespace, control characters, tabs, newlines, and non-breaking spaces (160)
+                              if (code <= 32 || code === 160) {
+                                    inWord = false;
+                              } else if (!inWord) {
+                                    inWord = true;
+                                    words++;
+                              }
+                        }
+
+                        // Standard 250 WPM reading speed (e.g., 612 words yields 2 min read)
+                        var minutes = Math.max(1, Math.round(words / 250));
+
+                        var elWords = document.getElementById("prWordCount");
+                        var elTime = document.getElementById("prReadTime");
+
+                        if (elWords) elWords.textContent = words + (words === 1 ? " word" : " words");
+                        if (elTime) elTime.textContent = minutes + " min read";
+                  }
+
+                  if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", calculateReadingStats);
+                  } else {
+                        calculateReadingStats();
+                  }
+            })();
+    </script>
+
+    <script type="text/javascript">
+            (function () {
+                  try {
+                        if (window.self === window.top) { return; }
+                  } catch (e) { return; }
+                  var s = document.createElement("style");
+                  s.textContent = ".sticky-social, .sticky-social_mb { display: none !important; }";
+                  (document.head || document.documentElement).appendChild(s);
+            }());
+    </script>
+</body>
+</html>

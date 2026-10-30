@@ -22,15 +22,23 @@ def _logp(model, o, t, min_len):
 
 
 @torch.no_grad()
-def greedy(model, src, lens, max_len=60, min_len=10):
-    """Batched greedy. Returns (list of id lists, attention [B,T,S] or None)."""
+def greedy(model, src, lens, max_len=60, min_len=10, no_repeat_ngram=3):
+    """Batched greedy decoding with optional n-gram blocking. Returns (list of id lists, attention [B,T,S] or None)."""
     st = model.encode(src, lens)
     B = src.size(0)
     h, y = st["h"], torch.full((B,), SOS_ID, dtype=torch.long, device=src.device)
     ids, atts = [], []
+    generated = [[] for _ in range(B)]
     for t in range(max_len):
         o, h, a = model.step(y, h, st)
-        y = _logp(model, o, t, min_len).argmax(-1)
+        lp = _logp(model, o, t, min_len)
+        if no_repeat_ngram > 0:
+            for b in range(B):
+                for tok in _banned(generated[b], n=no_repeat_ngram):
+                    lp[b, tok] = -1e9
+        y = lp.argmax(-1)
+        for b in range(B):
+            generated[b].append(y[b].item())
         ids.append(y)
         if a is not None:
             atts.append(a)
@@ -48,7 +56,7 @@ def _banned(seq, n=3):
 
 
 @torch.no_grad()
-def beam_search(model, src, lens, beam=4, alpha=0.6, max_len=60, min_len=10, no_repeat_trigram=True):
+def beam_search(model, src, lens, beam=4, alpha=0.6, max_len=60, min_len=10, no_repeat_trigram=True, cov_penalty=0.0):
     """Single-article beam search (src [1,S]). GNMT length penalty ((5+L)/6)^alpha.
     Returns (ids, attention [T,S] or None)."""
     dev = src.device
@@ -73,7 +81,12 @@ def beam_search(model, src, lens, beam=4, alpha=0.6, max_len=60, min_len=10, no_
             b, tok = divmod(i, V)
             att = atts[b] + ([a[b]] if a is not None else [])
             if tok == EOS_ID:
-                done.append((v / (((5 + t + 1) / 6) ** alpha), seqs[b], att))
+                sc = v / (((5 + t + 1) / 6) ** alpha)
+                if cov_penalty > 0 and att:
+                    stacked_att = torch.stack(att)
+                    cov_pen = torch.clamp(stacked_att.sum(0) - 1.0, min=0.0).sum().item()
+                    sc -= cov_penalty * cov_pen
+                done.append((sc, seqs[b], att))
             else:
                 nseq.append(seqs[b] + [tok]); natt.append(att); nsc.append(v); par.append(b)
             if len(nseq) == beam:

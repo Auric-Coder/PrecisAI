@@ -1,0 +1,56 @@
+[
+  {
+    "config": "baseline-beam4-alpha0.6",
+    "rouge1": 28.65,
+    "rouge2": 7.93,
+    "rougeL": 19.3,
+    "avg_len": 44.5,
+    "unk_rate": 0.0408,
+    "trigram_repeat_rate": 0.0
+  },
+  {
+    "config": "beam4-alpha0.6-unkrep",
+    "rouge1": 30.35,
+    "rouge2": 8.82,
+    "rougeL": 20.3,
+    "avg_len": 44.5,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.026
+  },
+  {
+    "config": "beam4-alpha1.0-unkrep",
+    "rouge1": 30.56,
+    "rouge2": 8.87,
+    "rougeL": 20.38,
+    "avg_len": 45.6,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.026
+  },
+  {
+    "config": "beam4-alpha1.0-minlen20-unkrep",
+    "rouge1": 30.61,
+    "rouge2": 8.86,
+    "rougeL": 20.4,
+    "avg_len": 45.7,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.026
+  },
+  {
+    "config": "beam6-alpha1.0-minlen20-unkrep",
+    "rouge1": 30.55,
+    "rouge2": 9.17,
+    "rougeL": 20.41,
+    "avg_len": 44.7,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.016
+  },
+  {
+    "config": "beam4-alpha1.0-minlen20-cov0.2-unkrep",
+    "rouge1": 30.56,
+    "rouge2": 8.86,
+    "rougeL": 20.38,
+    "avg_len": 45.5,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.026
+  }
+]

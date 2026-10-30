@@ -31,14 +31,21 @@ class Vocab:
     def encode(self, tokens):
         return [self.stoi.get(t, UNK_ID) for t in tokens]
 
-    def decode(self, ids):
+    def decode(self, ids, src_tokens=None, att=None):
         out = []
-        for i in ids:
+        for step_idx, i in enumerate(ids):
             if i == EOS_ID:
                 break
             if i in (PAD_ID, SOS_ID):
                 continue
-            out.append(self.itos[i])
+            if i == UNK_ID and src_tokens is not None and att is not None and step_idx < len(att):
+                top_src_idx = int(att[step_idx].argmax())
+                if top_src_idx < len(src_tokens):
+                    out.append(src_tokens[top_src_idx])
+                else:
+                    out.append(self.itos[i])
+            else:
+                out.append(self.itos[i])
         return " ".join(out)
 
     def save(self, path):

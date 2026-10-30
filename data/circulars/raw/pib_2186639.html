@@ -1,0 +1,1063 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hi">
+<head id="Head1"><title>
+	Press Release:Press Information Bureau
+</title><link href="css/style.css?v=1" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css?v=1" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css?v=1" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" />
+
+
+      <script src="js/jquery.min.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  // Get the IDs from the current page's URL
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+
+            });
+      </script>
+      <style type="text/css">
+            .table-responsive {
+                  width: 100%;
+                  overflow-x: auto;
+            }
+
+            .banner {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  background-color: #000;
+                  color: #fff;
+                  padding: 20px;
+            }
+
+            full-width {
+                  width: 100%;
+            }
+
+            .logo-left, .logo-center, .countdown {
+                  display: flex;
+                  align-items: center;
+            }
+
+                  .logo-left img, .logo-center img {
+                        height: 70px;
+                  }
+
+            .countdown {
+                  text-align: center;
+                  background-color: var(--dbim-text, #150202);
+                  border-radius: 10px;
+                  padding: 10px;
+                  border: 2px solid grey;
+            }
+
+            .firstnumber {
+                  color: #000000;
+                  position: absolute;
+                  top: 50px;
+                  right: 90px;
+                  font-size: 30px;
+            }
+
+            .secondnumber {
+                  position: absolute;
+                  color: #000000;
+                  right: 45px;
+                  top: 50px;
+                  font-size: 30px;
+            }
+
+            .countdown .days {
+                  font-size: 35px;
+                  color: gold;
+            }
+
+            .countdown p {
+                  margin: 0;
+            }
+
+            .countdown .text {
+                  font-size: 16px;
+            }
+
+            a {
+                  word-break: break-all;
+            }
+
+            iframe, img {
+                  max-width: 100%;
+            }
+
+            @media(max-width:1199px) {
+                  .firstnumber {
+                        top: 40px;
+                        right: 72px;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 35px;
+                        top: 40px;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:990px) {
+                  .firstnumber {
+                        top: 25px;
+                        right: 54px;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 25px;
+                        top: 25px;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:768px) {
+                  .countdown, .days {
+                        font-size: 12px !important;
+                  }
+
+
+                  .firstnumber {
+                        top: 25%;
+                        right: 8%;
+                        font-size: 30px;
+                  }
+
+                  .secondnumber {
+                        right: 4.5%;
+                        top: 25%;
+                        font-size: 30px;
+                  }
+            }
+
+            @media(max-width:475px) {
+                  .countdown, .days {
+                        font-size: 10px !important;
+                        top: 20%;
+                  }
+
+                  .bannerimgdiv {
+                        padding: 0 !important;
+                  }
+
+                  .bannerimg {
+                        width: 108% !important;
+                  }
+            }
+      </style>
+      <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+      </script>
+
+      
+
+      <link id="pibConsentCss" href="/css/consent.css?v=8" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=1120" rel="stylesheet" type="text/css" /><meta property="og:title" content="MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors " /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2186639" /><meta property="og:description" content="The Ministry of Electronics and Information Technology (MeitY), under the IndiaAI Mission, today unv" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="qc42rvix37zyg2xdqvda-f-456e0007c-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":16,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"b3af4c","ak.r":38574,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":53562,"ak.gh":"23.223.243.68","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1793295686","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==6gQpKS8fRC/cJIWIQ1O1RR1cu0aU0e92XVseh0iMEmTapj2NMjJ92Ls0wDcACje3EWK0TyM1tNA59YATc3NoFkB001nhizjNT5NSV40lzQ78Pu2KYiNX65Vu6lRTKnOL9/kgnAAEK8Np36IQ8jwyq6m4plwCLToYvGXp8ihDMUbJ2icrt1HgDCOvAs61QUmXWteHp8gnqx35TiiTz+x9cZKjkmyDh/KLdGU4hPW98p5lb79EKg4qbZaG/Q93pJHV6wcVDvl4IotccGDzWrEczjl7TLPQiuEUjhsC/6fwbvEFqDSOC+wGkyvPN1aLnsZSjt+QnkTRoASOmMD4j3s6zd76a0aLxgDWrZiDbNToqYPilWZCyaO+OXUz/cto5U2CYJE2Rn8Bpl9lmvbUdBMxbMj5YGnnuej6vIyt2rE8ezQ=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 4.5v15l12-7.5z"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a9.5 9.5 0 0 0-8.1 14.5L2.4 21.6l4.8-1.4A9.5 9.5 0 1 0 12 2.4zm0 2.2a7.3 7.3 0 1 1-3.8 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.6z"/><path d="M9.4 7.8c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+      <form method="post" action="./PressReleaseIframePage.aspx?PRID=2186639&amp;lang=2&amp;reg=48" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639191042600000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleaseIframePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8166A38A" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="bZ6lq3gyXrjjw2XiLEX4bAJAVOAd5RNPgB5RvZ9ejEJ2bU5m1hxsNmX2qFhmZEkIcgQMmxjE9+dKOFiyRvP9OPAVAM7savlNwtSIAJP2zQhXI7mUBL4eVfBcaZm3Xx3RjkOABNeQI4UrNYX8RUC4nlUZjHVHbkTGjBUWON9EVTn8VYxvUiOJg2oLvQtyfWMXZpKV30V20XxRfW744iGAi2YbQRdQzRvFTwsY96Gs/E5iR1LeffnLNSwqLIEdNq+asxkeQeSbEXD4P4AtWgCxMqbITcg=" />
+</div>
+                              
+            <div id="templateCss"></div>
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+            <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+            <div class="container" style='margin-bottom: 50px;'>
+                  <div id="accessories">
+
+                        
+                        <div class="pull-right" style="display: flex">
+                              <div id="voll"></div>
+                              <div id="vollDT"></div>
+                              
+                              
+
+<span class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</span>
+                        </div>
+                  </div>
+                  <input type="hidden" name="hydpermid" id="hydpermid" value="2186639" />
+                  
+
+
+
+                  <div class="innner-page-main-about-us-content-right-part">
+
+                        <div id="MinistryName" class="MinistryNameSubhead text-center">
+                              Ministry of Electronics & IT
+                        </div>
+                        
+                        <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2021/aug/ph202183101.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+
+
+
+
+                        <div class="text-center event-heading-background">
+                              
+                              <h1 id="Titleh2">
+                                    MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors 
+                              </h1>
+                              <h3 id="Subtitleh3">
+                                    <span id="ltrSubtitle"><br/>Principal Scientific Advisor Prof. Ajay Kumar Sood Highlights ‘Do No Harm’ as Core Principle of India’s AI Framework; Emphasises Innovation Sandboxes and Risk Mitigation within a Flexible, Adaptive Ecosystem <br/><br/>India’s AI Governance Framework to Focus on Human-Centric Development, Responsible AI, and Mitigation of Potential Harms: Shri S Krishnan, Secretary Meity<br/><br/>Launch of India AI Governance Guidelines Marks Key Milestone in Building Robust Framework for Responsible, Safe, and Inclusive AI Innovation Ahead of India-AI Impact Summit 2026<br/><br/>AI Solutions for Critical Mineral Mapping, Data-Driven Exploration, and Semi-Supervised Resource Discovery Win IndiaAI Hackathon Organised  in Collaboration with Geological Survey of India<br/></span>
+                              </h3>
+                        </div>
+
+                        <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                              प्रविष्टि तिथि:
+                05 NOV 2025 2:34PM by PIB Delhi
+                        </div>
+                        
+                        <div class='pt20'>
+                        </div>
+                        <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                        
+                        <p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Ministry of Electronics and Information Technology (MeitY), under the IndiaAI Mission, today unveiled the India AI Governance Guidelines, a comprehensive framework to ensure safe, inclusive, and responsible AI adoption across sectors.</span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><img src="https://static.pib.gov.in/WriteReadData/userfiles/image/image001QNUA.gif" style="height:415px; width:624px" /></span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The guidelines were formally unveiled by Prof. Ajay Kumar Sood, Principal Scientific Adviser to the Government of India, in the presence of Shri S. Krishnan, Secretary, MeitY; Shri Abhishek Singh, Additional Secretary, MeitY, CEO IndiaAI Mission, DG NIC; Ms. Kavita Bhatia, Scientist &lsquo;G&rsquo; &amp; GC, MeitY &amp; COO IndiaAI Mission and Prof. B. Ravindran, IIT Madras. The event also saw the participation of Dr. Preeti Banzal, Adviser &amp; Scientist &lsquo;G&rsquo;, and Dr. Parvinder Maini, Scientific Secretary, both from the Office of the Principal Scientific Adviser to the Government of India.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The launch marks a key milestone ahead of the <strong>India&ndash;AI Impact Summit 2026</strong>, as India strengthens its leadership in responsible AI governance. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The guidelines propose a robust governance framework to foster cutting-edge innovation, and safely develop and deploy AI for all while mitigating risks to individuals and society. The framework comprises four key components:</span></span></p>
+
+<ul style="margin-left:40px">
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Seven guiding principles (Sutras)</strong> for ethical and responsible AI.</span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Key recommendations across six pillars</strong> of AI governance.</span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>An action plan</strong> mapped to short, medium, and long-term timelines.</span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Practical guidelines</strong> for industry, developers, and regulators to ensure transparent and accountable AI deployment.</span></span></li>
+</ul>
+
+<p style="margin-left:0in; margin-right:0in; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">On this occasion, Shri S. Krishnan, Secretary, MeitY, added, &ldquo;Our focus remains on using existing legislation wherever possible. At the heart of it all is human centricity, ensuring AI serves humanity and benefits people&rsquo;s lives while addressing potential harms.&rdquo; He congratulated the winners.&rdquo;</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Prof. Ajay Kumar Sood, Principal Scientific Advisor to the Government of India, said, &ldquo;The guiding principle that defines the spirit of the framework is simple, &lsquo;Do No Harm&rsquo;. We focus on creating sandboxes for innovation and on ensuring risk mitigation within a flexible, adaptive system. The IndiaAI Mission will enable this ecosystem and inspire many nations, especially across the Global South.&quot;</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Shri Abhishek Singh, Additional Secretary, MeitY, CEO IndiaAI, and DG NIC said, &ldquo;The committee went through extensive deliberations and prepared a draft report, which was opened for public consultation. The inputs received is a clear sign of strong engagement across sectors. As AI continues to evolve rapidly, a second committee was formed to review these inputs and refine the final guidelines. The Government of India remains focused on ensuring that AI is accessible, affordable, and inclusive, while promoting a safe, trustworthy, and responsible ecosystem that fuels innovation and strengthens the AI economy.&rdquo;</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The guidelines have been drafted by a high-level committee under the chairmanship of Prof. Balaraman Ravindran, IIT Madras, comprising policy experts including Shri Abhishek Singh, Additional Secretary, MeitY; Ms. Debjani Ghosh, Distinguished Fellow, NITI Aayog; Dr. Kalika Bali, Senior Principal Researcher, Microsoft Research India; Mr. Rahul Matthan, Partner, Trilegal; Mr. Amlan Mohanty, Non-Resident Fellow, NITI Aayog; Mr. Sharad Sharma, Co-founder, iSPIRT Foundation; Ms. Kavita Bhatia, Scientist &lsquo;G&rsquo; &amp; GC, MeitY &amp; COO IndiaAI Mission; Mr. Abhishek Aggarwal, Scientist D, MeitY &amp; Mr. Avinash Agarwal, DDG (IR), DoT, Ms. Shreeppriya Gopalakrishnan, DGM, IndiaAI.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">These are envisioned as a foundational reference for policymakers, researchers, and industry to foster greater national and international cooperation for safe, responsible, and inclusive AI adoption. The report may be accessed at <a href="http://indiaai.gov.in/" target="_blank"><span style="color:#1155cc">http://indiaai.gov.in/</span></a>&nbsp; or <a href="https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc2025115685601.pdf" target="_blank"><strong><span style="color:blue">here</span></strong></a></span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong><img src="https://static.pib.gov.in/WriteReadData/userfiles/image/image002YFUN.gif" style="height:448px; width:624px" /></strong></span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Additionally, winners of the IndiaAI Hackathon for Mineral Targeting, organised under the Applications Development Pillar of the IndiaAI Mission in collaboration with the Geological Survey of India (GSI), Ministry of Mines, were also announced. The hackathon aimed to leverage AI and ML to advance mineral prognostication by analysing geological, geophysical, geochemical, and remote-sensing data. The winning teams were recognised for their outstanding AI-driven solutions:</span></span></p>
+
+<ul style="margin-left:40px">
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>First Prize (₹10 lakh): CricSM AI: Critical and strategic mineral mapping with AI by Prof. Partha Pratim Mandal, Dinesh Munda, Litan Dutta, Tanmay Singh, Sai Satyam Jena and Dr. Pradeep Kumar Shukla</strong></span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Second Prize (₹7 lakh):</strong> <strong>Knowledge and Data-Driven Mineral Targeting Approach by Soumya Mitra, Saptarshi Mallick, Kshounish Patra, and Santu Biswas</strong></span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Third Prize (₹5 lakh): SUVARN: Semi-Unsupervised Value-adaptive Artificial Resource Network by Sayantani Bhattacharya, Dr. Sabyasachi Nag, Arun A, and Yavthish Kannaa G S</strong></span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Special Prize (₹5 lakh):</strong> <strong>Encouraging AI and ML solution for Identification of new potential areas for exploration of critical minerals like REE, Ni-PGE and Copper, as well as other commodities like diamond, iron, manganes,e and gold by Deepa Kumari, Anamika Choudhary, and Sandhya Jagannathan</strong></span></span></li>
+</ul>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The announcements mark an important milestone in India&rsquo;s journey towards fostering safe, inclusive, and scalable AI innovation, as the country prepares to host the India AI Impact Summit 2026 on 19&ndash;20 February 2026 in New Delhi. The Summit will convene global leaders, policymakers, industry experts, and researchers to deliberate on the transformative role of AI in driving People, Planet, and Progress.</span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">****</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong><span style="background-color:white"><span style="color:#333333">Dharmendra Tewari\Navin Sreejith</span></span></strong></span></span></p>
+
+
+                        
+                        <div id="reel_pic">
+                        </div>
+
+
+
+                        
+                        <br />
+                        <span id="ReleaseId">(रिलीज़ आईडी: 2186639)</span>
+                        <span id="lblViews">	आगंतुक पटल  : 18631</span>
+                        <div>
+                              
+                        </div>
+                        
+
+                        <span id="lblRefPhoto"></span>
+
+                        <div class="BackgroundRelease">
+                              
+                        </div>
+                        <div>
+                              
+                        </div>
+                        <div class="ReleaseLang">इस विज्ञप्ति को इन भाषाओं में पढ़ें: 
+                        
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2186650' target="_blank">
+                                          Urdu </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2186685' target="_blank">
+                                          Marathi </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2186655' target="_blank">
+                                          हिन्दी </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2186733' target="_blank">
+                                          Tamil </a>
+                              
+                                    ,
+                              
+                                    
+                                    <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2186661' target="_blank">
+                                          Malayalam </a>
+                              
+                        </div>
+
+                        <div class="RelTag">
+                              <ul>
+                                    
+                              </ul>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div id="RelLink" class="RelLink">
+                              <ul>
+                                    
+                                    
+                              </ul>
+                        </div>
+                        <center>
+                              
+                        </center>
+                  </div>
+
+                  <div id="update12">
+	
+                              
+                              <input type="hidden" name="Hidden" id="Hidden" />
+                              <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                                    <div>
+                                          <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                                    </div>
+                                    <div id="description">
+                                    </div>
+                                    <div class="text-center">
+                                          <h2>
+                                                
+                                                <br>
+                                                
+                                          </h2>
+                                    </div>
+                                    <br />
+                                    <div class="clear">
+                                    </div>
+                                    
+                              
+	</div>
+                        
+</div>
+            </div>
+            
+            <div id="PdfDiv" style="display: none;">
+                  <table width="100%">
+                        <tr>
+                              <td style="font-weight: 200; text-align: center">
+                                    Ministry of Electronics & IT
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                                          MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors 
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                                          <div style='height:30px;width:100%;'></div>Principal Scientific Advisor Prof. Ajay Kumar Sood Highlights ‘Do No Harm’ as Core Principle of India’s AI Framework; Emphasises Innovation Sandboxes and Risk Mitigation within a Flexible, Adaptive Ecosystem <div style='height:30px;width:100%;'></div><div style='height:30px;width:100%;'></div>India’s AI Governance Framework to Focus on Human-Centric Development, Responsible AI, and Mitigation of Potential Harms: Shri S Krishnan, Secretary Meity<div style='height:30px;width:100%;'></div><div style='height:30px;width:100%;'></div>Launch of India AI Governance Guidelines Marks Key Milestone in Building Robust Framework for Responsible, Safe, and Inclusive AI Innovation Ahead of India-AI Impact Summit 2026<div style='height:30px;width:100%;'></div><div style='height:30px;width:100%;'></div>AI Solutions for Critical Mineral Mapping, Data-Driven Exploration, and Semi-Supervised Resource Discovery Win IndiaAI Hackathon Organised  in Collaboration with Geological Survey of India<div style='height:30px;width:100%;'></div>
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="text-align: center; font-size: 14px;">
+                                          प्रविष्टि तिथि:
+                        05 NOV 2025 2:34PM by PIB Delhi
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                                          <p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Ministry of Electronics and Information Technology (MeitY), under the IndiaAI Mission, today unveiled the India AI Governance Guidelines, a comprehensive framework to ensure safe, inclusive, and responsible AI adoption across sectors.</span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><img src="https://static.pib.gov.in/WriteReadData/userfiles/image/image001QNUA.gif" style="height:415px; width:624px" /></span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The guidelines were formally unveiled by Prof. Ajay Kumar Sood, Principal Scientific Adviser to the Government of India, in the presence of Shri S. Krishnan, Secretary, MeitY; Shri Abhishek Singh, Additional Secretary, MeitY, CEO IndiaAI Mission, DG NIC; Ms. Kavita Bhatia, Scientist &lsquo;G&rsquo; &amp; GC, MeitY &amp; COO IndiaAI Mission and Prof. B. Ravindran, IIT Madras. The event also saw the participation of Dr. Preeti Banzal, Adviser &amp; Scientist &lsquo;G&rsquo;, and Dr. Parvinder Maini, Scientific Secretary, both from the Office of the Principal Scientific Adviser to the Government of India.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The launch marks a key milestone ahead of the <strong>India&ndash;AI Impact Summit 2026</strong>, as India strengthens its leadership in responsible AI governance. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The guidelines propose a robust governance framework to foster cutting-edge innovation, and safely develop and deploy AI for all while mitigating risks to individuals and society. The framework comprises four key components:</span></span></p>
+
+<ul style="margin-left:40px">
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Seven guiding principles (Sutras)</strong> for ethical and responsible AI.</span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Key recommendations across six pillars</strong> of AI governance.</span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>An action plan</strong> mapped to short, medium, and long-term timelines.</span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Practical guidelines</strong> for industry, developers, and regulators to ensure transparent and accountable AI deployment.</span></span></li>
+</ul>
+
+<p style="margin-left:0in; margin-right:0in; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">On this occasion, Shri S. Krishnan, Secretary, MeitY, added, &ldquo;Our focus remains on using existing legislation wherever possible. At the heart of it all is human centricity, ensuring AI serves humanity and benefits people&rsquo;s lives while addressing potential harms.&rdquo; He congratulated the winners.&rdquo;</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Prof. Ajay Kumar Sood, Principal Scientific Advisor to the Government of India, said, &ldquo;The guiding principle that defines the spirit of the framework is simple, &lsquo;Do No Harm&rsquo;. We focus on creating sandboxes for innovation and on ensuring risk mitigation within a flexible, adaptive system. The IndiaAI Mission will enable this ecosystem and inspire many nations, especially across the Global South.&quot;</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Shri Abhishek Singh, Additional Secretary, MeitY, CEO IndiaAI, and DG NIC said, &ldquo;The committee went through extensive deliberations and prepared a draft report, which was opened for public consultation. The inputs received is a clear sign of strong engagement across sectors. As AI continues to evolve rapidly, a second committee was formed to review these inputs and refine the final guidelines. The Government of India remains focused on ensuring that AI is accessible, affordable, and inclusive, while promoting a safe, trustworthy, and responsible ecosystem that fuels innovation and strengthens the AI economy.&rdquo;</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The guidelines have been drafted by a high-level committee under the chairmanship of Prof. Balaraman Ravindran, IIT Madras, comprising policy experts including Shri Abhishek Singh, Additional Secretary, MeitY; Ms. Debjani Ghosh, Distinguished Fellow, NITI Aayog; Dr. Kalika Bali, Senior Principal Researcher, Microsoft Research India; Mr. Rahul Matthan, Partner, Trilegal; Mr. Amlan Mohanty, Non-Resident Fellow, NITI Aayog; Mr. Sharad Sharma, Co-founder, iSPIRT Foundation; Ms. Kavita Bhatia, Scientist &lsquo;G&rsquo; &amp; GC, MeitY &amp; COO IndiaAI Mission; Mr. Abhishek Aggarwal, Scientist D, MeitY &amp; Mr. Avinash Agarwal, DDG (IR), DoT, Ms. Shreeppriya Gopalakrishnan, DGM, IndiaAI.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">These are envisioned as a foundational reference for policymakers, researchers, and industry to foster greater national and international cooperation for safe, responsible, and inclusive AI adoption. The report may be accessed at <a href="http://indiaai.gov.in/" target="_blank"><span style="color:#1155cc">http://indiaai.gov.in/</span></a>&nbsp; or <a href="https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc2025115685601.pdf" target="_blank"><strong><span style="color:blue">here</span></strong></a></span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong><img src="https://static.pib.gov.in/WriteReadData/userfiles/image/image002YFUN.gif" style="height:448px; width:624px" /></strong></span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Additionally, winners of the IndiaAI Hackathon for Mineral Targeting, organised under the Applications Development Pillar of the IndiaAI Mission in collaboration with the Geological Survey of India (GSI), Ministry of Mines, were also announced. The hackathon aimed to leverage AI and ML to advance mineral prognostication by analysing geological, geophysical, geochemical, and remote-sensing data. The winning teams were recognised for their outstanding AI-driven solutions:</span></span></p>
+
+<ul style="margin-left:40px">
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>First Prize (₹10 lakh): CricSM AI: Critical and strategic mineral mapping with AI by Prof. Partha Pratim Mandal, Dinesh Munda, Litan Dutta, Tanmay Singh, Sai Satyam Jena and Dr. Pradeep Kumar Shukla</strong></span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Second Prize (₹7 lakh):</strong> <strong>Knowledge and Data-Driven Mineral Targeting Approach by Soumya Mitra, Saptarshi Mallick, Kshounish Patra, and Santu Biswas</strong></span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Third Prize (₹5 lakh): SUVARN: Semi-Unsupervised Value-adaptive Artificial Resource Network by Sayantani Bhattacharya, Dr. Sabyasachi Nag, Arun A, and Yavthish Kannaa G S</strong></span></span></li>
+	<li style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>Special Prize (₹5 lakh):</strong> <strong>Encouraging AI and ML solution for Identification of new potential areas for exploration of critical minerals like REE, Ni-PGE and Copper, as well as other commodities like diamond, iron, manganes,e and gold by Deepa Kumari, Anamika Choudhary, and Sandhya Jagannathan</strong></span></span></li>
+</ul>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The announcements mark an important milestone in India&rsquo;s journey towards fostering safe, inclusive, and scalable AI innovation, as the country prepares to host the India AI Impact Summit 2026 on 19&ndash;20 February 2026 in New Delhi. The Summit will convene global leaders, policymakers, industry experts, and researchers to deliberate on the transformative role of AI in driving People, Planet, and Progress.</span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">****</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong><span style="background-color:white"><span style="color:#333333">Dharmendra Tewari\Navin Sreejith</span></span></strong></span></span></p>
+
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                                    <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                                          (रिलीज़ आईडी: 2186639)
+                                    </div>
+                                    <div style="height: 30px; width: 100%;">
+                                    </div>
+                              </td>
+                        </tr>
+                        <tr>
+                              <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                        </tr>
+                  </table>
+            </div>
+            <div class="clearfix">
+            </div>
+
+            
+
+            <div class="section1">
+                  <div id="frst_t">
+                        <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639&text=MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors ' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors &body=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639&title=MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors &summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+                  </div>
+                  <div id="second_t">
+                        <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639&text=MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors ' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors &body=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2186639&title=MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors &summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+                  </div>
+            </div>
+            <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="MeitY Unveils India AI Governance Guidelines under IndiaAI Mission to Ensure Safe, Inclusive, and Responsible Adoption of Artificial Intelligence across Sectors " />
+            <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" value="&lt;br/>Principal Scientific Advisor Prof. Ajay Kumar Sood Highlights ‘Do No Harm’ as Core Principle of India’s AI Framework; Emphasises Innovation Sandboxes and Risk Mitigation within a Flexible, Adaptive Ecosystem &lt;br/>&lt;br/>India’s AI Governance Framework to Focus on Human-Centric Development, Responsible AI, and Mitigation of Potential Harms: Shri S Krishnan, Secretary Meity&lt;br/>&lt;br/>Launch of India AI Governance Guidelines Marks Key Milestone in Building Robust Framework for Responsible, Safe, and Inclusive AI Innovation Ahead of India-AI Impact Summit 2026&lt;br/>&lt;br/>AI Solutions for Critical Mineral Mapping, Data-Driven Exploration, and Semi-Supervised Resource Discovery Win IndiaAI Hackathon Organised  in Collaboration with Geological Survey of India&lt;br/>" />
+            <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Ministry of Electronics and Information Technology (MeitY), under the IndiaAI Mission, today unveiled the India AI Governance Guidelines, a comprehensive framework to ensure safe, inclusive, and responsible AI adoption across sectors.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;img src=&quot;https://static.pib.gov.in/WriteReadData/userfiles/image/image001QNUA.gif&quot; style=&quot;height:415px; width:624px&quot; />&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The guidelines were formally unveiled by Prof. Ajay Kumar Sood, Principal Scientific Adviser to the Government of India, in the presence of Shri S. Krishnan, Secretary, MeitY; Shri Abhishek Singh, Additional Secretary, MeitY, CEO IndiaAI Mission, DG NIC; Ms. Kavita Bhatia, Scientist &amp;lsquo;G&amp;rsquo; &amp;amp; GC, MeitY &amp;amp; COO IndiaAI Mission and Prof. B. Ravindran, IIT Madras. The event also saw the participation of Dr. Preeti Banzal, Adviser &amp;amp; Scientist &amp;lsquo;G&amp;rsquo;, and Dr. Parvinder Maini, Scientific Secretary, both from the Office of the Principal Scientific Adviser to the Government of India.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The launch marks a key milestone ahead of the &lt;strong>India&amp;ndash;AI Impact Summit 2026&lt;/strong>, as India strengthens its leadership in responsible AI governance. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The guidelines propose a robust governance framework to foster cutting-edge innovation, and safely develop and deploy AI for all while mitigating risks to individuals and society. The framework comprises four key components:&lt;/span>&lt;/span>&lt;/p>
+
+&lt;ul style=&quot;margin-left:40px&quot;>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>Seven guiding principles (Sutras)&lt;/strong> for ethical and responsible AI.&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>Key recommendations across six pillars&lt;/strong> of AI governance.&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>An action plan&lt;/strong> mapped to short, medium, and long-term timelines.&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>Practical guidelines&lt;/strong> for industry, developers, and regulators to ensure transparent and accountable AI deployment.&lt;/span>&lt;/span>&lt;/li>
+&lt;/ul>
+
+&lt;p style=&quot;margin-left:0in; margin-right:0in; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>On this occasion, Shri S. Krishnan, Secretary, MeitY, added, &amp;ldquo;Our focus remains on using existing legislation wherever possible. At the heart of it all is human centricity, ensuring AI serves humanity and benefits people&amp;rsquo;s lives while addressing potential harms.&amp;rdquo; He congratulated the winners.&amp;rdquo;&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Prof. Ajay Kumar Sood, Principal Scientific Advisor to the Government of India, said, &amp;ldquo;The guiding principle that defines the spirit of the framework is simple, &amp;lsquo;Do No Harm&amp;rsquo;. We focus on creating sandboxes for innovation and on ensuring risk mitigation within a flexible, adaptive system. The IndiaAI Mission will enable this ecosystem and inspire many nations, especially across the Global South.&amp;quot;&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Shri Abhishek Singh, Additional Secretary, MeitY, CEO IndiaAI, and DG NIC said, &amp;ldquo;The committee went through extensive deliberations and prepared a draft report, which was opened for public consultation. The inputs received is a clear sign of strong engagement across sectors. As AI continues to evolve rapidly, a second committee was formed to review these inputs and refine the final guidelines. The Government of India remains focused on ensuring that AI is accessible, affordable, and inclusive, while promoting a safe, trustworthy, and responsible ecosystem that fuels innovation and strengthens the AI economy.&amp;rdquo;&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The guidelines have been drafted by a high-level committee under the chairmanship of Prof. Balaraman Ravindran, IIT Madras, comprising policy experts including Shri Abhishek Singh, Additional Secretary, MeitY; Ms. Debjani Ghosh, Distinguished Fellow, NITI Aayog; Dr. Kalika Bali, Senior Principal Researcher, Microsoft Research India; Mr. Rahul Matthan, Partner, Trilegal; Mr. Amlan Mohanty, Non-Resident Fellow, NITI Aayog; Mr. Sharad Sharma, Co-founder, iSPIRT Foundation; Ms. Kavita Bhatia, Scientist &amp;lsquo;G&amp;rsquo; &amp;amp; GC, MeitY &amp;amp; COO IndiaAI Mission; Mr. Abhishek Aggarwal, Scientist D, MeitY &amp;amp; Mr. Avinash Agarwal, DDG (IR), DoT, Ms. Shreeppriya Gopalakrishnan, DGM, IndiaAI.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>These are envisioned as a foundational reference for policymakers, researchers, and industry to foster greater national and international cooperation for safe, responsible, and inclusive AI adoption. The report may be accessed at &lt;a href=&quot;http://indiaai.gov.in/&quot; target=&quot;_blank&quot;>&lt;span style=&quot;color:#1155cc&quot;>http://indiaai.gov.in/&lt;/span>&lt;/a>&amp;nbsp; or &lt;a href=&quot;https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc2025115685601.pdf&quot; target=&quot;_blank&quot;>&lt;strong>&lt;span style=&quot;color:blue&quot;>here&lt;/span>&lt;/strong>&lt;/a>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>&lt;img src=&quot;https://static.pib.gov.in/WriteReadData/userfiles/image/image002YFUN.gif&quot; style=&quot;height:448px; width:624px&quot; />&lt;/strong>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Additionally, winners of the IndiaAI Hackathon for Mineral Targeting, organised under the Applications Development Pillar of the IndiaAI Mission in collaboration with the Geological Survey of India (GSI), Ministry of Mines, were also announced. The hackathon aimed to leverage AI and ML to advance mineral prognostication by analysing geological, geophysical, geochemical, and remote-sensing data. The winning teams were recognised for their outstanding AI-driven solutions:&lt;/span>&lt;/span>&lt;/p>
+
+&lt;ul style=&quot;margin-left:40px&quot;>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>First Prize (₹10 lakh): CricSM AI: Critical and strategic mineral mapping with AI by Prof. Partha Pratim Mandal, Dinesh Munda, Litan Dutta, Tanmay Singh, Sai Satyam Jena and Dr. Pradeep Kumar Shukla&lt;/strong>&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>Second Prize (₹7 lakh):&lt;/strong> &lt;strong>Knowledge and Data-Driven Mineral Targeting Approach by Soumya Mitra, Saptarshi Mallick, Kshounish Patra, and Santu Biswas&lt;/strong>&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>Third Prize (₹5 lakh): SUVARN: Semi-Unsupervised Value-adaptive Artificial Resource Network by Sayantani Bhattacharya, Dr. Sabyasachi Nag, Arun A, and Yavthish Kannaa G S&lt;/strong>&lt;/span>&lt;/span>&lt;/li>
+	&lt;li style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>Special Prize (₹5 lakh):&lt;/strong> &lt;strong>Encouraging AI and ML solution for Identification of new potential areas for exploration of critical minerals like REE, Ni-PGE and Copper, as well as other commodities like diamond, iron, manganes,e and gold by Deepa Kumari, Anamika Choudhary, and Sandhya Jagannathan&lt;/strong>&lt;/span>&lt;/span>&lt;/li>
+&lt;/ul>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The announcements mark an important milestone in India&amp;rsquo;s journey towards fostering safe, inclusive, and scalable AI innovation, as the country prepares to host the India AI Impact Summit 2026 on 19&amp;ndash;20 February 2026 in New Delhi. The Summit will convene global leaders, policymakers, industry experts, and researchers to deliberate on the transformative role of AI in driving People, Planet, and Progress.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>****&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>&lt;span style=&quot;background-color:white&quot;>&lt;span style=&quot;color:#333333&quot;>Dharmendra Tewari\Navin Sreejith&lt;/span>&lt;/span>&lt;/strong>&lt;/span>&lt;/span>&lt;/p>
+" />
+            <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+                  //function HandleAudio() {
+                  //    if (isPlaying == true) {
+                  //        //Playing already Pause it
+                  //        pauseAudio();
+                  //    } else {
+                  //        //Play the music
+                  //        playAudio();
+                  //    }
+                  //}
+            </script>
+            <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+            
+                  function CleanHtml(html) {
+
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+            </script>
+            <script type="text/javascript">
+                  $(document).ready(function () {
+                        //for responsive tables
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+
+                              // Extra Small Device
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                              // Small Device
+
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Medium Device
+
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Large Device
+
+                        }
+                  });
+            </script>
+            <script type="text/javascript">
+                  $(document).ready(function () {
+                        var width = $(window).width();
+                        if (width < 768) {
+
+                              // Extra Small Device
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                              // Small Device
+
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Medium Device
+
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                              // Large Device
+
+                        }
+                  });
+            </script>
+            
+            <style type="text/css">
+                  @media print {
+                        .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                              display: none !important;
+                        }
+                  }
+
+                  .f_vl {
+                        padding-right: 30px;
+                        font-size: 17px;
+                        cursor: pointer;
+                  }
+
+                  .log_oo {
+                        // width: 20%;
+                        display: flex;
+                        justify-content: space-between;
+                  }
+
+                        .log_oo img {
+                              width: 150px;
+                              /*width: 100%;
+                    height: auto;*/
+                        }
+
+                  .sticky-social_mb {
+                        position: fixed;
+                        bottom: 0px;
+                        padding: 0px;
+                        margin: 0px;
+                        width: 100%;
+                  }
+
+                  .social_mb {
+                        list-style: none;
+                        display: flex;
+                        width: 100%;
+                        margin-bottom: -8px;
+                  }
+
+                        .social_mb a {
+                              padding: 8px 0px;
+                              font-size: 30px;
+                              transition: all 0.8s ease-in-out;
+                              width: 20% !important;
+                              text-align: center;
+                        }
+            </style>
+            <style type="text/css">
+                  .section1 {
+                        position: relative;
+                        padding: 10px 0px;
+                        width: 100%;
+                  }
+
+
+
+                  .sticky-social {
+                        position: fixed;
+                        top: 20px;
+                        left: 0px;
+                        padding: 0px;
+                        margin: 0px;
+                  }
+
+                  .social {
+                        list-style: none;
+                  }
+
+                        .social a li {
+                              padding: 8px 12px;
+                              font-size: 25px;
+                              transition: all 0.8s ease-in-out;
+                        }
+
+                              .social a li:hover {
+                                    margin-right: -30px;
+                                    box-shadow: 2px 5px 10px grey;
+                              }
+
+                                    .social a li:hover .fa {
+                                          margin-left: 20px;
+                                    }
+
+                  .fb_b {
+                        /* background-color: var(--dbim-key, #0F5757);*/
+                        background-color: var(--dbim-key, #0F5757);
+                  }
+
+                  .twitter_r {
+                        /* background-color: rgb(29, 161, 242);*/
+                        background-color: var(--dbim-key, #0F5757);
+                  }
+
+                  .whatsapp_r {
+                        /* background-color: var(--dbim-key, #0F5757);*/
+                        background-color: var(--dbim-key, #0F5757);
+                  }
+
+                  .fa-envelope_r {
+                        /* background-color: var(--dbim-key, #0F5757);*/
+                        background-color: var(--dbim-key, #0F5757);
+                  }
+
+                  .fa-linkedin_r {
+                        background-color: var(--dbim-key, #0F5757);
+                  }
+            </style>
+            <style type="text/css">
+                  @media only screen and (max-device-width: 767px) {
+                        p span img {
+                              max-width: 90% !important;
+                              height: auto !important;
+                        }
+
+                        p img {
+                              max-width: 90% !important;
+                              height: auto !important;
+                        }
+
+                        h2 {
+                              font-size: var(--dbim-h2, 20px);   /* was 20px !important - the !important blocked A+/A- */
+                              font-weight: 600 !important;
+                        }
+
+                        h3 {
+                              font-size: var(--dbim-h3, 16px);   /* was 16px !important */
+                              font-weight: 600 !important;
+                        }
+                  }
+            </style>
+            <style type="text/css">
+                  /* === Film Roll Badge Styling(IFFI2025 countdown) === */
+                  .film-roll-badge {
+                        position: absolute;
+                        top:82%;
+                        right: 20px;
+                        width: 230px;
+                        height: 70px;
+                        background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 18px, var(--dbim-text, #150202) 18px, var(--dbim-text, #150202) 36px );
+                        border-top: 8px solid var(--dbim-green-key, #0F5757);
+                        border-bottom: 8px solid var(--dbim-green-key, #0F5757);
+                        border-radius: 8px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                        animation: moveFilm 8s linear infinite;
+                        z-index: 10;
+                  }
+
+                        /* film sprocket holes */
+                        .film-roll-badge::before,
+                        .film-roll-badge::after {
+                              content: "";
+                              position: absolute;
+                              width: 100%;
+                              height: 10px;
+                              background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 10px, #fff 10px, #fff 20px );
+                              left: 0;
+                              z-index: 2;
+                        }
+
+                        .film-roll-badge::before {
+                              top: -4px;
+                        }
+
+                        .film-roll-badge::after {
+                              bottom: -4px;
+                        }
+
+                  .film-roll-inner {
+                        position: relative;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        animation: flicker 2s infinite ease-in-out;
+                  }
+
+                  .countdown-text {
+                        font-size: 1.3rem;
+                        font-weight: 700;
+                        color: #fff;
+                        text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                        white-space: nowrap;
+                  }
+
+                  /* === Animations === */
+                  @keyframes moveFilm {
+                        0% {
+                              background-position: 0 0;
+                        }
+
+                        100% {
+                              background-position: 120px 0;
+                        }
+                  }
+
+                  @keyframes flicker {
+                        0%, 100% {
+                              opacity: 1;
+                        }
+
+                        50% {
+                              opacity: 0.9;
+                        }
+
+                        25% {
+                              opacity: 0.95;
+                        }
+
+                        75% {
+                              opacity: 0.85;
+                        }
+                  }
+
+                  /* === Responsive Adjustments === */
+                  @media (max-width: 1500px) {
+                        .film-roll-badge {
+                              top: 68%;
+                              right: 18px;
+                              /* width: 220px; */
+                              height: 65px;
+                              font-size: 0.85rem;
+                        }
+
+                        .press-section {
+                              margin-top: 35px;
+                        }
+                  }
+
+                  @media (max-width: 992px) {
+                        .film-roll-badge {
+                              top: 52%;
+                              right: 10px;
+                               width: 200px; 
+                              height: 60px;
+                        }
+                  }
+
+                  @media (max-width: 768px) {
+                        .film-roll-badge {
+                              top: 56%;
+                              right: 10px;
+                               width: 124px; 
+                              height: 55px;
+                        }
+
+                        .countdown-text {
+                              font-size: 0.9rem;
+                        }
+                  }
+
+                  @media (max-width: 576px) {
+                        .film-roll-badge {
+                              top: 59%;
+                              right: 5px;
+                              /* width: 160px; */
+                              height: 50px;
+                        }
+
+                        .countdown-text {
+                              font-size: 0.85rem;
+                        }
+                  }
+            </style>
+                        <script type="text/javascript">
+                  const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                  const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+
+                  const countdownElement = document.getElementById("countdown");
+
+                  const interval = setInterval(() => {
+                        const now = new Date().getTime();
+
+                        // BEFORE FESTIVAL — show days + hours left
+                        if (now < festivalStart) {
+                              const diff = festivalStart - now;
+                              const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                              const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                              countdownElement.innerHTML = `
+                ${days} Day${days !== 1 ? 's' : ''} 
+                ${hours} Hour${hours !== 1 ? 's' : ''} to go
+            `;
+
+                        }
+
+                        // DURING FESTIVAL — show 56th IFFI - Day X
+                        else if (now >= festivalStart && now <= festivalEnd) {
+                              const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                              countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                        }
+
+                        // AFTER FESTIVAL — new message
+                        else {
+                              countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+
+                              // Width change logic
+                              const elements = document.querySelectorAll('.film-roll-badge');
+                              elements.forEach(el => el.style.width = "350px");
+
+                              clearInterval(interval);
+                        }
+
+                  }, 1000);
+            </script>
+
+      
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleaseIframePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+</form>
+      
+      
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"कुकी सहमति","title":"इस वेबसाइट पर कुकीज़","body":"इस वेबसाइट को चलाने के लिए हम आवश्यक कुकीज़ का उपयोग करते हैं। आपके आने पर हम विश्लेषण कुकीज़ भी सेट करते हैं, ताकि हम देख सकें कि साइट का उपयोग कैसे हो रहा है और उसे बेहतर बना सकें - आप इन्हें नीचे या कभी भी कुकी नीति पृष्ठ से बंद कर सकते हैं। सोशल मीडिया सामग्री की कुकीज़ केवल आपकी अनुमति से ही सेट की जाती हैं।","policyLink":"हमारी कुकी नीति पढ़ें","accept":"सभी स्वीकार करें","reject":"वैकल्पिक अस्वीकार करें","customize":"अनुकूलित करें","prefsTitle":"कुकी प्राथमिकताएं","prefsIntro":"चुनें कि यह वेबसाइट कौन सी कुकीज़ सेट कर सकती है। आवश्यक कुकीज़ बंद नहीं की जा सकतीं क्योंकि उनके बिना साइट काम नहीं करती। विश्लेषण कुकीज़ तब तक चालू रहती हैं जब तक आप उन्हें बंद न करें। सोशल मीडिया कुकीज़ तब तक बंद रहती हैं जब तक आप अनुमति न दें। आप ये विकल्प कभी भी कुकी नीति पृष्ठ से बदल सकते हैं।","essentialName":"आवश्यक कुकीज़","essentialDesc":"साइट के कार्य करने के लिए आवश्यक। ये आपका सत्र, आपकी भाषा और क्षेत्र, आपके पाठ का आकार और रंग थीम याद रखती हैं, तथा फ़ॉर्म की सुरक्षा जांच सत्यापित करती हैं। ये हमेशा चालू रहती हैं।","analyticsName":"विश्लेषण कुकीज़","analyticsDesc":"ये हमें यह समझने में मदद करती हैं कि आगंतुक साइट का उपयोग कैसे करते हैं - कौन से पृष्ठ पढ़े जाते हैं और लोग कितनी देर रुकते हैं - ताकि इसे बेहतर बनाया जा सके। यह जानकारी ऐसे रूप में एकत्र की जाती है जो सीधे आपकी पहचान नहीं करती। आपके आने पर ये चालू रहती हैं; इन्हें यहां बंद करने पर ये रुक जाती हैं और पहले से सेट कुकीज़ हटा दी जाती हैं।","socialName":"सोशल मीडिया कुकीज़","socialDesc":"ये X, फेसबुक और यूट्यूब से एम्बेड की गई सामग्री, जैसे टाइमलाइन और वीडियो, द्वारा सेट की जाती हैं। ये प्लेटफ़ॉर्म इनका उपयोग विभिन्न वेबसाइटों पर आपको ट्रैक करने के लिए कर सकते हैं। ये तब तक बंद रहती हैं जब तक आप अनुमति न दें।","save":"प्राथमिकताएं सहेजें","cancel":"रद्द करें"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+    
+</body>
+</html>

@@ -37,6 +37,12 @@ def main():
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--models", nargs="+", default=["bahdanau", "luong", "none"])
     ap.add_argument("--bs", type=int, default=64)
+    ap.add_argument("--unk_replace", action="store_true", help="Replace <unk> tokens using top attention weights")
+    ap.add_argument("--beam", type=int, default=4, help="Beam size")
+    ap.add_argument("--alpha", type=float, default=0.6, help="GNMT length penalty")
+    ap.add_argument("--min_len", type=int, default=10, help="Minimum sequence length")
+    ap.add_argument("--no_repeat_ngram", type=int, default=3, help="N-gram blocking size for greedy")
+    ap.add_argument("--cov_penalty", type=float, default=0.0, help="Coverage penalty coefficient")
     a = ap.parse_args()
     cache, ckpt_dir, res = dirs(a.smoke)
     os.makedirs(res, exist_ok=True)
@@ -63,14 +69,20 @@ def main():
         for i in range(0, N, a.bs):
             src, sl = d["src"][i:i + a.bs].to(dev), d["src_len"][i:i + a.bs].to(dev)
             src = src[:, : sl.max()]
-            g += [vocab.decode(x) for x in greedy(model, src, sl)[0]]
+            out_ids, atts = greedy(model, src, sl, min_len=a.min_len, no_repeat_ngram=a.no_repeat_ngram)
+            for j in range(len(out_ids)):
+                raw_toks = tokenize(arts[i + j])[:SRC_LEN] if a.unk_replace else None
+                att_j = atts[j] if (a.unk_replace and atts is not None) else None
+                g.append(vocab.decode(out_ids[j], raw_toks, att_j))
         record(f"seq2seq-{m}-greedy", g)
         b = []
         for i in range(N):
             sl = d["src_len"][i:i + 1].to(dev)
             src = d["src"][i:i + 1, : sl.item()].to(dev)
-            b.append(vocab.decode(beam_search(model, src, sl)[0]))
-        record(f"seq2seq-{m}-beam4", b)
+            ids, att = beam_search(model, src, sl, beam=a.beam, alpha=a.alpha, min_len=a.min_len, cov_penalty=a.cov_penalty)
+            raw_toks = tokenize(arts[i])[:SRC_LEN] if a.unk_replace else None
+            b.append(vocab.decode(ids, raw_toks, att if a.unk_replace else None))
+        record(f"seq2seq-{m}-beam{a.beam}", b)
         print(f"  decode time {time.time()-t0:.0f}s")
         if m == "bahdanau":  # attention heatmap for the first test article (greedy)
             sl = d["src_len"][:1].to(dev)

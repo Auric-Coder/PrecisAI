@@ -1,0 +1,1097 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css?v=1" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css?v=1" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css?v=1" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=7" type="text/css" />
+    <script type="text/javascript">
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+    </script>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+            });
+    </script>
+    <style type="text/css">
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        full-width {
+            width: 100%;
+        }
+
+        .logo-left, .logo-center, .countdown {
+            display: flex;
+            align-items: center;
+        }
+
+            .logo-left img, .logo-center img {
+                height: 70px;
+            }
+
+        .countdown {
+            text-align: center;
+            background-color: var(--dbim-text, #150202);
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid grey;
+        }
+
+        .firstnumber {
+            color: #000000;
+            position: absolute;
+            top: 50px;
+            right: 90px;
+            font-size: 30px;
+        }
+
+        .secondnumber {
+            position: absolute;
+            color: #000000;
+            right: 45px;
+            top: 50px;
+            font-size: 30px;
+        }
+
+        .countdown .days {
+            font-size: 35px;
+            color: gold;
+        }
+
+        .countdown p {
+            margin: 0;
+        }
+
+        .countdown .text {
+            font-size: 16px;
+        }
+
+        a {
+            word-break: break-all;
+        }
+
+        iframe, img {
+            max-width: 100%;
+        }
+
+        /* === DBIM 3.0 Option 4 Separator Line & Reading Meta Styling === */
+        .pr-share--footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-top: 1px solid var(--dbim-border, #d1d5db);
+            padding-top: 16px;
+            margin-top: 24px;
+        }
+
+        .pr-share__left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pr-reading-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--dbim-text-secondary, #475569);
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .pr-reading-meta__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pr-reading-meta__divider {
+            color: var(--dbim-border, #cbd5e1);
+            font-weight: 300;
+        }
+
+        .pib-hc .pr-reading-meta,
+        .pib-hc .pr-reading-meta svg {
+            color: currentColor !important;
+        }
+
+        @media (max-width: 680px) {
+            .pr-share--footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pr-reading-meta {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media(max-width:1199px) {
+            .firstnumber {
+                top: 40px;
+                right: 72px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 35px;
+                top: 40px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:990px) {
+            .firstnumber {
+                top: 25px;
+                right: 54px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 25px;
+                top: 25px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .countdown, .days {
+                font-size: 12px !important;
+            }
+
+            .firstnumber {
+                top: 25%;
+                right: 8%;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 4.5%;
+                top: 25%;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:475px) {
+            .countdown, .days {
+                font-size: 10px !important;
+                top: 20%;
+            }
+
+            .bannerimgdiv {
+                padding: 0 !important;
+            }
+
+            .bannerimg {
+                width: 108% !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+    </script>
+
+    <link id="pibConsentCss" href="/css/consent.css?v=8" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=1120" rel="stylesheet" type="text/css" /><meta property="og:title" content="MEASURES TO PROMOTE AFFORDABLE HOUSING" /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2225505" /><meta property="og:description" content="NITI Aayog has prepared a detailed approach paper to promote and enable affordable housing and relea" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="qc42rvix37zyg2xdqvdq-f-7b75634fd-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":15,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"b3afb7","ak.r":38574,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":53568,"ak.gh":"23.223.243.68","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1793295687","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==NpZAL59z7mebZAxsupuBWwNDK5Ul35sskiHK6Jc+0QU/t0VbDpNZIGbVPDayjWKG1mM/Y06C4zLObQGEorISZZFUDiHEk+9kff5sn5O6f2tNoYgwPPHtB9FDtgziRFegDs77D+UW7ydJBgvOVZnh9prinWCHYniXVriOCcqU/XKyMviSHhJnJxni6vy8JPX+dCBKBDBemnXQQLG3j51YL+tRajxXsf96LZdc3PuuIL33dkWwgFHzIj38Pdvppl2ThRXEdvRjFpPnewgn7h88pnOB/1AeoDm8DCeCt7Vqv4aEhRmEXdAxUxSCWxDGlDZ68Rk5EQtsKCCO31vvvQXkwL2fqe/ChhsQfQtxIqet4+Q/kJPBC8CA3J3tiuOM5MU9o1XKABcMY6cg4Kee+e/qaZkPVNbrusFF7lPI0FnKjFY=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 4.5v15l12-7.5z"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a9.5 9.5 0 0 0-8.1 14.5L2.4 21.6l4.8-1.4A9.5 9.5 0 1 0 12 2.4zm0 2.2a7.3 7.3 0 1 1-3.8 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.6z"/><path d="M9.4 7.8c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+    <form method="post" action="./PressReleasePage.aspx?PRID=2225505&amp;lang=1&amp;reg=1" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639246315009809930" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="URhGSkwCUvKfFddO3mx3teUTeUw7nBn4aPVW9D2nbwlo63J1q6AH9fHlzuTh5KyMgtdRJRAQJa5G2N3+TNrEZO0iJHQIeDKLTFJjOAqP2zdjszXpv0y0tk1rp9LvTNcc+Q+G9EV+CYKKF+NEKLLB5/1cro7v/xEsWk9ngUhQnwRklW6RfOMJAwA/e/g6NSfdYekI62Z5nwNUQjpv7HkBG/S6lOQKKuzZt8mIx3E6zh9YoS6K+2PSAv7khizudbtyAj6qfs+Opq7ztracytaBmKxSXBc=" />
+</div>
+        
+        <div id="templateCss"></div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+        <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+        <div class="container" style='margin-bottom: 50px;'>
+            <div id="accessories">
+                
+                <div class="pull-right" style="display: flex">
+                    <div id="voll"></div>
+                    <div id="vollDT"></div>
+                    
+
+<span class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</span>
+                </div>
+            </div>
+            <input type="hidden" name="hydpermid" id="hydpermid" value="2225505" />
+            
+
+            <div class="innner-page-main-about-us-content-right-part">
+                <div id="MinistryName" class="MinistryNameSubhead text-center">
+                    Ministry of Housing & Urban Affairs
+                </div>
+                <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2026/sep/ph_9768_20260902_10000501.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+                <div class="text-center event-heading-background">
+                    
+                    <h1 id="Titleh2">
+                        MEASURES TO PROMOTE AFFORDABLE HOUSING
+                    </h1>
+                    <h3 id="Subtitleh3">
+                        <span id="ltrSubtitle"></span>
+                    </h3>
+                </div>
+
+                <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                    Posted On:
+                              09 FEB 2026 6:33PM by PIB Delhi
+                </div>
+                
+                <div class='pt20'>
+                </div>
+                <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                
+
+                <!-- Release content wrapper for client-side zero-reflow word count -->
+                <div id="pibReleaseBody">
+                    <p style="margin-right:45.2pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">NITI Aayog has prepared a detailed approach paper to promote and enable affordable housing and released its report in December 2025 namely &lsquo;A Comprehensive Framework to Promote Affordable Housing&rsquo;. The report may be seen at </span><a href="https://pmay-urban.gov.in/PHQ/A_Comprehensive_Framework_to_Promote_Affordable_Housing.pdf" target="_blank">https://pmay-urban.gov.in/PHQ/A_Comprehensive_Framework_to_Promote_Affordable_Housing.pdf</a><span style="color:black"> The report has been shared with all concerned Stakeholders for further necessary action.&nbsp; </span></span></span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">Ministry of Housing and Urban Affairs (MoHUA) has been implementing Pradhan Mantri Awas Yojana - Urban (PMAY-U) since 25.06.2015 with an aim to provide all weather pucca houses with basic civic amenities to eligible urban beneficiaries across the country. Based on the learnings from the experiences of implementation of PMAY-U, MoHUA has revamped the scheme and launched PMAY-U 2.0 &lsquo;Housing for All&rsquo; Mission with effect from 01.09.2024 for implementation in urban areas across the country to support 1 crore additional eligible beneficiaries in next five years. The scheme is implemented through four verticals i.e., Beneficiary Led Construction (BLC), Affordable Housing in Partnership (AHP), Affordable Rental Housing (ARH) and Interest Subsidy Scheme (ISS). </span></span></span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="color:black; font-family:&quot;Times New Roman&quot;,Times,serif; font-size:16px">The ISS vertical is implemented as a Central Sector Scheme which aims to expand institutional credit flow to the affordable housing sector by providing subsidy on home loans to eligible beneficiaries of Economically Weaker Sections (EWS), Lower Income Groups (LIG) and Middle Income Groups (MIG) for purchase/ re-purchase/construction of houses.</span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">Under ISS vertical, a maximum release of interest subsidy of ₹1.80 lakh in five annual instalments is provided to eligible beneficiaries having a loan tenure of more than five years. Households having income up to ₹9 lakh, loan value up to ₹25 lakh for property value up to ₹35 lakh are eligible for a subsidy at 4.0 % on first ₹8 lakh for a tenure up to 12 years. So far, a total of ₹ 312.38 Crore is released as home loan subsidy to 70,638 beneficiaries under ISS vertical. </span></span></span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">PMAY-U 2.0 supports States/UTs for formulation and implementation of &lsquo;Affordable Housing Policies&rsquo; to incentivize private sector participation through appropriate regulatory, fiscal and institutional measures for increasing the supply of affordable housing stock in urban areas. Further, in September 2025, the Government of India undertook a significant rationalization of GST rates on key construction materials such as cement, marble/granite blocks, particle boards, sand-lime bricks, etc., as well as construction-related services, with the objective of enhancing housing affordability. Overall, the reduction in GST rates aligns with the Government&rsquo;s vision of inclusive growth, improved urban infrastructure and the realization of the Housing for All mission.</span></span></span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="color:black; font-family:&quot;Times New Roman&quot;,Times,serif; font-size:16px">Further, Government of India has restructured Credit Risk Guarantee Fund Trust for Low-Income Housing (CRGFTLIH) for EWS/LIG. The scheme aims to enhance the credit accessibility and worthiness of eligible households by extending the guarantee on the housing loan taken from Scheduled Commercial Banks, Housing Finance Companies (HFCs) etc. It also aims to help eligible beneficiaries of PMAY-U 2.0 belonging to EWS/LIG through affordable home loans from financial institutions to complete their homes on time, there by directly contributing to the program&rsquo;s objectives. The CGRFTLIH scheme was launched on 15.01.2025 and a total of 6,205 loans for cumulative amount of ₹614.76 crore have been guaranteed upto 31.01.2026.</span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="color:black; font-family:&quot;Times New Roman&quot;,Times,serif; font-size:16px">In addition, special Home Loan Products are developed by Department of Financial Services (DFS) with Banks to help Beneficiaries of informal sectors. States/UTs are also expected to facilitate home loan to PMAY-U 2.0 beneficiaries through tripartite agreement.</span></p>
+
+<p style="margin-right:45.2pt"><span style="color:black; font-family:&quot;Times New Roman&quot;,Times,serif; font-size:16px">This information was given by the Minister of State for Housing &amp; Urban Affairs, Shri Tokhan Sahu in a written reply in the Rajya Sabha today.</span></p>
+
+<p style="margin-right:26.4pt; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">*****</span></span></span></p>
+
+<p><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
+
+<p><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>SK</strong></span></span></p>
+
+                </div>
+
+                <div id="reel_pic">
+                </div>
+
+                <br />
+                <span id="ReleaseId">(Release ID: 2225505)</span>
+                <span id="lblViews">Visitor Counter : 2565</span>
+                <div>
+                    
+                </div>
+                
+
+                <span id="lblRefPhoto"></span>
+
+                <div class="BackgroundRelease">
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="ReleaseLang">Read this release in: 
+                
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2225578' target="_blank">
+                            Urdu </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2225603' target="_blank">
+                            हिन्दी </a>
+                    
+                </div>
+
+                <div class="RelTag">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+
+                <!-- DBIM 3.0 Option 4: Separator Line with Left Share Rail & Right Reading Metrics -->
+                <div class="pr-share pr-share--footer" role="region" aria-label="Share and reading details">
+                    <div class="pr-share__left">
+                        <span class="pr-share__label" aria-hidden="true">Share</span>
+                        <ul class="pr-share__list">
+                            <li><a class="pr-share__btn pr-share__btn--facebook"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2225505"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on Facebook">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-facebook" xlink:href="#icon-facebook"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--twitter"
+                                href="https://twitter.com/intent/tweet?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2225505"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on X">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-twitter" xlink:href="#icon-twitter"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--whatsapp"
+                                href="https://api.whatsapp.com/send?text=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2225505"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on WhatsApp">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-whatsapp" xlink:href="#icon-whatsapp"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--linkedin"
+                                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2225505"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on LinkedIn">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-linkedin" xlink:href="#icon-linkedin"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--mail"
+                                href="mailto:?subject=Press+release+from+PIB&amp;body=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2225505"
+                                aria-label="Share by email">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-mail" xlink:href="#icon-mail"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="pr-reading-meta" id="prReadingMeta" aria-label="Reading statistics">
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Document / Word Count Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                            </svg>
+                            <span id="prWordCount">-- words</span>
+                        </span>
+
+                        <span class="pr-reading-meta__divider" aria-hidden="true">|</span>
+
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Precision Clock / Read Time Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            <span id="prReadTime">-- min read</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="RelLink" class="RelLink">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <center>
+                    
+                </center>
+            </div>
+
+            <div id="update12">
+	
+                    
+                    <input type="hidden" name="Hidden" id="Hidden" />
+                    <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                        <div>
+                            <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                        </div>
+                        <div id="description">
+                        </div>
+                        <div class="text-center">
+                            <h2>
+                                
+                                <br>
+                                
+                            </h2>
+                        </div>
+                        <br />
+                        <div class="clear">
+                        </div>
+                        
+                    
+	</div>
+                
+</div>
+        </div>
+
+        <div id="PdfDiv" style="display: none;">
+            <table width="100%">
+                <tr>
+                    <td style="font-weight: 200; text-align: center">
+                        Ministry of Housing & Urban Affairs
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            MEASURES TO PROMOTE AFFORDABLE HOUSING
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="text-align: center; font-size: 14px;">
+                            Posted On:
+                                          09 FEB 2026 6:33PM by PIB Delhi
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                            <p style="margin-right:45.2pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">NITI Aayog has prepared a detailed approach paper to promote and enable affordable housing and released its report in December 2025 namely &lsquo;A Comprehensive Framework to Promote Affordable Housing&rsquo;. The report may be seen at </span><a href="https://pmay-urban.gov.in/PHQ/A_Comprehensive_Framework_to_Promote_Affordable_Housing.pdf" target="_blank">https://pmay-urban.gov.in/PHQ/A_Comprehensive_Framework_to_Promote_Affordable_Housing.pdf</a><span style="color:black"> The report has been shared with all concerned Stakeholders for further necessary action.&nbsp; </span></span></span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">Ministry of Housing and Urban Affairs (MoHUA) has been implementing Pradhan Mantri Awas Yojana - Urban (PMAY-U) since 25.06.2015 with an aim to provide all weather pucca houses with basic civic amenities to eligible urban beneficiaries across the country. Based on the learnings from the experiences of implementation of PMAY-U, MoHUA has revamped the scheme and launched PMAY-U 2.0 &lsquo;Housing for All&rsquo; Mission with effect from 01.09.2024 for implementation in urban areas across the country to support 1 crore additional eligible beneficiaries in next five years. The scheme is implemented through four verticals i.e., Beneficiary Led Construction (BLC), Affordable Housing in Partnership (AHP), Affordable Rental Housing (ARH) and Interest Subsidy Scheme (ISS). </span></span></span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="color:black; font-family:&quot;Times New Roman&quot;,Times,serif; font-size:16px">The ISS vertical is implemented as a Central Sector Scheme which aims to expand institutional credit flow to the affordable housing sector by providing subsidy on home loans to eligible beneficiaries of Economically Weaker Sections (EWS), Lower Income Groups (LIG) and Middle Income Groups (MIG) for purchase/ re-purchase/construction of houses.</span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">Under ISS vertical, a maximum release of interest subsidy of ₹1.80 lakh in five annual instalments is provided to eligible beneficiaries having a loan tenure of more than five years. Households having income up to ₹9 lakh, loan value up to ₹25 lakh for property value up to ₹35 lakh are eligible for a subsidy at 4.0 % on first ₹8 lakh for a tenure up to 12 years. So far, a total of ₹ 312.38 Crore is released as home loan subsidy to 70,638 beneficiaries under ISS vertical. </span></span></span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">PMAY-U 2.0 supports States/UTs for formulation and implementation of &lsquo;Affordable Housing Policies&rsquo; to incentivize private sector participation through appropriate regulatory, fiscal and institutional measures for increasing the supply of affordable housing stock in urban areas. Further, in September 2025, the Government of India undertook a significant rationalization of GST rates on key construction materials such as cement, marble/granite blocks, particle boards, sand-lime bricks, etc., as well as construction-related services, with the objective of enhancing housing affordability. Overall, the reduction in GST rates aligns with the Government&rsquo;s vision of inclusive growth, improved urban infrastructure and the realization of the Housing for All mission.</span></span></span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="color:black; font-family:&quot;Times New Roman&quot;,Times,serif; font-size:16px">Further, Government of India has restructured Credit Risk Guarantee Fund Trust for Low-Income Housing (CRGFTLIH) for EWS/LIG. The scheme aims to enhance the credit accessibility and worthiness of eligible households by extending the guarantee on the housing loan taken from Scheduled Commercial Banks, Housing Finance Companies (HFCs) etc. It also aims to help eligible beneficiaries of PMAY-U 2.0 belonging to EWS/LIG through affordable home loans from financial institutions to complete their homes on time, there by directly contributing to the program&rsquo;s objectives. The CGRFTLIH scheme was launched on 15.01.2025 and a total of 6,205 loans for cumulative amount of ₹614.76 crore have been guaranteed upto 31.01.2026.</span></p>
+
+<p style="margin-right:45.2pt; text-align:justify"><span style="color:black; font-family:&quot;Times New Roman&quot;,Times,serif; font-size:16px">In addition, special Home Loan Products are developed by Department of Financial Services (DFS) with Banks to help Beneficiaries of informal sectors. States/UTs are also expected to facilitate home loan to PMAY-U 2.0 beneficiaries through tripartite agreement.</span></p>
+
+<p style="margin-right:45.2pt"><span style="color:black; font-family:&quot;Times New Roman&quot;,Times,serif; font-size:16px">This information was given by the Minister of State for Housing &amp; Urban Affairs, Shri Tokhan Sahu in a written reply in the Rajya Sabha today.</span></p>
+
+<p style="margin-right:26.4pt; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><span style="color:black">*****</span></span></span></p>
+
+<p><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
+
+<p><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>SK</strong></span></span></p>
+
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                            (Release ID: 2225505)
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="section1">
+            <div id="frst_t">
+                <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505&text=MEASURES TO PROMOTE AFFORDABLE HOUSING' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=MEASURES TO PROMOTE AFFORDABLE HOUSING&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505&title=MEASURES TO PROMOTE AFFORDABLE HOUSING&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+            <div id="second_t">
+                <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505&text=MEASURES TO PROMOTE AFFORDABLE HOUSING' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=MEASURES TO PROMOTE AFFORDABLE HOUSING&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2225505&title=MEASURES TO PROMOTE AFFORDABLE HOUSING&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+        </div>
+        <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="MEASURES TO PROMOTE AFFORDABLE HOUSING" />
+        <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" />
+        <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;margin-right:45.2pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>NITI Aayog has prepared a detailed approach paper to promote and enable affordable housing and released its report in December 2025 namely &amp;lsquo;A Comprehensive Framework to Promote Affordable Housing&amp;rsquo;. The report may be seen at &lt;/span>&lt;a href=&quot;https://pmay-urban.gov.in/PHQ/A_Comprehensive_Framework_to_Promote_Affordable_Housing.pdf&quot; target=&quot;_blank&quot;>https://pmay-urban.gov.in/PHQ/A_Comprehensive_Framework_to_Promote_Affordable_Housing.pdf&lt;/a>&lt;span style=&quot;color:black&quot;> The report has been shared with all concerned Stakeholders for further necessary action.&amp;nbsp; &lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:45.2pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>Ministry of Housing and Urban Affairs (MoHUA) has been implementing Pradhan Mantri Awas Yojana - Urban (PMAY-U) since 25.06.2015 with an aim to provide all weather pucca houses with basic civic amenities to eligible urban beneficiaries across the country. Based on the learnings from the experiences of implementation of PMAY-U, MoHUA has revamped the scheme and launched PMAY-U 2.0 &amp;lsquo;Housing for All&amp;rsquo; Mission with effect from 01.09.2024 for implementation in urban areas across the country to support 1 crore additional eligible beneficiaries in next five years. The scheme is implemented through four verticals i.e., Beneficiary Led Construction (BLC), Affordable Housing in Partnership (AHP), Affordable Rental Housing (ARH) and Interest Subsidy Scheme (ISS). &lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:45.2pt; text-align:justify&quot;>&lt;span style=&quot;color:black; font-family:&amp;quot;Times New Roman&amp;quot;,Times,serif; font-size:16px&quot;>The ISS vertical is implemented as a Central Sector Scheme which aims to expand institutional credit flow to the affordable housing sector by providing subsidy on home loans to eligible beneficiaries of Economically Weaker Sections (EWS), Lower Income Groups (LIG) and Middle Income Groups (MIG) for purchase/ re-purchase/construction of houses.&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:45.2pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>Under ISS vertical, a maximum release of interest subsidy of ₹1.80 lakh in five annual instalments is provided to eligible beneficiaries having a loan tenure of more than five years. Households having income up to ₹9 lakh, loan value up to ₹25 lakh for property value up to ₹35 lakh are eligible for a subsidy at 4.0 % on first ₹8 lakh for a tenure up to 12 years. So far, a total of ₹ 312.38 Crore is released as home loan subsidy to 70,638 beneficiaries under ISS vertical. &lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:45.2pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>PMAY-U 2.0 supports States/UTs for formulation and implementation of &amp;lsquo;Affordable Housing Policies&amp;rsquo; to incentivize private sector participation through appropriate regulatory, fiscal and institutional measures for increasing the supply of affordable housing stock in urban areas. Further, in September 2025, the Government of India undertook a significant rationalization of GST rates on key construction materials such as cement, marble/granite blocks, particle boards, sand-lime bricks, etc., as well as construction-related services, with the objective of enhancing housing affordability. Overall, the reduction in GST rates aligns with the Government&amp;rsquo;s vision of inclusive growth, improved urban infrastructure and the realization of the Housing for All mission.&lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:45.2pt; text-align:justify&quot;>&lt;span style=&quot;color:black; font-family:&amp;quot;Times New Roman&amp;quot;,Times,serif; font-size:16px&quot;>Further, Government of India has restructured Credit Risk Guarantee Fund Trust for Low-Income Housing (CRGFTLIH) for EWS/LIG. The scheme aims to enhance the credit accessibility and worthiness of eligible households by extending the guarantee on the housing loan taken from Scheduled Commercial Banks, Housing Finance Companies (HFCs) etc. It also aims to help eligible beneficiaries of PMAY-U 2.0 belonging to EWS/LIG through affordable home loans from financial institutions to complete their homes on time, there by directly contributing to the program&amp;rsquo;s objectives. The CGRFTLIH scheme was launched on 15.01.2025 and a total of 6,205 loans for cumulative amount of ₹614.76 crore have been guaranteed upto 31.01.2026.&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:45.2pt; text-align:justify&quot;>&lt;span style=&quot;color:black; font-family:&amp;quot;Times New Roman&amp;quot;,Times,serif; font-size:16px&quot;>In addition, special Home Loan Products are developed by Department of Financial Services (DFS) with Banks to help Beneficiaries of informal sectors. States/UTs are also expected to facilitate home loan to PMAY-U 2.0 beneficiaries through tripartite agreement.&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:45.2pt&quot;>&lt;span style=&quot;color:black; font-family:&amp;quot;Times New Roman&amp;quot;,Times,serif; font-size:16px&quot;>This information was given by the Minister of State for Housing &amp;amp; Urban Affairs, Shri Tokhan Sahu in a written reply in the Rajya Sabha today.&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-right:26.4pt; text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;span style=&quot;color:black&quot;>*****&lt;/span>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>SK&lt;/strong>&lt;/span>&lt;/span>&lt;/p>
+" />
+        <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+        </script>
+        <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+                  function CleanHtml(html) {
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+        </script>
+        <script type="text/javascript">
+                  $(document).ready(function () {
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        }
+                  });
+        </script>
+        <style type="text/css">
+            @media print {
+                .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                    display: none !important;
+                }
+            }
+
+            .f_vl {
+                padding-right: 30px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+
+            .log_oo {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .log_oo img {
+                    width: 150px;
+                }
+
+            .sticky-social_mb {
+                position: fixed;
+                bottom: 0px;
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+
+            .social_mb {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                margin-bottom: -8px;
+            }
+
+                .social_mb a {
+                    padding: 8px 0px;
+                    font-size: 30px;
+                    transition: all 0.8s ease-in-out;
+                    width: 20% !important;
+                    text-align: center;
+                }
+        </style>
+        <style type="text/css">
+            .section1 {
+                position: relative;
+                padding: 10px 0px;
+                width: 100%;
+            }
+
+            .sticky-social {
+                position: fixed;
+                top: 20px;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .social {
+                list-style: none;
+            }
+
+                .social a li {
+                    padding: 8px 12px;
+                    font-size: 25px;
+                    transition: all 0.8s ease-in-out;
+                }
+
+                    .social a li:hover {
+                        margin-right: -30px;
+                        box-shadow: 2px 5px 10px grey;
+                    }
+
+                        .social a li:hover .fa {
+                            margin-left: 20px;
+                        }
+
+            .fb_b {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .twitter_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .whatsapp_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-envelope_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-linkedin_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+        </style>
+        <style type="text/css">
+            @media only screen and (max-device-width: 767px) {
+                p span img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                p img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                h2 {
+                    font-size: var(--dbim-h2, 20px);
+                    font-weight: 600 !important;
+                }
+
+                h3 {
+                    font-size: var(--dbim-h3, 16px);
+                    font-weight: 600 !important;
+                }
+            }
+        </style>
+        <style type="text/css">
+            .film-roll-badge {
+                position: absolute;
+                top: 82%;
+                right: 20px;
+                width: 230px;
+                height: 70px;
+                background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 18px, var(--dbim-text, #150202) 18px, var(--dbim-text, #150202) 36px );
+                border-top: 8px solid var(--dbim-green-key, #0F5757);
+                border-bottom: 8px solid var(--dbim-green-key, #0F5757);
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                animation: moveFilm 8s linear infinite;
+                z-index: 10;
+            }
+
+                .film-roll-badge::before,
+                .film-roll-badge::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 10px;
+                    background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 10px, #fff 10px, #fff 20px );
+                    left: 0;
+                    z-index: 2;
+                }
+
+                .film-roll-badge::before {
+                    top: -4px;
+                }
+
+                .film-roll-badge::after {
+                    bottom: -4px;
+                }
+
+            .film-roll-inner {
+                position: relative;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: flicker 2s infinite ease-in-out;
+            }
+
+            .countdown-text {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #fff;
+                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                white-space: nowrap;
+            }
+
+            @keyframes moveFilm {
+                0% {
+                    background-position: 0 0;
+                }
+
+                100% {
+                    background-position: 120px 0;
+                }
+            }
+
+            @keyframes flicker {
+                0%, 100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.9;
+                }
+
+                25% {
+                    opacity: 0.95;
+                }
+
+                75% {
+                    opacity: 0.85;
+                }
+            }
+
+            @media (max-width: 1500px) {
+                .film-roll-badge {
+                    top: 68%;
+                    right: 18px;
+                    height: 65px;
+                    font-size: 0.85rem;
+                }
+
+                .press-section {
+                    margin-top: 35px;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .film-roll-badge {
+                    top: 52%;
+                    right: 10px;
+                    width: 200px;
+                    height: 60px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .film-roll-badge {
+                    top: 56%;
+                    right: 10px;
+                    width: 124px;
+                    height: 55px;
+                }
+
+                .countdown-text {
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .film-roll-badge {
+                    top: 59%;
+                    right: 5px;
+                    height: 50px;
+                }
+
+                .countdown-text {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        <script type="text/javascript">
+                  const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                  const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+                  const countdownElement = document.getElementById("countdown");
+
+                  if (countdownElement) {
+                        const interval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < festivalStart) {
+                                    const diff = festivalStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                                    countdownElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to go`;
+                              } else if (now >= festivalStart && now <= festivalEnd) {
+                                    const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                              } else {
+                                    countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+                                    const elements = document.querySelectorAll('.film-roll-badge');
+                                    elements.forEach(el => el.style.width = "350px");
+                                    clearInterval(interval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+        <script type="text/javascript">
+                  const miffStart = new Date("2026-06-15T00:00:00").getTime();
+                  const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+                  const miffElement = document.getElementById("miff");
+
+                  if (miffElement) {
+                        const miffInterval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < miffStart) {
+                                    const diff = miffStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+                              } else if (now >= miffStart && now <= miffEnd) {
+                                    const dayNumber = Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                              } else {
+                                    miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+                                    document.querySelectorAll('.film-roll-badge').forEach(el => el.style.width = "350px");
+                                    clearInterval(miffInterval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="SLnQ95gNuF-v4Epo-v9_qMU-KoC8kC4RyomoflITblfEGzzokdMZuw6qj_PtfyNO7m4dJ-shsQDWv2-ocBuRA4aBRTTdPI9qz4C0jPkYSWZ5xskcpCib8g=="/></form>
+    
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"Cookie consent","title":"Cookies on this website","body":"We use essential cookies to make this website work. We also set analytics cookies when you arrive, so we can see how the site is used and improve it - you can switch these off below or at any time from the Cookie Policy page. Cookies from embedded social media content are set only if you allow them.","policyLink":"Read our Cookie Policy","accept":"Accept all","reject":"Reject optional","customize":"Customise","prefsTitle":"Cookie preferences","prefsIntro":"Choose which cookies this website may set. Essential cookies cannot be switched off because the site does not work without them. Analytics cookies are on unless you turn them off. Social media cookies stay off until you allow them. You can change these choices at any time from the Cookie Policy page.","essentialName":"Essential cookies","essentialDesc":"Needed for the site to function. These remember your session, your language and region, your text size and colour theme, and verify the security check on forms. They are always on.","analyticsName":"Analytics cookies","analyticsDesc":"Help us understand how visitors use the site - which pages are read and how long people stay - so it can be improved. The information is collected in a form that does not directly identify you. These are on when you arrive; switching them off here stops them and deletes the ones already set.","socialName":"Social media cookies","socialDesc":"Set by content embedded from X, Facebook and YouTube, such as timelines and videos. These platforms may use them to track you across websites. They stay off until you allow them.","save":"Save preferences","cancel":"Cancel"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+
+    <!-- Minimal O(N) Time and O(1) Auxiliary Space Word Count & Read Time Calculation -->
+    <script type="text/javascript">
+            (function () {
+                  function calculateReadingStats() {
+                        var bodyEl = document.getElementById("pibReleaseBody");
+                        if (!bodyEl) return;
+
+                        // textContent extracts text without triggering expensive layout/reflow computations
+                        var text = bodyEl.textContent || "";
+                        var words = 0;
+                        var inWord = false;
+
+                        // O(N) single pass character code scan: achieves O(1) space with zero array allocations
+                        for (var i = 0, len = text.length; i < len; i++) {
+                              var code = text.charCodeAt(i);
+                              // Delimits on ASCII whitespace, control characters, tabs, newlines, and non-breaking spaces (160)
+                              if (code <= 32 || code === 160) {
+                                    inWord = false;
+                              } else if (!inWord) {
+                                    inWord = true;
+                                    words++;
+                              }
+                        }
+
+                        // Standard 250 WPM reading speed (e.g., 612 words yields 2 min read)
+                        var minutes = Math.max(1, Math.round(words / 250));
+
+                        var elWords = document.getElementById("prWordCount");
+                        var elTime = document.getElementById("prReadTime");
+
+                        if (elWords) elWords.textContent = words + (words === 1 ? " word" : " words");
+                        if (elTime) elTime.textContent = minutes + " min read";
+                  }
+
+                  if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", calculateReadingStats);
+                  } else {
+                        calculateReadingStats();
+                  }
+            })();
+    </script>
+
+    <script type="text/javascript">
+            (function () {
+                  try {
+                        if (window.self === window.top) { return; }
+                  } catch (e) { return; }
+                  var s = document.createElement("style");
+                  s.textContent = ".sticky-social, .sticky-social_mb { display: none !important; }";
+                  (document.head || document.documentElement).appendChild(s);
+            }());
+    </script>
+</body>
+</html>

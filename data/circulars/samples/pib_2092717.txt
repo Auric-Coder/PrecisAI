@@ -1,0 +1,14 @@
+Document ID: pib_2092717
+Original source URL: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2092717&lang=2&reg=48
+Document type: press release
+Reference summary status: pending
+Human-reviewed reference summary: null
+
+Extracted source text:
+Union Ministry of New and Renewable Energy has notified Scheme Guidelines for implementation of ‘Payment Security Mechanism’ Component and ‘Central Financial Assistance’ Component for RESCO Models/ Utility Led Aggregation Models under PM-Surya Ghar: Muft Bijli Yojana.
+The scheme offers two alternative implementation models for the installation of rooftop solar plants for consumers: the RESCO (Renewable Energy Service Company) model, where third-party entities invest in rooftop solar installations, allowing consumers to pay only for the electricity consumed without bearing the upfront costs; and the Utility-Led Aggregation (ULA) model, where DISCOMs or state designated entities will install rooftop solar projects on behalf of individual residential sector households.
+Under this scheme component, ₹100 crore corpus fund has been earmarked for Payment Security Mechanism (PSM) for de-risking investments in RESCO-based grid-connected rooftop solar models in the residential sector, which may be supplemented through other grants, funds and sources after due approval of the Ministry.
+It is clarified that these guidelines are in addition to the existing mode of implementation undertaken by consumers (capex mode) through the national portal (https://www.pmsuryaghar.gov.in/), and these alternative models will supplement the national portal-based implementation of the scheme.
+The Scheme Guidelines may be accessed here
+****
+Navin Sreejith
