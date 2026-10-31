@@ -102,7 +102,7 @@ def beam_search(model, src, lens, beam=4, alpha=0.6, max_len=60, min_len=10, no_
     return ids, (torch.stack(att) if att else None)
 
 
-def plot_attention(att, src_tokens, out_tokens, path=None, top=40):
+def plot_attention(att, src_tokens, out_tokens, path=None, top=40, fontsize=7, colorbar=False):
     """Heatmap of attention [T,S]; shows the `top` most-attended source tokens (original order)."""
     import matplotlib
     matplotlib.use("Agg")
@@ -111,9 +111,11 @@ def plot_attention(att, src_tokens, out_tokens, path=None, top=40):
     att = att.float().cpu()[: len(out_tokens), : len(src_tokens)]
     keep = sorted(att.sum(0).topk(min(top, att.size(1))).indices.tolist())
     fig, ax = plt.subplots(figsize=(max(6, 0.28 * len(keep)), max(3, 0.25 * len(out_tokens))))
-    ax.imshow(att[:, keep].numpy(), aspect="auto", cmap="viridis")
-    ax.set_xticks(range(len(keep)), [src_tokens[i] for i in keep], rotation=90, fontsize=7)
-    ax.set_yticks(range(len(out_tokens)), out_tokens, fontsize=7)
+    im = ax.imshow(att[:, keep].numpy(), aspect="auto", cmap="viridis")
+    if colorbar:
+        fig.colorbar(im, ax=ax, label="attention weight")
+    ax.set_xticks(range(len(keep)), [src_tokens[i] for i in keep], rotation=90, fontsize=fontsize)
+    ax.set_yticks(range(len(out_tokens)), out_tokens, fontsize=fontsize)
     ax.set_xlabel("source (top attended)"); ax.set_ylabel("generated")
     fig.tight_layout()
     if path:

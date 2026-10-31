@@ -48,3 +48,9 @@
 - Baseline metrics in `results/metrics.md`.
 - Tuning metrics in `results/tuning.md`.
 - Government benchmark artifacts in `results/government/`.
+
+## UI/docs polish (31 Oct 2026)
+- README fixed: single Beam 4 config in highlights, "zero-shot transfer under domain shift" wording, Limitations section, repo URL `Auric-Coder`. No Demo section (no results/ui_*.png).
+- `app.py` rewritten as tabs (Summarize/Compare/Attention/About) with sidebar decoding controls; model calls unchanged. `plot_attention` gained optional `fontsize`/`colorbar` args (defaults unchanged).
+- Verified with AppTest (load, TextRank, Bahdanau beam/greedy summarize, Compare): pass.
+- README note: tuning.md attributes Luong's lag to unscaled dot products; README Limitations says unexplained/uninvestigated. Reconcile if desired.
