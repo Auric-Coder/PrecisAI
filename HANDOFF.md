@@ -26,7 +26,7 @@
    - Provenance, document metadata, and extraction tracking recorded in `data/circulars/manifest.jsonl`.
    - Clean UTF-8 texts in `data/circulars/cleaned/` and samples in `data/circulars/samples/`.
    - `src/gov_sources.py`: Scrapes and extracts verified text from official sources.
-   - `src/gov_eval.py`: Evaluates domain adaptation with sentence-aware chunking (`--chunking`) and lexical policy preservation audits (`factual_audit`).
+   - `src/gov_eval.py`: Evaluates zero-shot transfer under domain shift with sentence-aware chunking (`--chunking`) and lexical policy preservation audits (`factual_audit`).
    - Results documented in `results/government/`.
 
 3. **Dual-Mode Streamlit Web UI (`app.py`):**

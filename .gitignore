@@ -16,3 +16,8 @@ Thumbs.db
 viva.md
 VIVA.md
 run_all.sh
+
+REPORT*
+report/
+presentation/
+*.pptx

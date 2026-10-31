@@ -5,7 +5,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg?logo=streamlit)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**PrecisAI** is an end-to-end text summarization system implemented from scratch in PyTorch. It bridges classical unsupervised extractive summarization with deep neural sequence-to-sequence abstractive modeling, and evaluates domain adaptation on real-world Indian government circulars and press releases.
+**PrecisAI** is an end-to-end text summarization system implemented from scratch in PyTorch. It bridges classical unsupervised extractive summarization with deep neural sequence-to-sequence abstractive modeling, and evaluates zero-shot transfer under domain shift on real-world Indian government circulars and press releases.
 
 ---
 
@@ -23,9 +23,9 @@
 - **Quality Tuning & Inference Optimization**:
   - **Attention-Guided `<unk>` Replacement**: Dynamically resolves out-of-vocabulary tokens by aligning with top-attended source tokens, driving `<unk>` rate from **4.4% down to 0.00%**.
   - **$N$-gram Blocking ($N=3$)**: Eliminates repetitive looping in greedy decoding, reducing trigram repetition from **91.6% down to 3.8%**.
-  - **Tuned Beam Search**: Length-normalized beam search ($\alpha=1.0$) with min-length constraints ($\ge 20$) and coverage penalty ($\beta=0.2$), achieving **30.61 ROUGE-1 / 9.17 ROUGE-2 / 20.41 ROUGE-L**.
+  - **Tuned Beam Search** (Beam 4): length-normalized ($\alpha=1.0$) with min-length constraint ($\ge 20$), achieving **30.61 ROUGE-1 / 8.86 ROUGE-2 / 20.40 ROUGE-L**. Best-per-metric with Beam 6 (same settings): 9.17 ROUGE-2 / 20.41 ROUGE-L.
 - **Real-World Government Benchmark**:
-  - Domain adaptation evaluation on official press releases and regulatory instruments from the **Press Information Bureau (PIB)**, Ministry of Electronics & IT (MeitY), Ministry of Mines, Ministry of Road Transport and Highways (MoRTH), Ministry of Education, and MoEFCC.
+  - Zero-shot transfer (domain shift) evaluation on official press releases and regulatory instruments from the **Press Information Bureau (PIB)**, Ministry of Electronics & IT (MeitY), Ministry of Mines, Ministry of Road Transport and Highways (MoRTH), Ministry of Education, and MoEFCC.
   - Sentence-aware document chunking (`--chunking`) to evaluate documents exceeding the model's 400-token context window.
   - **Policy Preservation Lexical Audit (`factual_audit`)**: Automated heuristic verification checking retention of statutory schemes, percentages, dates, currencies, and regulatory entities.
 - **Interactive Dual-Mode Web Application (`app.py`)**:
@@ -119,7 +119,7 @@ Evaluated on the **CNN/DailyMail 3.0.0** test subset ($n=500$ articles, single s
 
 ## Government Circulars & Regulatory Benchmark
 
-To test real-world transfer outside the news domain, PrecisAI includes a benchmark of official Indian Government releases collected from the Press Information Bureau (PIB) across 9 ministries (Renewable Energy, Mines, MeitY, Education, Highways, MSDE, Cooperation, Housing, MoEFCC).
+The model is trained only on CNN/DailyMail and never fine-tuned on government text, so this is zero-shot transfer under domain shift. To test it outside the news domain, PrecisAI includes a benchmark of official Indian Government releases collected from the Press Information Bureau (PIB) across 9 ministries (Renewable Energy, Mines, MeitY, Education, Highways, MSDE, Cooperation, Housing, MoEFCC).
 
 | Model | Evaluated Docs | Avg Summary Tokens | Avg Compression Ratio |
 |---|:---:|:---:|:---:|
@@ -128,6 +128,8 @@ To test real-world transfer outside the news domain, PrecisAI includes a benchma
 | **BiGRU-GRU (Bahdanau Beam 4)** | 9 | 46.44 | 8.35x |
 | **BiGRU-GRU (Luong Beam 4)** | 9 | 35.89 | 10.26x |
 | **BiGRU-GRU (None Beam 4)** | 9 | 46.67 | 8.01x |
+
+**How to read these numbers:** the 9 documents have no reference summaries, so no ROUGE is computed. Compression ratio and the keyword audit are descriptive checks, not quality scores; a higher compression ratio only means shorter output.
 
 The pipeline includes:
 - **`src.gov_sources`**: Clean text extraction from official PIB releases and metadata manifests.
@@ -139,7 +141,6 @@ The pipeline includes:
 ## Repository Structure
 
 ```
-precisAI/
 ├── .gitignore
 ├── app.py                     # Streamlit dual-mode web dashboard
 ├── environment.yml            # Conda environment definition
@@ -186,7 +187,7 @@ precisAI/
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/<your-username>/precisAI.git
+git clone https://github.com/Auric-Coder/precisAI.git
 cd precisAI
 
 # 2. Create conda environment
@@ -240,7 +241,7 @@ python -m src.evaluate --models bahdanau --unk_replace --beam 4 --alpha 1.0 --mi
 
 ### 5. Government Document Benchmark
 
-Run domain-adaptation evaluation on the collected government circulars:
+Run zero-shot transfer evaluation on the collected government circulars:
 
 ```bash
 # Extract and update cleaned circular texts from manifest
@@ -264,6 +265,16 @@ streamlit run app.py
 The web UI provides:
 1. **CNN/DailyMail Mode**: Compare extractive TextRank against trained Seq2Seq models, select decoding methods (greedy vs beam), and render attention heatmaps.
 2. **Government Document Mode**: Select an official PIB document from the manifest (or paste your own), inspect token compression ratios, and review real-time policy preservation flags.
+
+---
+
+## Limitations
+
+- Single training seed; no variance estimates across runs.
+- Evaluation uses 500 CNN/DailyMail test articles.
+- The government benchmark has only 9 documents and no reference summaries.
+- TextRank outperforms the neural models on ROUGE. This is expected on CNN/DailyMail given its lead bias and the small (40k) training set.
+- Luong attention scores below the no-attention baseline. This is unexplained and has not been investigated.
 
 ---
 
