@@ -1,0 +1,74 @@
+{
+ "Lead-3": [
+  [
+   34.733333333333334,
+   {
+    "rouge1": 40.23,
+    "rouge2": 17.31,
+    "rougeL": 24.78
+   }
+  ]
+ ],
+ "Oracle (top-3 by label)": [
+  [
+   100.0,
+   {
+    "rouge1": 49.39,
+    "rouge2": 27.23,
+    "rougeL": 34.49
+   }
+  ]
+ ],
+ "SummaRuNNer-lite, GRU sentence encoder": [
+  [
+   41.266666666666666,
+   {
+    "rouge1": 38.79,
+    "rouge2": 16.63,
+    "rougeL": 24.58
+   }
+  ],
+  [
+   41.4,
+   {
+    "rouge1": 38.7,
+    "rouge2": 16.65,
+    "rougeL": 24.83
+   }
+  ],
+  [
+   41.6,
+   {
+    "rouge1": 38.5,
+    "rouge2": 16.52,
+    "rougeL": 24.46
+   }
+  ]
+ ],
+ "SummaRuNNer-lite, LSTM sentence encoder": [
+  [
+   40.46666666666667,
+   {
+    "rouge1": 38.25,
+    "rouge2": 16.21,
+    "rougeL": 24.5
+   }
+  ],
+  [
+   43.13333333333333,
+   {
+    "rouge1": 39.18,
+    "rouge2": 17.04,
+    "rougeL": 25.04
+   }
+  ],
+  [
+   41.8,
+   {
+    "rouge1": 39.04,
+    "rouge2": 16.99,
+    "rougeL": 24.89
+   }
+  ]
+ ]
+}

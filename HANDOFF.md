@@ -61,6 +61,8 @@ Core frozen (no edits to src/*.py, checkpoints, results/*). All new work is in `
 - T2 `prep_study` -> prep_study.md. T3 `tokenizer_study` -> tokenizers.md.
 - T4 `w2v_study` -> word2vec.md + plots (GloVe download worked).
 - T5 `hf_baselines {zero,bert,ft,table}` -> hf_baselines.md; `transformer_demo` -> bert_attention.png. Fine-tuned T5 in checkpoints/extras/ (gitignored).
-- T6 README sections added. Not done: T7 (neural extractive), T8 (human_eval.csv).
+- T6 README sections added.
+- T7 `neural_extractive` -> neural_extractive.md (3 seeds; beats TextRank, below Lead-3).
+- T8 `human_eval make|aggregate`: results/extras/human_eval.csv has BLANK ratings for the user to fill; system key in human_eval_key.json (keep from raters). Run `aggregate` after filling.
 - Run python via `C:\Users\ACER\miniconda3\envs\precisai\python.exe` when running jobs in parallel (`conda run` breaks/buffers); set PYTHONIOENCODING=utf-8.
 - Caveat: t5-small pretraining mixture includes CNN/DM, so its "pretrained" row is not clean zero-shot.

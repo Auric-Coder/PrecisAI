@@ -147,10 +147,10 @@ Core PrecisAI (`src/*.py`, `checkpoints/`, `results/*`) is unchanged. Everything
 | I | Text preprocessing: TF-IDF/BoW, stop-words, stemming, lemmatization, n-grams | `src/textrank.py`, `src/extras/prep_study.py` | `results/extras/prep_study.md` (24-config TextRank ablation) |
 | I, V | Tokenization: word-level vs WordPiece vs BPE vs SentencePiece | `src/vocab.py`, `src/extras/tokenizer_study.py` | `results/extras/tokenizers.md` |
 | II | Word embeddings: CBOW, Skip-Gram, GloVe, neighbours, analogies, PCA/t-SNE, W2V-TextRank | `src/extras/w2v_study.py` | `results/extras/word2vec.md`, `word2vec_plots.png` |
-| III | Neural extractive (SummaRuNNer-style) | not implemented | n/a |
+| III | Neural extractive (SummaRuNNer-lite, BiGRU vs BiLSTM sentence encoders) | `src/extras/neural_extractive.py` | `results/extras/neural_extractive.md` |
 | IV | Seq2Seq, attention, decoding (greedy, beam, top-k, nucleus) | `src/model.py`, `src/decode.py`, `src/extras/decoding_study.py` | `results/metrics.md`, `results/tuning.md`, `results/extras/decoding.md` |
 | V | Transformers: self-attention, positional encoding, BERT, pretrained/fine-tuned T5 | `src/extras/transformer_demo.py`, `src/extras/hf_baselines.py` | `results/extras/hf_baselines.md`, `bert_attention.png` |
-| VI | Evaluation: ROUGE, BLEU-4, perplexity, diversity, hallucination proxy | `src/evaluate.py`, `src/extras/decoding_study.py` | `results/extras/decoding.md` |
+| VI | Evaluation: ROUGE, BLEU-4, perplexity, diversity, hallucination proxy, human-eval protocol | `src/evaluate.py`, `src/extras/decoding_study.py`, `src/extras/human_eval.py` | `results/extras/decoding.md`; `human_eval.csv` (ratings blank) |
 
 ### Extras: headline results (CNN/DM test, n=500)
 
@@ -170,7 +170,8 @@ Full table (with compression and unsupported-number rates, including the governm
 - `t5-small` was pretrained on a multi-task mixture that includes CNN/DailyMail summarisation with the `summarize:` prefix, so the "pretrained" row is not a clean zero-shot result. T5 inputs are truncated to 400 SentencePiece tokens, BiGRU inputs to 400 words.
 - Unsupported-number rate is a lexical proxy for hallucination (numbers in the summary that never occur in the source). It ignores number words and cannot detect misused but present numbers. The government sample is under 40 numbers per system, so it is anecdotal.
 - Word2Vec neighbours and analogies are from a 40k-article corpus; see `word2vec.md` for the misses. The seq2seq encoder embedding shows almost no neighbour overlap with Word2Vec (0.01-0.02 top-10 overlap).
-- Human evaluation was not performed.
+- SummaRuNNer-lite (3 seeds) reaches R-1 38.66 ± 0.12 (GRU) and 38.82 ± 0.41 (LSTM); both beat TextRank but not Lead-3 (R-1 40.23). The GRU/LSTM difference is within seed noise.
+- Human evaluation has not been performed: `results/extras/human_eval.csv` (20 articles x 4 blinded systems) has blank ratings, and `python -m src.extras.human_eval aggregate` summarises them once filled.
 
 ---
 

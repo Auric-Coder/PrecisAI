@@ -1,0 +1,322 @@
+{
+ "item001": {
+  "system": "textrank",
+  "test_index": 432
+ },
+ "item002": {
+  "system": "textrank",
+  "test_index": 388
+ },
+ "item003": {
+  "system": "t5_small_finetuned",
+  "test_index": 298
+ },
+ "item004": {
+  "system": "t5_small_finetuned",
+  "test_index": 401
+ },
+ "item005": {
+  "system": "textrank",
+  "test_index": 215
+ },
+ "item006": {
+  "system": "reference",
+  "test_index": 244
+ },
+ "item007": {
+  "system": "textrank",
+  "test_index": 470
+ },
+ "item008": {
+  "system": "reference",
+  "test_index": 155
+ },
+ "item009": {
+  "system": "t5_small_finetuned",
+  "test_index": 456
+ },
+ "item010": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 298
+ },
+ "item011": {
+  "system": "reference",
+  "test_index": 494
+ },
+ "item012": {
+  "system": "textrank",
+  "test_index": 155
+ },
+ "item013": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 261
+ },
+ "item014": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 244
+ },
+ "item015": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 20
+ },
+ "item016": {
+  "system": "t5_small_finetuned",
+  "test_index": 183
+ },
+ "item017": {
+  "system": "textrank",
+  "test_index": 424
+ },
+ "item018": {
+  "system": "reference",
+  "test_index": 432
+ },
+ "item019": {
+  "system": "reference",
+  "test_index": 455
+ },
+ "item020": {
+  "system": "t5_small_finetuned",
+  "test_index": 197
+ },
+ "item021": {
+  "system": "reference",
+  "test_index": 388
+ },
+ "item022": {
+  "system": "t5_small_finetuned",
+  "test_index": 20
+ },
+ "item023": {
+  "system": "t5_small_finetuned",
+  "test_index": 495
+ },
+ "item024": {
+  "system": "t5_small_finetuned",
+  "test_index": 494
+ },
+ "item025": {
+  "system": "reference",
+  "test_index": 207
+ },
+ "item026": {
+  "system": "reference",
+  "test_index": 132
+ },
+ "item027": {
+  "system": "t5_small_finetuned",
+  "test_index": 155
+ },
+ "item028": {
+  "system": "textrank",
+  "test_index": 455
+ },
+ "item029": {
+  "system": "t5_small_finetuned",
+  "test_index": 215
+ },
+ "item030": {
+  "system": "reference",
+  "test_index": 183
+ },
+ "item031": {
+  "system": "reference",
+  "test_index": 424
+ },
+ "item032": {
+  "system": "reference",
+  "test_index": 470
+ },
+ "item033": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 215
+ },
+ "item034": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 495
+ },
+ "item035": {
+  "system": "textrank",
+  "test_index": 20
+ },
+ "item036": {
+  "system": "reference",
+  "test_index": 20
+ },
+ "item037": {
+  "system": "textrank",
+  "test_index": 197
+ },
+ "item038": {
+  "system": "textrank",
+  "test_index": 495
+ },
+ "item039": {
+  "system": "textrank",
+  "test_index": 244
+ },
+ "item040": {
+  "system": "reference",
+  "test_index": 495
+ },
+ "item041": {
+  "system": "textrank",
+  "test_index": 401
+ },
+ "item042": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 183
+ },
+ "item043": {
+  "system": "textrank",
+  "test_index": 298
+ },
+ "item044": {
+  "system": "reference",
+  "test_index": 261
+ },
+ "item045": {
+  "system": "textrank",
+  "test_index": 207
+ },
+ "item046": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 470
+ },
+ "item047": {
+  "system": "t5_small_finetuned",
+  "test_index": 207
+ },
+ "item048": {
+  "system": "t5_small_finetuned",
+  "test_index": 424
+ },
+ "item049": {
+  "system": "reference",
+  "test_index": 248
+ },
+ "item050": {
+  "system": "t5_small_finetuned",
+  "test_index": 244
+ },
+ "item051": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 207
+ },
+ "item052": {
+  "system": "reference",
+  "test_index": 298
+ },
+ "item053": {
+  "system": "textrank",
+  "test_index": 132
+ },
+ "item054": {
+  "system": "t5_small_finetuned",
+  "test_index": 388
+ },
+ "item055": {
+  "system": "t5_small_finetuned",
+  "test_index": 132
+ },
+ "item056": {
+  "system": "reference",
+  "test_index": 197
+ },
+ "item057": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 155
+ },
+ "item058": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 432
+ },
+ "item059": {
+  "system": "textrank",
+  "test_index": 494
+ },
+ "item060": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 494
+ },
+ "item061": {
+  "system": "t5_small_finetuned",
+  "test_index": 470
+ },
+ "item062": {
+  "system": "t5_small_finetuned",
+  "test_index": 248
+ },
+ "item063": {
+  "system": "t5_small_finetuned",
+  "test_index": 432
+ },
+ "item064": {
+  "system": "textrank",
+  "test_index": 248
+ },
+ "item065": {
+  "system": "textrank",
+  "test_index": 183
+ },
+ "item066": {
+  "system": "reference",
+  "test_index": 456
+ },
+ "item067": {
+  "system": "textrank",
+  "test_index": 261
+ },
+ "item068": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 197
+ },
+ "item069": {
+  "system": "textrank",
+  "test_index": 456
+ },
+ "item070": {
+  "system": "reference",
+  "test_index": 215
+ },
+ "item071": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 388
+ },
+ "item072": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 455
+ },
+ "item073": {
+  "system": "t5_small_finetuned",
+  "test_index": 261
+ },
+ "item074": {
+  "system": "reference",
+  "test_index": 401
+ },
+ "item075": {
+  "system": "t5_small_finetuned",
+  "test_index": 455
+ },
+ "item076": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 456
+ },
+ "item077": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 248
+ },
+ "item078": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 132
+ },
+ "item079": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 424
+ },
+ "item080": {
+  "system": "bigru_bahdanau_beam4_tuned",
+  "test_index": 401
+ }
+}
