@@ -1,0 +1,274 @@
+{
+ "models=['bahdanau', 'luong', 'none', 't5-small', 'bert-extractive'] unk_replace=False beam=4 alpha=0.6 min_len=10 decode=None temperature=1.0 extra_metrics=True repr=['tfidf', 'w2v', 'bert']": {
+  "n_test": 500,
+  "metrics": {
+   "textrank": {
+    "rouge1": 35.8,
+    "rouge2": 14.1,
+    "rougeL": 23.38,
+    "avg_len": 76.0,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.664,
+    "bleu4": 10.29,
+    "distinct1": 0.263,
+    "distinct2": 0.717,
+    "unsup_num": 0.0,
+    "ppl": "-"
+   },
+   "textrank-w2v": {
+    "rouge1": 31.27,
+    "rouge2": 10.06,
+    "rougeL": 18.96,
+    "avg_len": 96.1,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.34,
+    "bleu4": 6.56,
+    "distinct1": 0.253,
+    "distinct2": 0.733,
+    "unsup_num": 0.0,
+    "ppl": "-"
+   },
+   "textrank-bert": {
+    "rouge1": 32.84,
+    "rouge2": 11.24,
+    "rougeL": 20.13,
+    "avg_len": 91.5,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.384,
+    "bleu4": 7.39,
+    "distinct1": 0.256,
+    "distinct2": 0.74,
+    "unsup_num": 0.0,
+    "ppl": "-"
+   },
+   "seq2seq-bahdanau-greedy": {
+    "rouge1": 25.18,
+    "rouge2": 5.75,
+    "rougeL": 18.12,
+    "avg_len": 49.5,
+    "unk_rate": 0.044,
+    "trigram_repeat_rate": 0.916,
+    "bleu4": 4.04,
+    "distinct1": 0.099,
+    "distinct2": 0.352,
+    "unsup_num": 0.1895,
+    "ppl": 72.03
+   },
+   "seq2seq-bahdanau-beam4": {
+    "rouge1": 28.65,
+    "rouge2": 7.93,
+    "rougeL": 19.3,
+    "avg_len": 44.5,
+    "unk_rate": 0.0408,
+    "trigram_repeat_rate": 0.0,
+    "bleu4": 5.14,
+    "distinct1": 0.121,
+    "distinct2": 0.453,
+    "unsup_num": 0.1484,
+    "ppl": 72.03
+   },
+   "seq2seq-luong-greedy": {
+    "rouge1": 14.02,
+    "rouge2": 1.57,
+    "rougeL": 11.83,
+    "avg_len": 39.3,
+    "unk_rate": 0.1161,
+    "trigram_repeat_rate": 0.962,
+    "bleu4": 0.81,
+    "distinct1": 0.013,
+    "distinct2": 0.048,
+    "unsup_num": 0.7956,
+    "ppl": 188.78
+   },
+   "seq2seq-luong-beam4": {
+    "rouge1": 16.49,
+    "rouge2": 2.44,
+    "rougeL": 12.07,
+    "avg_len": 30.7,
+    "unk_rate": 0.0925,
+    "trigram_repeat_rate": 0.0,
+    "bleu4": 0.87,
+    "distinct1": 0.022,
+    "distinct2": 0.08,
+    "unsup_num": 0.7429,
+    "ppl": 188.78
+   },
+   "seq2seq-none-greedy": {
+    "rouge1": 17.76,
+    "rouge2": 2.59,
+    "rougeL": 13.62,
+    "avg_len": 42.5,
+    "unk_rate": 0.0805,
+    "trigram_repeat_rate": 0.95,
+    "bleu4": 1.4,
+    "distinct1": 0.062,
+    "distinct2": 0.18,
+    "unsup_num": 0.7667,
+    "ppl": 129.49
+   },
+   "seq2seq-none-beam4": {
+    "rouge1": 19.37,
+    "rouge2": 3.41,
+    "rougeL": 13.81,
+    "avg_len": 34.3,
+    "unk_rate": 0.0584,
+    "trigram_repeat_rate": 0.0,
+    "bleu4": 1.44,
+    "distinct1": 0.083,
+    "distinct2": 0.245,
+    "unsup_num": 0.7575,
+    "ppl": 129.49
+   },
+   "t5-small-beam4": {
+    "rouge1": 37.29,
+    "rouge2": 16.54,
+    "rougeL": 26.51,
+    "avg_len": 45.1,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.17,
+    "bleu4": 11.33,
+    "distinct1": 0.239,
+    "distinct2": 0.715,
+    "unsup_num": 0.0065,
+    "ppl": "-"
+   },
+   "bert-extractive": {
+    "rouge1": 32.84,
+    "rouge2": 11.24,
+    "rougeL": 20.13,
+    "avg_len": 91.5,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.384,
+    "bleu4": 7.39,
+    "distinct1": 0.256,
+    "distinct2": 0.74,
+    "unsup_num": 0.0,
+    "ppl": "-"
+   }
+  }
+ },
+ "models=['bahdanau'] unk_replace=False beam=4 alpha=0.6 min_len=10 decode=topk temperature=1.0 extra_metrics=True repr=['tfidf']": {
+  "n_test": 500,
+  "metrics": {
+   "textrank": {
+    "rouge1": 35.8,
+    "rouge2": 14.1,
+    "rougeL": 23.38,
+    "avg_len": 76.0,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.664,
+    "bleu4": 10.29,
+    "distinct1": 0.263,
+    "distinct2": 0.717,
+    "unsup_num": 0.0,
+    "ppl": "-"
+   },
+   "seq2seq-bahdanau-topk-T1.0": {
+    "rouge1": "24.35 \u00b1 0.24",
+    "rouge2": "3.61 \u00b1 0.17",
+    "rougeL": "15.18 \u00b1 0.21",
+    "avg_len": "53.23 \u00b1 0.12",
+    "unk_rate": "0.04 \u00b1 0.00",
+    "trigram_repeat_rate": "0.26 \u00b1 0.02",
+    "bleu4": "2.35 \u00b1 0.09",
+    "distinct1": "0.13 \u00b1 0.00",
+    "distinct2": "0.56 \u00b1 0.00",
+    "unsup_num": "0.45 \u00b1 0.02",
+    "ppl": 72.03
+   }
+  }
+ },
+ "models=['bahdanau'] unk_replace=False beam=4 alpha=0.6 min_len=10 decode=nucleus temperature=1.0 extra_metrics=True repr=['tfidf']": {
+  "n_test": 500,
+  "metrics": {
+   "textrank": {
+    "rouge1": 35.8,
+    "rouge2": 14.1,
+    "rougeL": 23.38,
+    "avg_len": 76.0,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.664,
+    "bleu4": 10.29,
+    "distinct1": 0.263,
+    "distinct2": 0.717,
+    "unsup_num": 0.0,
+    "ppl": "-"
+   },
+   "seq2seq-bahdanau-nucleus-T1.0": {
+    "rouge1": "22.61 \u00b1 0.05",
+    "rouge2": "3.10 \u00b1 0.06",
+    "rougeL": "14.18 \u00b1 0.05",
+    "avg_len": "53.83 \u00b1 0.29",
+    "unk_rate": "0.03 \u00b1 0.00",
+    "trigram_repeat_rate": "0.18 \u00b1 0.02",
+    "bleu4": "2.28 \u00b1 0.13",
+    "distinct1": "0.17 \u00b1 0.00",
+    "distinct2": "0.66 \u00b1 0.00",
+    "unsup_num": "0.53 \u00b1 0.00",
+    "ppl": 72.03
+   }
+  }
+ },
+ "models=['bahdanau'] unk_replace=False beam=4 alpha=0.6 min_len=10 decode=topk temperature=0.7 extra_metrics=True repr=['tfidf']": {
+  "n_test": 500,
+  "metrics": {
+   "textrank": {
+    "rouge1": 35.8,
+    "rouge2": 14.1,
+    "rougeL": 23.38,
+    "avg_len": 76.0,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.664,
+    "bleu4": 10.29,
+    "distinct1": 0.263,
+    "distinct2": 0.717,
+    "unsup_num": 0.0,
+    "ppl": "-"
+   },
+   "seq2seq-bahdanau-topk-T0.7": {
+    "rouge1": "25.82 \u00b1 0.22",
+    "rouge2": "4.91 \u00b1 0.20",
+    "rougeL": "16.87 \u00b1 0.19",
+    "avg_len": "51.07 \u00b1 0.34",
+    "unk_rate": "0.04 \u00b1 0.00",
+    "trigram_repeat_rate": "0.50 \u00b1 0.01",
+    "bleu4": "3.44 \u00b1 0.20",
+    "distinct1": "0.12 \u00b1 0.00",
+    "distinct2": "0.49 \u00b1 0.00",
+    "unsup_num": "0.36 \u00b1 0.02",
+    "ppl": 72.03
+   }
+  }
+ },
+ "models=['bahdanau'] unk_replace=False beam=4 alpha=0.6 min_len=10 decode=nucleus temperature=0.7 extra_metrics=True repr=['tfidf']": {
+  "n_test": 500,
+  "metrics": {
+   "textrank": {
+    "rouge1": 35.8,
+    "rouge2": 14.1,
+    "rougeL": 23.38,
+    "avg_len": 76.0,
+    "unk_rate": 0.0,
+    "trigram_repeat_rate": 0.664,
+    "bleu4": 10.29,
+    "distinct1": 0.263,
+    "distinct2": 0.717,
+    "unsup_num": 0.0,
+    "ppl": "-"
+   },
+   "seq2seq-bahdanau-nucleus-T0.7": {
+    "rouge1": "26.40 \u00b1 0.08",
+    "rouge2": "5.28 \u00b1 0.08",
+    "rougeL": "17.30 \u00b1 0.07",
+    "avg_len": "51.03 \u00b1 0.29",
+    "unk_rate": "0.04 \u00b1 0.00",
+    "trigram_repeat_rate": "0.55 \u00b1 0.01",
+    "bleu4": "3.67 \u00b1 0.02",
+    "distinct1": "0.12 \u00b1 0.00",
+    "distinct2": "0.48 \u00b1 0.00",
+    "unsup_num": "0.32 \u00b1 0.01",
+    "ppl": 72.03
+   }
+  }
+ }
+}

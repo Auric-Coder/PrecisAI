@@ -36,13 +36,4 @@ Mean top-10 neighbour overlap with the seq2seq embedding: cbow = 0.02, skipgram 
 
 ![PCA and t-SNE](word2vec_plots.png)
 
-## W2V-TextRank (extractive, top-3 sentences, averaged word vectors, cosine graph, PageRank d=0.85; CNN/DM test n=500)
-
-| system | R-1 | R-2 | R-L |
-|---|---|---|---|
-| W2V-TextRank (Skip-Gram) | 31.27 | 10.06 | 18.96 |
-| W2V-TextRank (CBOW) | 30.27 | 9.26 | 18.55 |
-| seq2seq-embedding TextRank | 30.24 | 9.61 | 18.55 |
-| GloVe-100 TextRank | 30.64 | 9.34 | 18.34 |
-
-Reference TF-IDF TextRank (results/metrics.md): R-1 35.8 / R-2 14.1 / R-L 23.38.
+W2V-TextRank (extractive) ROUGE is produced by `python -m src.evaluate --repr w2v` (see results/metrics.md).

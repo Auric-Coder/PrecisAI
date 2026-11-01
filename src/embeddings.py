@@ -10,6 +10,16 @@ from .metrics_extra import RES as OUT, ROOT
 from .vocab import tokenize
 
 SEED = 0
+WORDS = ["government", "president", "police", "court", "market", "election", "war", "health", "school", "football"]
+ANALOGIES = [("man", "woman", "king", "queen"), ("he", "she", "his", "her"), ("france", "paris", "england", "london"),
+             ("germany", "berlin", "italy", "rome"), ("good", "better", "bad", "worse"), ("monday", "tuesday", "friday", "saturday"),
+             ("china", "chinese", "france", "french"), ("boy", "girl", "brother", "sister")]
+PLOT = {"politics": ["government", "president", "minister", "election", "party", "vote", "law", "court"],
+        "sport": ["football", "game", "team", "season", "club", "match", "league", "player"],
+        "countries": ["britain", "france", "china", "russia", "india", "germany", "iran", "syria"],
+        "time": ["monday", "tuesday", "friday", "sunday", "january", "june", "year", "week"]}
+
+
 W2V_PATH = ROOT / "checkpoints" / "w2v_{}.model"
 _VEC = {}
 

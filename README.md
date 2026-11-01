@@ -125,27 +125,71 @@ Evaluated on the **CNN/DailyMail 3.0.0** test subset ($n=500$ articles, single s
 
 One command produces the unified table (see Quickstart 7). Rows are appended to `results/metrics.md`; per-model rows are also saved to `results/partial/` as each model finishes. Unsupported-number rate is the share of numeric tokens in a summary that never occur in its source: a lexical hallucination proxy that ignores number words and cannot detect misused but present numbers.
 
-<!-- TODO(extended-table): fill from results/metrics.md "Extended comparison" section -->
+| model | R-1 | R-2 | R-L | avg len | unk rate | tri-repeat | BLEU-4 | distinct-1 | distinct-2 | unsupported-number rate | test ppl |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| textrank | 35.8 | 14.1 | 23.38 | 76.0 | 0.0 | 0.664 | 10.29 | 0.263 | 0.717 | 0.0 | - |
+| textrank-w2v | 31.27 | 10.06 | 18.96 | 96.1 | 0.0 | 0.34 | 6.56 | 0.253 | 0.733 | 0.0 | - |
+| textrank-bert | 32.84 | 11.24 | 20.13 | 91.5 | 0.0 | 0.384 | 7.39 | 0.256 | 0.74 | 0.0 | - |
+| seq2seq-bahdanau-greedy | 25.18 | 5.75 | 18.12 | 49.5 | 0.044 | 0.916 | 4.04 | 0.099 | 0.352 | 0.1895 | 72.03 |
+| seq2seq-bahdanau-beam4 | 28.65 | 7.93 | 19.3 | 44.5 | 0.0408 | 0.0 | 5.14 | 0.121 | 0.453 | 0.1484 | 72.03 |
+| seq2seq-luong-greedy | 14.02 | 1.57 | 11.83 | 39.3 | 0.1161 | 0.962 | 0.81 | 0.013 | 0.048 | 0.7956 | 188.78 |
+| seq2seq-luong-beam4 | 16.49 | 2.44 | 12.07 | 30.7 | 0.0925 | 0.0 | 0.87 | 0.022 | 0.08 | 0.7429 | 188.78 |
+| seq2seq-none-greedy | 17.76 | 2.59 | 13.62 | 42.5 | 0.0805 | 0.95 | 1.4 | 0.062 | 0.18 | 0.7667 | 129.49 |
+| seq2seq-none-beam4 | 19.37 | 3.41 | 13.81 | 34.3 | 0.0584 | 0.0 | 1.44 | 0.083 | 0.245 | 0.7575 | 129.49 |
+| t5-small-beam4 | 37.29 | 16.54 | 26.51 | 45.1 | 0.0 | 0.17 | 11.33 | 0.239 | 0.715 | 0.0065 | - |
+| bert-extractive | 32.84 | 11.24 | 20.13 | 91.5 | 0.0 | 0.384 | 7.39 | 0.256 | 0.74 | 0.0 | - |
+
+Source: `results/metrics.md` ("Extended comparison", first section). `bert-extractive` and `textrank-bert` are the same method (BERT-embedding TextRank) reached through `--models` and `--repr`. `t5-small` is the public pretrained checkpoint, inference only; its pretraining mixture includes CNN/DailyMail summarisation, so it is not a clean zero-shot result. Test perplexity is per target token and applies to the checkpoint, so greedy and beam rows share it.
 
 Sampling decoders (Bahdanau, mean ± std over seeds):
 
-<!-- TODO(sampling-table): fill from results/metrics.md "Extended comparison" sections for topk / nucleus -->
+| model | R-1 | R-2 | R-L | avg len | unk rate | tri-repeat | BLEU-4 | distinct-1 | distinct-2 | unsupported-number rate | test ppl |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| seq2seq-bahdanau-topk-T1.0 | 24.35 ± 0.24 | 3.61 ± 0.17 | 15.18 ± 0.21 | 53.23 ± 0.12 | 0.04 ± 0.00 | 0.26 ± 0.02 | 2.35 ± 0.09 | 0.13 ± 0.00 | 0.56 ± 0.00 | 0.45 ± 0.02 | 72.03 |
+| seq2seq-bahdanau-nucleus-T1.0 | 22.61 ± 0.05 | 3.10 ± 0.06 | 14.18 ± 0.05 | 53.83 ± 0.29 | 0.03 ± 0.00 | 0.18 ± 0.02 | 2.28 ± 0.13 | 0.17 ± 0.00 | 0.66 ± 0.00 | 0.53 ± 0.00 | 72.03 |
+| seq2seq-bahdanau-topk-T0.7 | 25.82 ± 0.22 | 4.91 ± 0.20 | 16.87 ± 0.19 | 51.07 ± 0.34 | 0.04 ± 0.00 | 0.50 ± 0.01 | 3.44 ± 0.20 | 0.12 ± 0.00 | 0.49 ± 0.00 | 0.36 ± 0.02 | 72.03 |
+| seq2seq-bahdanau-nucleus-T0.7 | 26.40 ± 0.08 | 5.28 ± 0.08 | 17.30 ± 0.07 | 51.03 ± 0.29 | 0.04 ± 0.00 | 0.55 ± 0.01 | 3.67 ± 0.02 | 0.12 ± 0.00 | 0.48 ± 0.00 | 0.32 ± 0.01 | 72.03 |
 
 TextRank preprocessing ablation (`python -m src.text_study`, `results/text_study.md`):
 
-<!-- TODO(text-study): summarise results/text_study.md -->
+- weighting: bow=33.19, tfidf=34.31
+- stop-words removed: False=32.39, True=35.10
+- normalisation: none=33.78, porter=33.75, lemma=33.72
+- n-grams: (1, 1)=33.83, (1, 2)=33.67
+
+Default configuration (TF-IDF, stop-words removed, no normalisation, unigrams) in this grid: 35.8 / 14.1 / 23.38 (R-1 / R-2 / R-L). Full 24-row grid in `results/text_study.md`.
 
 Tokenizer study (`python -m src.tokenizer_study`, `results/tokenizers.md`):
 
-<!-- TODO(tokenizers): summarise results/tokenizers.md -->
+| tokenizer | CNN/DM OOV/unk rate | CNN/DM avg tokens/article | CNN/DM % > 400 | gov OOV/unk rate | gov avg tokens/doc | gov % > 400 |
+|---|---|---|---|---|---|---|
+| word-level (30k, project) | 2.44% | 812 | 84.8% | 9.53% | 2204 | 66.7% |
+| BERT WordPiece (bert-base-uncased) | 0.00% | 867 | 88.6% | 0.00% | 2481 | 66.7% |
+| GPT-2 BPE | 0.00% | 860 | 88.0% | 0.00% | 2559 | 66.7% |
+| T5 SentencePiece (t5-small) | 0.00% | 971 | 91.2% | 0.00% | 2706 | 66.7% |
+
+Example segmentations of rare government-document words are in `results/tokenizers.md`.
 
 Word2Vec (`python -m src.embeddings`, `results/word2vec.md`, `results/word2vec_plots.png`):
 
-<!-- TODO(word2vec): neighbours / analogies / seq2seq-embedding comparison from results/word2vec.md -->
+Mean top-10 neighbour overlap with the seq2seq embedding: cbow = 0.02, skipgram = 0.01 (over 10 words).
+
+✓ = correct top-1, ~ = correct in top-5, ✗ = miss. Accuracy top-1 / top-5: cbow 5/8 , 6/8; skipgram 6/8 , 8/8; seq2seq-enc-emb 0/8 , 0/8.
+
+![Word2Vec PCA and t-SNE](results/word2vec_plots.png)
+
+Neighbour lists for 10 words and the analogy table are in `results/word2vec.md`. The seq2seq encoder embedding shows almost no semantic structure, which is expected for an embedding trained only through a summarisation loss.
 
 Neural extractive summariser (`python -m src.neural_extractive`, `results/neural_extractive.md`):
 
-<!-- TODO(neural-extractive): from results/neural_extractive.md -->
+| system | selection F1 | R-1 | R-2 | R-L |
+|---|---|---|---|---|
+| Lead-3 | 34.73 | 40.23 | 17.31 | 24.78 |
+| Oracle (top-3 by label) | 100.00 | 49.39 | 27.23 | 34.49 |
+| SummaRuNNer-lite, GRU sentence encoder | 41.42 ± 0.14 | 38.66 ± 0.12 | 16.60 ± 0.06 | 24.62 ± 0.15 |
+| SummaRuNNer-lite, LSTM sentence encoder | 41.80 ± 1.09 | 38.82 ± 0.41 | 16.75 ± 0.38 | 24.81 ± 0.23 |
+
+Mean ± std over 3 seeds; labels are top-3 sentences by ROUGE-1+ROUGE-2 F (own n-gram implementation) against the reference. Details in `results/neural_extractive.md`.
 
 ---
 
@@ -163,7 +207,19 @@ The model is trained only on CNN/DailyMail and never fine-tuned on government te
 
 **How to read these numbers:** the 9 documents have no reference summaries, so no ROUGE is computed. Compression ratio and the keyword audit are descriptive checks, not quality scores; a higher compression ratio only means shorter output.
 
-<!-- TODO(gov-extended): fill from the 'Extended comparison' section of results/government/metrics.md -->
+Extended comparison (appended to `results/government/metrics.md`; `nan` = the summaries contained no numbers):
+
+| model | summaries | avg summary tokens | avg compression ratio | unsupported-number rate |
+|---|---:|---:|---:|---:|
+| textrank | 9 | 57.44 | 6.4061 | 0.0 |
+| bigru_gru_bahdanau_greedy | 9 | 51.0 | 7.3596 | 0.2 |
+| bigru_gru_bahdanau_beam | 9 | 46.44 | 8.3544 | 0.0 |
+| bigru_gru_luong_greedy | 9 | 48.89 | 7.741 | nan |
+| bigru_gru_luong_beam | 9 | 35.89 | 10.2626 | nan |
+| bigru_gru_none_greedy | 9 | 50.44 | 7.2966 | nan |
+| bigru_gru_none_beam | 9 | 46.67 | 8.0094 | 0.25 |
+| t5-small | 9 | 44.22 | 8.3589 | 0.0 |
+| bert-extractive | 9 | 60.0 | 6.0389 | 0.0 |
 
 The pipeline includes:
 - **`src.gov_sources`**: Clean text extraction from official PIB releases and metadata manifests.
@@ -178,13 +234,13 @@ All additions are optional flags or new modules; defaults reproduce the original
 
 | Unit | Topic | Code | Result file | Status |
 |---|---|---|---|---|
-| I | TF-IDF/BoW, stop-words, stemming, lemmatization, n-grams | `src/textrank.py` (`stop_words`, `norm`, `weighting`, `ngram`), `src/text_study.py` | `results/text_study.md` | pending |
-| I, V | Tokenization: word-level vs WordPiece vs BPE vs SentencePiece | `src/vocab.py`, `src/tokenizer_study.py` | `results/tokenizers.md` | pending |
-| II | Word2Vec (CBOW, Skip-Gram), neighbours, analogies, PCA/t-SNE, W2V-TextRank | `src/embeddings.py`, `src/textrank.py` (`--repr w2v`) | `results/word2vec.md`, `results/word2vec_plots.png`, `results/metrics.md` | pending |
-| III | Neural extractive summarisation (SummaRuNNer-lite, BiGRU vs BiLSTM) | `src/neural_extractive.py` | `results/neural_extractive.md` | pending |
-| IV | Seq2Seq, attention, decoding (greedy, beam, top-k, nucleus) | `src/model.py`, `src/decode.py`, `src/sampling.py`, `src/evaluate.py` | `results/metrics.md`, `results/tuning.md` | pending (sampling rows) |
-| V | Transformers: self-attention, positional encoding, BERT, pretrained T5 | `src/transformer_demo.py`, `src/pretrained.py` | `results/bert_attention.png`, `results/metrics.md`, `results/government/metrics.md` | pending |
-| VI | Evaluation: ROUGE, BLEU-4, perplexity, diversity, hallucination proxy, human-eval protocol | `src/evaluate.py`, `src/gov_eval.py`, `src/metrics_extra.py`, `src/human_eval.py` | `results/metrics.md`, `results/human_eval.csv` (ratings blank, to be filled by raters) | pending |
+| I | TF-IDF/BoW, stop-words, stemming, lemmatization, n-grams | `src/textrank.py` (`stop_words`, `norm`, `weighting`, `ngram`), `src/text_study.py` | `results/text_study.md` | done |
+| I, V | Tokenization: word-level vs WordPiece vs BPE vs SentencePiece | `src/vocab.py`, `src/tokenizer_study.py` | `results/tokenizers.md` | done |
+| II | Word2Vec (CBOW, Skip-Gram), neighbours, analogies, PCA/t-SNE, W2V-TextRank | `src/embeddings.py`, `src/textrank.py` (`--repr w2v`) | `results/word2vec.md`, `results/word2vec_plots.png`, `results/metrics.md` | done |
+| III | Neural extractive summarisation (SummaRuNNer-lite, BiGRU vs BiLSTM) | `src/neural_extractive.py` | `results/neural_extractive.md` | done |
+| IV | Seq2Seq, attention, decoding (greedy, beam, top-k, nucleus) | `src/model.py`, `src/decode.py`, `src/sampling.py`, `src/evaluate.py` | `results/metrics.md`, `results/tuning.md` | done |
+| V | Transformers: self-attention, positional encoding, BERT, pretrained T5 | `src/transformer_demo.py`, `src/pretrained.py` | `results/bert_attention.png`, `results/metrics.md`, `results/government/metrics.md` | done |
+| VI | Evaluation: ROUGE, BLEU-4, perplexity, diversity, hallucination proxy, human-eval protocol | `src/evaluate.py`, `src/gov_eval.py`, `src/metrics_extra.py`, `src/human_eval.py` | `results/metrics.md`, `results/human_eval.csv` (ratings blank, to be filled by raters) | done |
 
 ---
 
@@ -375,9 +431,9 @@ Numbers below come from existing result files (`results/metrics.md`, `results/tu
 
 - **Attention is essential.** At beam 4 the Bahdanau model reaches ROUGE-1 28.65 versus 19.37 with no attention (`results/metrics.md`).
 - **Degenerate repetition under greedy decoding.** 91.6% of greedy Bahdanau summaries repeat a trigram; n-gram blocking brings this to 0.0% at the cost of a hand-written decoding rule (`results/metrics.md`, `results/tuning.md`).
-- **Closed vocabulary.** Greedy and beam summaries contain `<unk>` tokens at a rate of 4.40% and 4.08% of output tokens; attention-based replacement removes them only at decode time (`results/metrics.md`, `results/tuning.md`). <!-- TODO(oov): add tokenizer OOV rates from results/tokenizers.md -->
-- **Hard 400-token input limit.** 6 of the 9 government documents exceed 400 tokens and lose up to 97.1% of their text without `--chunking` (`results/government/document_metrics.json`). <!-- TODO(truncation): add CNN/DM share over 400 tokens from results/tokenizers.md -->
-- **No ground-truth guarantee.** The model can generate content absent from the source; the unsupported-number rate is a proxy only. <!-- TODO(unsupported): add rates from results/metrics.md -->
+- **Closed vocabulary.** Greedy and beam summaries contain `<unk>` tokens at a rate of 4.40% and 4.08% of output tokens; attention-based replacement removes them only at decode time (`results/metrics.md`, `results/tuning.md`). The 30k word vocabulary leaves 2.44% of CNN/DM test tokens and 9.53% of government-document tokens out-of-vocabulary; WordPiece, BPE and SentencePiece have none (`results/tokenizers.md`).
+- **Hard 400-token input limit.** 6 of the 9 government documents exceed 400 tokens and lose up to 97.1% of their text without `--chunking` (`results/government/document_metrics.json`). 84.8% of CNN/DM test articles exceed 400 word tokens and are truncated (`results/tokenizers.md`).
+- **No ground-truth guarantee.** The model can generate content absent from the source; the unsupported-number rate is a proxy only. In beam-4 summaries 14.84% of numbers are absent from the source for Bahdanau, versus 74.29% (Luong) and 75.75% (no attention); TextRank has 0.0% (`results/metrics.md`).
 
 ---
 

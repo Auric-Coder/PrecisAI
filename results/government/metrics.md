@@ -16,3 +16,19 @@ All documents and their chunks belong to the single government_evaluation split.
 Input limit: 400 tokens per model call; summary limit: 60 tokens.
 Over-limit documents are flagged in document_metrics.json. With --chunking, sentence-aware chunks are evaluated separately.
 Policy preservation checks are lexical heuristics, not proof of factual correctness.
+
+## Extended comparison (models: bahdanau luong none t5-small bert-extractive; chunking=False)
+
+| model | summaries | avg summary tokens | avg compression ratio | unsupported-number rate |
+|---|---:|---:|---:|---:|
+| textrank | 9 | 57.44 | 6.4061 | 0.0 |
+| bigru_gru_bahdanau_greedy | 9 | 51.0 | 7.3596 | 0.2 |
+| bigru_gru_bahdanau_beam | 9 | 46.44 | 8.3544 | 0.0 |
+| bigru_gru_luong_greedy | 9 | 48.89 | 7.741 | nan |
+| bigru_gru_luong_beam | 9 | 35.89 | 10.2626 | nan |
+| bigru_gru_none_greedy | 9 | 50.44 | 7.2966 | nan |
+| bigru_gru_none_beam | 9 | 46.67 | 8.0094 | 0.25 |
+| t5-small | 9 | 44.22 | 8.3589 | 0.0 |
+| bert-extractive | 9 | 60.0 | 6.0389 | 0.0 |
+
+Unsupported-number rate: share of numeric tokens in a summary absent from its full source document (NaN = summaries contain no numbers). Hallucination proxy only.

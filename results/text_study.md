@@ -1,6 +1,6 @@
 # TextRank preprocessing ablation (CNN/DM test, n=500, top-3 sentences)
 
-Full 2x2x3x2 grid. Cosine-similarity graph, PageRank d=0.85 (as in `src/textrank.py`). Analyzer: lowercase alphanumeric tokens.
+Full 2x2x3x2 grid over `textrank(weighting=, stop_words=, norm=, ngram=)`. Cosine-similarity graph, PageRank d=0.85. Analyzer: lowercase alphanumeric tokens, sklearn English stop list, NLTK Porter / WordNet lemmatizer.
 
 | weighting | stop-words removed | normalisation | n-grams | R-1 | R-2 | R-L |
 |---|---|---|---|---|---|---|
@@ -10,30 +10,30 @@ Full 2x2x3x2 grid. Cosine-similarity graph, PageRank d=0.85 (as in `src/textrank
 | bow | no | porter | uni+bi | 31.55 | 10.93 | 20.33 |
 | bow | no | lemma | uni | 31.89 | 11.05 | 20.38 |
 | bow | no | lemma | uni+bi | 31.42 | 10.93 | 20.3 |
-| bow | yes | none | uni | 35.52 | 13.65 | 22.92 |
-| bow | yes | none | uni+bi | 35.28 | 13.85 | 23.09 |
-| bow | yes | porter | uni | 35.14 | 13.39 | 22.77 |
-| bow | yes | porter | uni+bi | 35.01 | 13.54 | 22.89 |
-| bow | yes | lemma | uni | 35.13 | 13.35 | 22.88 |
-| bow | yes | lemma | uni+bi | 35.08 | 13.7 | 23.02 |
-| tfidf | no | none | uni | 33.22 | 12.23 | 21.41 |
+| bow | yes | none | uni | 34.83 | 13.0 | 22.45 |
+| bow | yes | none | uni+bi | 34.81 | 13.29 | 22.72 |
+| bow | yes | porter | uni | 34.86 | 12.94 | 22.34 |
+| bow | yes | porter | uni+bi | 34.75 | 13.25 | 22.62 |
+| bow | yes | lemma | uni | 34.61 | 12.83 | 22.25 |
+| bow | yes | lemma | uni+bi | 34.84 | 13.19 | 22.56 |
+| tfidf | no | none | uni | 33.22 | 12.23 | 21.42 |
 | tfidf | no | none | uni+bi | 33.01 | 12.51 | 21.73 |
-| tfidf | no | porter | uni | 33.23 | 12.12 | 21.26 |
+| tfidf | no | porter | uni | 33.23 | 12.12 | 21.25 |
 | tfidf | no | porter | uni+bi | 33.13 | 12.49 | 21.73 |
 | tfidf | no | lemma | uni | 33.29 | 12.23 | 21.43 |
-| tfidf | no | lemma | uni+bi | 33.26 | 12.75 | 21.95 |
-| tfidf | yes | none | uni | 35.84 | 14.24 | 23.5 |
-| tfidf | yes | none | uni+bi | 35.44 | 14.22 | 23.4 |
-| tfidf | yes | porter | uni | 35.75 | 14.15 | 23.31 |
-| tfidf | yes | porter | uni+bi | 35.53 | 14.2 | 23.33 |
-| tfidf | yes | lemma | uni | 35.49 | 14.09 | 23.34 |
-| tfidf | yes | lemma | uni+bi | 35.36 | 14.22 | 23.35 |
+| tfidf | no | lemma | uni+bi | 33.26 | 12.75 | 21.94 |
+| tfidf | yes | none | uni | 35.8 | 14.1 | 23.38 |
+| tfidf | yes | none | uni+bi | 35.34 | 13.96 | 23.17 |
+| tfidf | yes | porter | uni | 35.71 | 13.95 | 23.16 |
+| tfidf | yes | porter | uni+bi | 35.26 | 14.0 | 23.2 |
+| tfidf | yes | lemma | uni | 35.4 | 13.77 | 22.96 |
+| tfidf | yes | lemma | uni+bi | 35.05 | 13.84 | 23.04 |
 
 Marginal mean R-1 over the other factors:
 
-- weighting: bow=33.39, tfidf=34.38
-- stop-words removed: False=32.39, True=35.38
-- normalisation: none=33.94, porter=33.86, lemma=33.86
-- n-grams: 1=33.97, 2=33.81
+- weighting: bow=33.19, tfidf=34.31
+- stop-words removed: False=32.39, True=35.10
+- normalisation: none=33.78, porter=33.75, lemma=33.72
+- n-grams: (1, 1)=33.83, (1, 2)=33.67
 
-Reference: production `textrank.py` (sklearn TF-IDF, stop_words='english') scores R-1 35.8 in results/metrics.md.
+Reference: default `textrank()` (TF-IDF, stop_words='english') in results/metrics.md.

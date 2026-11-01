@@ -8,11 +8,11 @@
   "test_index": 388
  },
  "item003": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 298
  },
  "item004": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 401
  },
  "item005": {
@@ -32,7 +32,7 @@
   "test_index": 155
  },
  "item009": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 456
  },
  "item010": {
@@ -60,7 +60,7 @@
   "test_index": 20
  },
  "item016": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 183
  },
  "item017": {
@@ -76,7 +76,7 @@
   "test_index": 455
  },
  "item020": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 197
  },
  "item021": {
@@ -84,15 +84,15 @@
   "test_index": 388
  },
  "item022": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 20
  },
  "item023": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 495
  },
  "item024": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 494
  },
  "item025": {
@@ -104,7 +104,7 @@
   "test_index": 132
  },
  "item027": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 155
  },
  "item028": {
@@ -112,7 +112,7 @@
   "test_index": 455
  },
  "item029": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 215
  },
  "item030": {
@@ -184,11 +184,11 @@
   "test_index": 470
  },
  "item047": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 207
  },
  "item048": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 424
  },
  "item049": {
@@ -196,7 +196,7 @@
   "test_index": 248
  },
  "item050": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 244
  },
  "item051": {
@@ -212,11 +212,11 @@
   "test_index": 132
  },
  "item054": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 388
  },
  "item055": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 132
  },
  "item056": {
@@ -240,15 +240,15 @@
   "test_index": 494
  },
  "item061": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 470
  },
  "item062": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 248
  },
  "item063": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 432
  },
  "item064": {
@@ -288,7 +288,7 @@
   "test_index": 455
  },
  "item073": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 261
  },
  "item074": {
@@ -296,7 +296,7 @@
   "test_index": 401
  },
  "item075": {
-  "system": "t5_small_finetuned",
+  "system": "t5_small_pretrained",
   "test_index": 455
  },
  "item076": {
