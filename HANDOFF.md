@@ -54,3 +54,13 @@
 - `app.py` rewritten as tabs (Summarize/Compare/Attention/About) with sidebar decoding controls; model calls unchanged. `plot_attention` gained optional `fontsize`/`colorbar` args (defaults unchanged).
 - Verified with AppTest (load, TextRank, Bahdanau beam/greedy summarize, Compare): pass.
 - README note: tuning.md attributes Luong's lag to unscaled dot products; README Limitations says unexplained/uninvestigated. Reconcile if desired.
+
+## Syllabus extras (1 Nov 2026)
+Core frozen (no edits to src/*.py, checkpoints, results/*). All new work is in `src/extras/` -> `results/extras/`. Extra pip deps installed in `precisai`: gensim, transformers, sentencepiece, sacrebleu (+ nltk wordnet/stopwords data). Not yet added to requirements.txt/environment.yml.
+- T1 `decoding_study` -> decoding.md/json (sampling, perplexity, BLEU-4, unsupported-number rate; greedy/beam rows reproduce metrics.md exactly).
+- T2 `prep_study` -> prep_study.md. T3 `tokenizer_study` -> tokenizers.md.
+- T4 `w2v_study` -> word2vec.md + plots (GloVe download worked).
+- T5 `hf_baselines {zero,bert,ft,table}` -> hf_baselines.md; `transformer_demo` -> bert_attention.png. Fine-tuned T5 in checkpoints/extras/ (gitignored).
+- T6 README sections added. Not done: T7 (neural extractive), T8 (human_eval.csv).
+- Run python via `C:\Users\ACER\miniconda3\envs\precisai\python.exe` when running jobs in parallel (`conda run` breaks/buffers); set PYTHONIOENCODING=utf-8.
+- Caveat: t5-small pretraining mixture includes CNN/DM, so its "pretrained" row is not clean zero-shot.

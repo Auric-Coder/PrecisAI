@@ -138,6 +138,42 @@ The pipeline includes:
 
 ---
 
+## Course Syllabus Coverage
+
+Core PrecisAI (`src/*.py`, `checkpoints/`, `results/*`) is unchanged. Everything below is additive code in `src/extras/` with outputs in `results/extras/`. Single seed unless a mean ± std is stated. Reproduce with `python -m src.extras.<module>` (stage argument for `hf_baselines`).
+
+| Unit | Topic | Code | Results |
+|---|---|---|---|
+| I | Text preprocessing: TF-IDF/BoW, stop-words, stemming, lemmatization, n-grams | `src/textrank.py`, `src/extras/prep_study.py` | `results/extras/prep_study.md` (24-config TextRank ablation) |
+| I, V | Tokenization: word-level vs WordPiece vs BPE vs SentencePiece | `src/vocab.py`, `src/extras/tokenizer_study.py` | `results/extras/tokenizers.md` |
+| II | Word embeddings: CBOW, Skip-Gram, GloVe, neighbours, analogies, PCA/t-SNE, W2V-TextRank | `src/extras/w2v_study.py` | `results/extras/word2vec.md`, `word2vec_plots.png` |
+| III | Neural extractive (SummaRuNNer-style) | not implemented | n/a |
+| IV | Seq2Seq, attention, decoding (greedy, beam, top-k, nucleus) | `src/model.py`, `src/decode.py`, `src/extras/decoding_study.py` | `results/metrics.md`, `results/tuning.md`, `results/extras/decoding.md` |
+| V | Transformers: self-attention, positional encoding, BERT, pretrained/fine-tuned T5 | `src/extras/transformer_demo.py`, `src/extras/hf_baselines.py` | `results/extras/hf_baselines.md`, `bert_attention.png` |
+| VI | Evaluation: ROUGE, BLEU-4, perplexity, diversity, hallucination proxy | `src/evaluate.py`, `src/extras/decoding_study.py` | `results/extras/decoding.md` |
+
+### Extras: headline results (CNN/DM test, n=500)
+
+Full table (with compression and unsupported-number rates, including the government documents) is in `results/extras/hf_baselines.md`.
+
+| System | R-1 | R-2 | R-L |
+|---|:---:|:---:|:---:|
+| TextRank (TF-IDF) | 35.80 | 14.10 | 23.38 |
+| W2V-TextRank (Skip-Gram) | 31.27 | 10.06 | 18.96 |
+| BERT-embedding TextRank | 32.84 | 11.24 | 20.13 |
+| BiGRU Bahdanau beam 4 | 28.65 | 7.93 | 19.30 |
+| t5-small pretrained (beam 4) | 37.29 | 16.54 | 26.51 |
+| t5-small fine-tuned on the same 40k articles, 1 epoch (beam 4) | 39.17 | 18.05 | 27.81 |
+
+- The greedy and beam-4 rows in `results/extras/decoding.md` reproduce `results/metrics.md` exactly (R-1/R-2/R-L).
+- Sampling (Bahdanau, 3 seeds, mean ± std) is reported in `decoding.md`; top-k and nucleus sampling score below beam search on ROUGE.
+- `t5-small` was pretrained on a multi-task mixture that includes CNN/DailyMail summarisation with the `summarize:` prefix, so the "pretrained" row is not a clean zero-shot result. T5 inputs are truncated to 400 SentencePiece tokens, BiGRU inputs to 400 words.
+- Unsupported-number rate is a lexical proxy for hallucination (numbers in the summary that never occur in the source). It ignores number words and cannot detect misused but present numbers. The government sample is under 40 numbers per system, so it is anecdotal.
+- Word2Vec neighbours and analogies are from a 40k-article corpus; see `word2vec.md` for the misses. The seq2seq encoder embedding shows almost no neighbour overlap with Word2Vec (0.01-0.02 top-10 overlap).
+- Human evaluation was not performed.
+
+---
+
 ## Repository Structure
 
 ```
@@ -157,7 +193,8 @@ The pipeline includes:
 │   ├── train.py               # Mixed-precision training pipeline with early stopping
 │   ├── evaluate.py            # ROUGE evaluation & parameter sweep CLI
 │   ├── gov_sources.py         # Government document scraper and text cleaner
-│   └── gov_eval.py            # Government benchmark evaluation and policy audit
+│   ├── gov_eval.py            # Government benchmark evaluation and policy audit
+│   └── extras/                # Syllabus-coverage studies (see Course Syllabus Coverage)
 │
 ├── data/
 │   └── circulars/             # Official government documents & benchmark
@@ -173,6 +210,7 @@ The pipeline includes:
     ├── beam_sweep.json        # Hyperparameter grid search logs
     ├── loss_curves.png        # Training/validation loss curves
     ├── attention_heatmap.png  # Decoder-to-encoder attention alignment matrix
+    ├── extras/                # Outputs of src/extras (decoding, prep, tokenizers, word2vec, hf_baselines)
     └── government/            # Government document evaluation artifacts
         ├── metrics.md         # Government benchmark summary
         ├── document_metrics.json
@@ -275,6 +313,19 @@ The web UI provides:
 - The government benchmark has only 9 documents and no reference summaries.
 - TextRank outperforms the neural models on ROUGE. This is expected on CNN/DailyMail given its lead bias and the small (40k) training set.
 - Luong attention scores below the no-attention baseline. This is unexplained and has not been investigated.
+
+---
+
+## Limitations of Classical Seq2Seq
+
+Numbers below are from existing result files.
+
+- **Attention is essential, and its implementation matters.** At beam 4 the Bahdanau model reaches R-1 28.65 versus 19.37 with no attention (`results/metrics.md`). Teacher-forced test perplexity is 72.03 (Bahdanau), 129.49 (no attention), 188.78 (Luong) (`results/extras/decoding.md`).
+- **Degenerate repetition under greedy decoding.** 91.6% of greedy Bahdanau summaries repeat a trigram; n-gram blocking and beam search remove this (`results/metrics.md`, `results/tuning.md`). Unconstrained sampling brings it down only partly, and lowering the temperature raises it again (`decoding.md`).
+- **Closed vocabulary.** The 30k word vocabulary leaves 2.44% of CNN/DM test tokens and 9.53% of government-document tokens out-of-vocabulary; subword tokenizers have none (`results/extras/tokenizers.md`). Attention-based `<unk>` replacement only patches this at decode time.
+- **Hard 400-token input limit.** 84.8% of CNN/DM test articles and 66.7% of government documents exceed 400 word tokens and are truncated (`tokenizers.md`), so content after the cut-off cannot be summarised.
+- **Weak factual grounding.** Without attention, or with the weaker Luong variant, 74-76% of the numbers in beam-4 summaries do not occur in the source, versus 14.8% for Bahdanau; TextRank copies sentences and has 0% (`decoding.md`).
+- **Small-data regime.** A pretrained transformer fine-tuned for one epoch on the same 40k articles beats the BiGRU by a wide margin (`hf_baselines.md`).
 
 ---
 
