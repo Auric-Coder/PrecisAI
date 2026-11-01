@@ -30,14 +30,25 @@ def numbers(text):
     return [t for t in tokenize(text) if t.isdigit()]
 
 
-def unsupported_rate(sources, summaries):
+def unsupported_counts(sources, summaries):
     bad = tot = 0
     for s, p in zip(sources, summaries):
         src = set(numbers(s))
         nums = numbers(p)
         tot += len(nums)
         bad += sum(n not in src for n in nums)
+    return bad, tot
+
+
+def unsupported_rate(sources, summaries):
+    bad, tot = unsupported_counts(sources, summaries)
     return round(bad / tot, 4) if tot else float("nan")
+
+
+def fmt_counts(sources, summaries):
+    """'unsupported/total' numbers, for small samples where a bare rate hides the denominator."""
+    bad, tot = unsupported_counts(sources, summaries)
+    return f"{bad}/{tot}"
 
 
 def distinct(preds, n):
