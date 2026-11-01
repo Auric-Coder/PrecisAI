@@ -55,14 +55,11 @@
 - Verified with AppTest (load, TextRank, Bahdanau beam/greedy summarize, Compare): pass.
 - README note: tuning.md attributes Luong's lag to unscaled dot products; README Limitations says unexplained/uninvestigated. Reconcile if desired.
 
-## Syllabus extras (1 Nov 2026)
-Core frozen (no edits to src/*.py, checkpoints, results/*). All new work is in `src/extras/` -> `results/extras/`. Extra pip deps installed in `precisai`: gensim, transformers, sentencepiece, sacrebleu (+ nltk wordnet/stopwords data). Not yet added to requirements.txt/environment.yml.
-- T1 `decoding_study` -> decoding.md/json (sampling, perplexity, BLEU-4, unsupported-number rate; greedy/beam rows reproduce metrics.md exactly).
-- T2 `prep_study` -> prep_study.md. T3 `tokenizer_study` -> tokenizers.md.
-- T4 `w2v_study` -> word2vec.md + plots (GloVe download worked).
-- T5 `hf_baselines {zero,bert,ft,table}` -> hf_baselines.md; `transformer_demo` -> bert_attention.png. Fine-tuned T5 in checkpoints/extras/ (gitignored).
-- T6 README sections added.
-- T7 `neural_extractive` -> neural_extractive.md (3 seeds; beats TextRank, below Lead-3).
-- T8 `human_eval make|aggregate`: results/extras/human_eval.csv has BLANK ratings for the user to fill; system key in human_eval_key.json (keep from raters). Run `aggregate` after filling.
-- Run python via `C:\Users\ACER\miniconda3\envs\precisai\python.exe` when running jobs in parallel (`conda run` breaks/buffers); set PYTHONIOENCODING=utf-8.
-- Caveat: t5-small pretraining mixture includes CNN/DM, so its "pretrained" row is not clean zero-shot.
+## Syllabus coverage integration (1-2 Nov 2026)
+New code is in `src/` behind new flags (defaults unchanged; Bahdanau beam 4 re-checked identical: 28.65/7.93/19.30). Extended runs APPEND to `results/metrics.md` and `results/government/metrics.md`, plus `results/extended_metrics.json`; per-model rows are saved to `results/partial/` (gitignored) as each model finishes.
+- `evaluate`: `--decode {greedy,beam,topk,nucleus}` `--topk --top_p --temperature --seeds` `--extra_metrics` `--repr {tfidf,w2v,bert}`; `--models` accepts `t5-small bert-extractive`. `gov_eval`: same models + `--extra_metrics`.
+- `textrank()` options: `repr, stop_words, norm, weighting, ngram`. Modules: `sampling, metrics_extra, pretrained, embeddings` (Word2Vec saved to checkpoints/w2v_*.model, gitignored), `text_study, tokenizer_study, transformer_demo, neural_extractive, human_eval`.
+- Results: text_study.md, tokenizers.md, word2vec.md and word2vec_plots.png, bert_attention.png, neural_extractive.md/json, human_eval.csv (ratings BLANK for the user; key in human_eval_key.json; run `python -m src.human_eval aggregate` after filling).
+- New pins in requirements.txt and environment.yml: gensim, transformers, sentencepiece, sacrebleu. BERT/GPT-2/T5 weights download on first use.
+- Not done: app model selector (optional). Sampling used seeds 0 1 2; nothing was skipped.
+- Caveats: t5-small pretraining mixture includes CNN/DM (not clean zero-shot); gov unsupported-number rate rests on fewer than 40 numbers per system; `conda run` buffers output and breaks when run in parallel, so call the env python directly (miniconda3/envs/precisai/python.exe) with PYTHONIOENCODING=utf-8.
