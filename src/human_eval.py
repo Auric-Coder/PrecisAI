@@ -1,6 +1,6 @@
 """T8 (Unit VI): blinded human-evaluation sheet and aggregation.
-  python -m src.extras.human_eval make       -> results/extras/human_eval.csv (ratings BLANK) + human_eval_key.json (system key; do not show raters)
-  python -m src.extras.human_eval aggregate  -> results/extras/human_eval_summary.md (mean ± std per system, from filled ratings only)
+  python -m src.human_eval make       -> results/human_eval.csv (ratings BLANK) + human_eval_key.json (system key; do not show raters)
+  python -m src.human_eval aggregate  -> results/human_eval_summary.md (mean ± std per system, from filled ratings only)
 Rate each summary 1-5 for fluency, coverage (key points of the article kept) and faithfulness (nothing contradicting/absent from the article)."""
 import csv
 import json
@@ -10,10 +10,10 @@ import sys
 import numpy as np
 import torch
 
-from ..decode import beam_search, load_model
-from ..textrank import textrank
-from ..vocab import tokenize
-from .common import OUT, ROOT, load_test
+from .decode import beam_search, load_model
+from .metrics_extra import RES as OUT, ROOT, load_test
+from .textrank import textrank
+from .vocab import tokenize
 
 N_DOCS, SEED = 20, 0
 CSV, KEY = OUT / "human_eval.csv", OUT / "human_eval_key.json"
@@ -22,23 +22,19 @@ CRIT = COLS[3:]
 
 
 def make():
-    from transformers import AutoTokenizer, T5ForConditionalGeneration
+    from .pretrained import t5_summarize
     d = load_test()
     arts, refs = d["article"], d["ref"]
     docs = sorted(random.Random(SEED).sample(range(len(arts)), N_DOCS))
     dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model, vocab = load_model(str(ROOT / "checkpoints/bahdanau.pt"), dev)
-    t5dir = ROOT / "checkpoints" / "extras" / "t5_small_cnndm"
-    tok, t5 = AutoTokenizer.from_pretrained(t5dir), T5ForConditionalGeneration.from_pretrained(t5dir).to(dev).eval()
-    systems = {"textrank": [], "bigru_bahdanau_beam4_tuned": [], "t5_small_finetuned": [], "reference": []}
+    systems = {"textrank": [], "bigru_bahdanau_beam4_tuned": [], "t5_small_pretrained": [], "reference": []}
     for i in docs:
         systems["textrank"].append(" ".join(textrank(arts[i])))
         sl = d["src_len"][i:i + 1].to(dev)
         ids, att = beam_search(model, d["src"][i:i + 1, : sl.item()].to(dev), sl, beam=4, alpha=1.0, min_len=20)
         systems["bigru_bahdanau_beam4_tuned"].append(vocab.decode(ids, tokenize(arts[i])[:400], att))
-        x = tok("summarize: " + arts[i], max_length=400, truncation=True, return_tensors="pt").to(dev)
-        with torch.no_grad():
-            systems["t5_small_finetuned"].append(tok.decode(t5.generate(**x, num_beams=4, max_new_tokens=60)[0], skip_special_tokens=True))
+        systems["t5_small_pretrained"].append(t5_summarize([arts[i]])[0])
         systems["reference"].append(refs[i])
     items = [(doc, s, systems[s][k]) for k, doc in enumerate(docs) for s in systems]
     random.Random(SEED).shuffle(items)  # blind: row order carries no system information

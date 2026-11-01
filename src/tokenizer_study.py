@@ -1,12 +1,12 @@
-"""T3: word-level (project) vs BERT WordPiece vs GPT-2 BPE vs T5 SentencePiece. Writes results/extras/tokenizers.md."""
+"""T3: word-level (project) vs BERT WordPiece vs GPT-2 BPE vs T5 SentencePiece. Writes results/tokenizers.md."""
 import json
 from collections import Counter
 
 import numpy as np
 from transformers import AutoTokenizer
 
-from ..vocab import Vocab, tokenize
-from .common import ROOT, OUT, gov_docs, load_test
+from .metrics_extra import RES as OUT, ROOT, gov_docs, load_test
+from .vocab import Vocab, tokenize
 
 LIMIT = 400
 RARE = ["notification", "ordinance", "disbursement", "gazette", "amendment", "notwithstanding", "subsidiary", "ministry"]

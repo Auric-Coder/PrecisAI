@@ -1,5 +1,5 @@
 """Unit V demo: scaled dot-product attention, multi-head self-attention and sinusoidal positional encoding from scratch,
-shape/numerics tests, and a BERT self-attention heatmap for a gov-doc sentence. Run: python -m src.extras.transformer_demo"""
+shape/numerics tests, and a BERT self-attention heatmap for a gov-doc sentence. Run: python -m src.transformer_demo"""
 import math
 
 import torch
@@ -60,7 +60,7 @@ def bert_heatmap(path, layer=7):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     from transformers import AutoModel, AutoTokenizer
-    from .common import gov_docs
+    from .metrics_extra import gov_docs
     sent = next(s for d in gov_docs().values() for s in d.replace("\n", " ").split(". ")
                 if 60 < len(s) < 140 and "*" not in s and sum(c.isalpha() or c == " " for c in s) > 0.95 * len(s)) + "."
     tok = AutoTokenizer.from_pretrained("bert-base-uncased")
@@ -78,6 +78,6 @@ def bert_heatmap(path, layer=7):
 
 
 if __name__ == "__main__":
-    from .common import OUT
+    from .metrics_extra import RES as OUT
     tests()
     bert_heatmap(OUT / "bert_attention.png")

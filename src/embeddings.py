@@ -1,25 +1,53 @@
-"""T4: Word2Vec (CBOW / Skip-Gram) on the 40k training articles, neighbours, analogies, PCA/t-SNE,
-comparison with the seq2seq encoder embedding (read-only), and W2V-TextRank. Writes results/extras/word2vec.md."""
+"""Word2Vec (CBOW / Skip-Gram) on the 40k training articles: neighbours, analogies, PCA/t-SNE, comparison with the
+seq2seq encoder embedding (read-only). Saves models to checkpoints/ and writes results/word2vec.md.
+Also provides sentence_vec_fn(kind) used by textrank(repr='w2v'|'bert'). Run: python -m src.embeddings"""
 import numpy as np
 import torch
-from datasets import load_dataset
-from gensim.models import Word2Vec
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 
-from ..evaluate import rouge
-from ..vocab import tokenize
-from .common import ROOT, OUT, embedding_textrank, load_test
+from .metrics_extra import RES as OUT, ROOT
+from .vocab import tokenize
 
 SEED = 0
-WORDS = ["government", "president", "police", "court", "market", "election", "war", "health", "school", "football"]
-ANALOGIES = [("man", "woman", "king", "queen"), ("he", "she", "his", "her"), ("france", "paris", "england", "london"),
-             ("germany", "berlin", "italy", "rome"), ("good", "better", "bad", "worse"), ("monday", "tuesday", "friday", "saturday"),
-             ("china", "chinese", "france", "french"), ("boy", "girl", "brother", "sister")]
-PLOT = {"politics": ["government", "president", "minister", "election", "party", "vote", "law", "court"],
-        "sport": ["football", "game", "team", "season", "club", "match", "league", "player"],
-        "countries": ["britain", "france", "china", "russia", "india", "germany", "iran", "syria"],
-        "time": ["monday", "tuesday", "friday", "sunday", "january", "june", "year", "week"]}
+W2V_PATH = ROOT / "checkpoints" / "w2v_{}.model"
+_VEC = {}
+
+
+def train_w2v():
+    """CBOW + Skip-Gram on the 40k training articles (same subset/seed as preprocess.py)."""
+    from datasets import load_dataset
+    from gensim.models import Word2Vec
+    train = load_dataset("abisee/cnn_dailymail", "3.0.0", split="train").shuffle(seed=42).select(range(40000))
+    sents = [tokenize(a) for a in train["article"]]
+    for name, sg in [("cbow", 0), ("skipgram", 1)]:
+        m = Word2Vec(sents, vector_size=128, window=5, min_count=5, sg=sg, negative=5, epochs=3, workers=1, seed=SEED)
+        m.save(str(W2V_PATH).format(name))
+        print(name, "trained", len(m.wv), flush=True)
+
+
+def load_w2v(name):
+    import os
+    from gensim.models import Word2Vec
+    path = str(W2V_PATH).format(name)
+    if not os.path.exists(path):
+        train_w2v()
+    return Word2Vec.load(path).wv
+
+
+def sentence_vec_fn(kind):
+    """kind: w2v (Skip-Gram, averaged word vectors) | bert (mean-pooled bert-base-uncased)."""
+    if kind == "bert":
+        from .pretrained import bert_vec_fn
+        return bert_vec_fn()
+    if "w2v" not in _VEC:
+        _VEC["w2v"] = load_w2v("skipgram")
+    kv = _VEC["w2v"]
+
+    def f(s):
+        vs = [kv[w] for w in tokenize(s) if w in kv]
+        return np.mean(vs, 0) if vs else np.zeros(kv.vector_size)
+    return f
 
 
 class Seq2SeqEmb:
@@ -58,13 +86,9 @@ def analogy_acc(kv):
     return res
 
 
+
 def main():
-    train = load_dataset("abisee/cnn_dailymail", "3.0.0", split="train").shuffle(seed=42).select(range(40000))
-    sents = [tokenize(a) for a in train["article"]]
-    models = {}
-    for name, sg in [("cbow", 0), ("skipgram", 1)]:
-        models[name] = Word2Vec(sents, vector_size=128, window=5, min_count=5, sg=sg, negative=5, epochs=3, workers=1, seed=SEED)
-        print(name, "trained", len(models[name].wv), flush=True)
+    models = {n: type("M", (), {"wv": load_w2v(n)}) for n in ("cbow", "skipgram")}
     s2s = Seq2SeqEmb()
     embs = {"cbow": models["cbow"].wv, "skipgram": models["skipgram"].wv, "seq2seq-enc-emb": s2s}
 
@@ -115,34 +139,12 @@ def main():
     fig.savefig(OUT / "word2vec_plots.png", dpi=130)
     L += ["![PCA and t-SNE](word2vec_plots.png)", ""]
 
-    # W2V-TextRank
-    d = load_test()
-    refs, arts = d["ref"], d["article"]
-
-    def make_vec(kv):
-        dim = kv.vector_size if hasattr(kv, "vector_size") else kv.W.shape[1]
-
-        def f(s):
-            vs = [kv[w] for w in tokenize(s) if w in kv]
-            return np.mean(vs, 0) if vs else np.zeros(dim)
-        return f
-    L += ["## W2V-TextRank (extractive, top-3 sentences, averaged word vectors, cosine graph, PageRank d=0.85; CNN/DM test n=500)", "",
-          "| system | R-1 | R-2 | R-L |", "|---|---|---|---|"]
-    systems = {"W2V-TextRank (Skip-Gram)": embs["skipgram"], "W2V-TextRank (CBOW)": embs["cbow"], "seq2seq-embedding TextRank": s2s}
-    try:
-        import gensim.downloader as api
-        systems["GloVe-100 TextRank"] = api.load("glove-wiki-gigaword-100")
-    except Exception as e:
-        L_note = f"GloVe skipped ({type(e).__name__})."
-        print(L_note)
-    for name, kv in systems.items():
-        r = rouge([" ".join(embedding_textrank(a, make_vec(kv))) for a in arts], refs)
-        L.append(f"| {name} | {r['rouge1']} | {r['rouge2']} | {r['rougeL']} |")
-        print(name, r, flush=True)
-    L += ["", "Reference TF-IDF TextRank (results/metrics.md): R-1 35.8 / R-2 14.1 / R-L 23.38."]
-    if "GloVe-100 TextRank" not in systems:
-        L.append("GloVe skipped: download unavailable.")
+    L += ["W2V-TextRank (extractive) ROUGE is produced by `python -m src.evaluate --repr w2v` (see results/metrics.md)."]
     (OUT / "word2vec.md").write_text("\n".join(L) + "\n", encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()
 
 
 if __name__ == "__main__":

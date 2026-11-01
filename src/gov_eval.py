@@ -11,6 +11,8 @@ from pathlib import Path
 import torch
 
 from .decode import beam_search, greedy, load_model
+from .metrics_extra import unsupported_rate
+from .pretrained import HF_MODELS, summarize
 from .textrank import split_sentences, textrank
 from .vocab import tokenize
 
@@ -90,15 +92,17 @@ def model_summary(text, model_name, decode, device):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--models", nargs="+", default=["bahdanau", "luong", "none"], choices=["bahdanau", "luong", "none"])
+    ap.add_argument("--models", nargs="+", default=["bahdanau", "luong", "none"], choices=["bahdanau", "luong", "none", *HF_MODELS])
     ap.add_argument("--decode", choices=["greedy", "beam", "both"], default="both")
     ap.add_argument("--chunking", action="store_true", help="sentence-aware chunking for documents longer than 400 tokens")
     ap.add_argument("--output", default="results/government", help="government-only result folder")
+    ap.add_argument("--extra_metrics", action="store_true", help="Add unsupported-number rate; appends to results/government/metrics.md instead of overwriting")
     a = ap.parse_args()
+    extended = a.extra_metrics or any(m in HF_MODELS for m in a.models)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     outdir = ROOT / a.output
     outdir.mkdir(parents=True, exist_ok=True)
-    docs, outputs = [], {}
+    docs, outputs, sources = [], {}, {}
     for item in load_manifest():
         if item.get("extraction_status") != "success" or not item.get("cleaned_file"):
             continue
@@ -119,6 +123,9 @@ def main():
             result = {"chunk_id": piece_id if a.chunking else None, "source_token_count": len(words(piece)), "summaries": {}}
             summary_methods = [("textrank", "extractive", None)]
             for model_name in a.models:
+                if model_name in HF_MODELS:
+                    summary_methods.append((model_name, "hf", model_name))
+                    continue
                 if a.decode in ("greedy", "both"):
                     summary_methods.append((f"bigru_gru_{model_name}_greedy", "greedy", model_name))
                 if a.decode in ("beam", "both"):
@@ -127,6 +134,8 @@ def main():
                 if method == "extractive":
                     summary = " ".join(textrank(piece))
                     status = "ok"
+                elif method == "hf":
+                    summary, status = summarize(model_name, [piece if a.chunking else source])[0], "ok"
                 else:
                     summary, status = model_summary(piece, model_name, method, device)
                 if status != "ok":
@@ -139,6 +148,7 @@ def main():
                     "compression_ratio": ratio(len(words(piece)), len(words(summary))),
                     "factual_audit_heuristics": factual_audit(piece, summary)}
                 outputs.setdefault(name, []).append(summary)
+                sources.setdefault(name, []).append(source)
             row["models"][str(piece_id) if a.chunking else "document"] = result
         docs.append(row)
     n_units = sum(x.get("chunk_count") or 1 for x in docs)
@@ -154,6 +164,21 @@ def main():
         aggregate[name] = {"n_summaries": len(preds), "avg_summary_length_tokens": round(sum(lens) / len(lens), 2) if lens else 0,
                            "avg_compression_ratio": round(sum(compressions) / len(compressions), 4) if compressions else None,
                            "rouge1_f1": None, "rouge2_f1": None, "rougeL_f1": None}
+        if a.extra_metrics:
+            aggregate[name]["unsupported_number_rate"] = unsupported_rate(sources[name], preds)
+    if extended:  # append-only: baseline government results stay untouched
+        lines = ["", f"## Extended comparison (models: {' '.join(a.models)}; chunking={a.chunking})", "",
+                 "| model | summaries | avg summary tokens | avg compression ratio |" + (" unsupported-number rate |" if a.extra_metrics else ""),
+                 "|---|---:|---:|---:|" + ("---:|" if a.extra_metrics else "")]
+        lines += [f"| {n} | {m['n_summaries']} | {m['avg_summary_length_tokens']} | {m['avg_compression_ratio']} |"
+                  + (f" {m['unsupported_number_rate']} |" if a.extra_metrics else "") for n, m in aggregate.items()]
+        if a.extra_metrics:
+            lines += ["", "Unsupported-number rate: share of numeric tokens in a summary absent from its full source document (NaN = summaries contain no numbers). Hallucination proxy only."]
+        with open(outdir / "metrics.md", "a", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+        (outdir / "extended_summaries.json").write_text(json.dumps(outputs, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"Extended government evaluation appended to {outdir / 'metrics.md'}")
+        return
     report = {"n_documents": len(docs), "n_evaluation_units": n_units, "evaluation_split": "government_evaluation",
         "references_available": False, "model_metrics": aggregate, "rouge": None,
         "note": "No human-reviewed references are present; ROUGE is not computed. Compression is input tokens divided by output tokens. Factual audits are heuristic only.", "documents": docs}

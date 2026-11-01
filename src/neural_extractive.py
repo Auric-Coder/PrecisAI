@@ -1,7 +1,7 @@
 """T7 (Unit III): SummaRuNNer-lite neural extractive summariser.
 Sentence encoder (BiGRU vs BiLSTM over words) -> document-level BiGRU over sentences -> per-sentence logistic scorer.
 Labels: top-3 sentences by ROUGE-1+ROUGE-2 F (own n-gram implementation, no stemming) vs the reference highlights = 1.
-Trained on the same 40k training articles; evaluated on the 500 test articles. Writes results/extras/neural_extractive.md."""
+Trained on the same 40k training articles; evaluated on the 500 test articles. Writes results/neural_extractive.md."""
 import json
 from collections import Counter
 
@@ -11,10 +11,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 from datasets import load_dataset
 
-from ..evaluate import rouge
-from ..textrank import split_sentences
-from ..vocab import PAD_ID, Vocab, tokenize
-from .common import ROOT, OUT, load_test
+from .evaluate import rouge
+from .metrics_extra import RES as OUT, ROOT, load_test
+from .textrank import split_sentences
+from .vocab import PAD_ID, Vocab, tokenize
 
 MAX_S, MAX_W, K, EPOCHS, SEEDS = 40, 50, 3, 3, [0, 1, 2]
 DEV = torch.device("cuda" if torch.cuda.is_available() else "cpu")
