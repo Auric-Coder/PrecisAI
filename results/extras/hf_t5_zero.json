@@ -1,0 +1,30 @@
+{
+ "cnndm": {
+  "rouge1": 37.29,
+  "rouge2": 16.54,
+  "rougeL": 26.51,
+  "bleu4": 11.33,
+  "avg_len": 45.1,
+  "tri_repeat": 0.17,
+  "distinct1": 0.239,
+  "distinct2": 0.715,
+  "unsup_num": 0.0065,
+  "decode_s": 43
+ },
+ "gov": {
+  "unsup_num": "0/14",
+  "avg_len": 44.22,
+  "avg_compression": 8.3589
+ },
+ "gov_summaries": [
+  "scheme guidelines for implementation of ' payment security mechanism ' component and ' central financial assistance ' component . scheme offers two alternative implementation models for the installation of rooftop solar plants for consumers . scheme includes the resco model , where third - party entities invest in rooftop solar installations",
+  "the scheme guidelines provide the scheme modalities including indicative outlays for recycling systems , methodology for incentive allocation , application , evaluation and disbursement procedures , institutional mechanism , and performance review . the guidelines have been finalized after detailed consultation with industry and other relevant stakeholders .",
+  "the guidelines propose a robust governance framework to foster cutting - edge innovation and safely develop and deploy ai for all while mitigating risks to individuals and society . the launch marks a key milestone ahead of the india \u2013 ai impact summit 2026 .",
+  "the guidelines have been formulated to promote decentralized and participatory school governance . they seek to improve the overall functioning of schools by creating a more supportive , inclusive and effective learning environment , keeping the best interests of children at the centre .",
+  "129 registered vehicle scrapping facilities are operational across 21 states and uts in the country under vehicle scrapping policy . a total of 4 , 30 , 306 vehicles have been scrapped by these rvsfs till 30 . 01 . 2026 .",
+  "the jan shikshan sansthan ( jss ) scheme under the skill india programme aims to provide skill training in a non - formal mode at the doorsteps of the beneficiary . the target beneficiaries are non - literates , persons having rudimentary level",
+  "the national cooperation policy ( ncp ) , 2025 was launched on 24th july 2025 . the policy provides a roadmap for the systematic and holistic development of the cooperative sector . it has 6 strategic pillars , 16 objectives , and 83 recommendations .",
+  "niti aayog has prepared a detailed approach paper to promote affordable housing . the report may be seen at https : / / pmay - urban . gov . in / phq / a_comprehensive_framework_to_promote_affordable",
+  "waste management rules have been notified for different waste categories . include plastic waste , battery waste , e - waste , waste tyre , used oil , end - of - life vehicles , construction and demolition waste and non - ferrous scrap metal ."
+ ]
+}

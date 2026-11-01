@@ -1,0 +1,30 @@
+{
+ "cnndm": {
+  "rouge1": 39.17,
+  "rouge2": 18.05,
+  "rougeL": 27.81,
+  "bleu4": 12.3,
+  "avg_len": 45.6,
+  "tri_repeat": 0.212,
+  "distinct1": 0.247,
+  "distinct2": 0.723,
+  "unsup_num": 0.0016,
+  "decode_s": 38
+ },
+ "gov": {
+  "unsup_num": "0/17",
+  "avg_len": 46.89,
+  "avg_compression": 7.7768
+ },
+ "gov_summaries": [
+  "scheme guidelines for implementation of ' payment security mechanism ' component and ' central financial assistance ' component . discoms or state designated entities will install rooftop solar projects on behalf of individual residential sector households . under this scheme component , 100 crore corpus fund",
+  "the scheme guidelines provide the scheme modalities including indicative outlays for recycling systems , methodology for incentive allocation , application , evaluation and disbursement procedures , institutional mechanism , and performance review . the guidelines have been finalized after detailed consultation with industry and other relevant stakeholders . the incentive",
+  "the india ai governance guidelines were unveiled by the ministry of electronics and information technology ( meity ) the guidelines propose a robust governance framework to foster cutting - edge innovation , and safely develop and deploy ai for all while mitigating risks to individuals and society . the launch",
+  "the ministry of education launched the school management committee ( smc ) guidelines 2026 on 6th may 2026 . the guidelines have been formulated to promote decentralized and participatory school governance . they aim to create community ownership of schools by bringing all stakeholders together on a concurrent",
+  "129 registered vehicle scrapping facilities ( rvsfs ) are operational across 21 states and uts . a total of 4 , 30 , 306 vehicles have been scrapped by these rvsfs till 30 . 01 . 2026 . incentives for ' scrapping of",
+  "the jan shikshan sansthan scheme aims to provide skill training in a non - formal mode at the doorstep of the beneficiary with 100 % grant from the government of india . the target beneficiaries are non - literates , persons having rudimentary level of education",
+  "the national cooperation policy ( ncp ) , 2025 , was launched on 24th july 2025 . the policy provides a roadmap for the systematic and holistic development of the cooperative sector . it has 6 strategic pillars , 16 objectives , and 83 recommendations . the policy",
+  "niti aayog has prepared a detailed approach paper to promote affordable housing . the report has been shared with all concerned stakeholders for further necessary action . ministry of housing and urban affairs has been implementing pradhan mantri awas yojana -",
+  "waste management rules have been notified for different waste categories . they include plastic waste , battery waste , e - waste , waste tyre , used oil , end - of - life vehicles , construction and demolition waste , non - ferrous scrap metal and solid waste ."
+ ]
+}
