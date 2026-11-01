@@ -24,6 +24,12 @@
   - **Attention-Guided `<unk>` Replacement**: Dynamically resolves out-of-vocabulary tokens by aligning with top-attended source tokens, driving `<unk>` rate from **4.4% down to 0.00%**.
   - **$N$-gram Blocking ($N=3$)**: Eliminates repetitive looping in greedy decoding, reducing trigram repetition from **91.6% down to 3.8%**.
   - **Tuned Beam Search** (Beam 4): length-normalized ($\alpha=1.0$) with min-length constraint ($\ge 20$), achieving **30.61 ROUGE-1 / 8.86 ROUGE-2 / 20.40 ROUGE-L**. Best-per-metric with Beam 6 (same settings): 9.17 ROUGE-2 / 20.41 ROUGE-L.
+- **Extended Syllabus Comparison (same CLIs, same tables)**:
+  - **Decoding**: top-k and nucleus sampling with temperature (mean ± std over seeds) next to greedy and beam search.
+  - **Metrics**: test perplexity, BLEU-4, distinct-1/2 and an unsupported-number rate (hallucination proxy), also computed on the government documents.
+  - **Embeddings**: Word2Vec (CBOW and Skip-Gram) trained on the 40k training articles; TextRank over averaged Word2Vec vectors (`--repr w2v`).
+  - **Pretrained transformers (inference only)**: `t5-small` and BERT-embedding TextRank (`bert-extractive`) selectable in `evaluate` and `gov_eval`.
+  - **Studies**: TextRank preprocessing ablation, tokenizer comparison (word-level, WordPiece, BPE, SentencePiece), a from-scratch self-attention demo, a neural extractive summariser and a blinded human-evaluation sheet.
 - **Real-World Government Benchmark**:
   - Zero-shot transfer (domain shift) evaluation on official press releases and regulatory instruments from the **Press Information Bureau (PIB)**, Ministry of Electronics & IT (MeitY), Ministry of Mines, Ministry of Road Transport and Highways (MoRTH), Ministry of Education, and MoEFCC.
   - Sentence-aware document chunking (`--chunking`) to evaluate documents exceeding the model's 400-token context window.
@@ -38,30 +44,30 @@
 ## Architecture Overview
 
 ```
-                      +-----------------------------+
-                      |     Source Document         |
-                      +--------------+--------------+
-                                     |
-               +---------------------+---------------------+
-               |                                           |
-               v                                           v
-    [ Extractive Pipeline ]                     [ Abstractive Pipeline ]
-       Sentence Splitting                           Word Tokenization
-               |                                           |
-      TF-IDF Vectorization                         Vocab (30,000 words)
-               |                                           |
-    Cosine Similarity Graph                     BiGRU Encoder (2x256-d)
-               |                                           |
-      PageRank Centrality                       Attention Mechanism
-               |                         (Bahdanau Additive / Luong General)
-               v                                           |
-       Top-3 Sentences                            GRU Decoder (512-d)
-                                                           |
-                                                Decoding & Tuning
-                                          (Trigram Blocking + UNK Replace)
-                                                           |
-                                                           v
-                                                    Generated Summary
+                               +-----------------------------+
+                               |        Source Document      |
+                               +--------------+--------------+
+                                              |
+        +-------------------+-----------------+-----------------+-------------------+
+        |                   |                                   |                   |
+        v                   v                                   v                   v
+[ Extractive Pipeline ] [ Embedding-based Extractive ]  [ Abstractive Pipeline ] [ Pretrained Transformer ]
+  Sentence Splitting      Sentence Splitting              Word Tokenization        (inference only)
+        |                   |                                   |                   |
+  TF-IDF / BoW vectors    Averaged Word2Vec (--repr w2v)   Vocab (30,000 words)   t5-small
+  (stop-words, stemming,  or mean-pooled BERT              BiGRU Encoder (2x256-d) "summarize: " prefix
+   lemmas, n-grams)       (--repr bert / bert-extractive)  Attention Mechanism     Beam 4 decoding
+        |                   |                              (Bahdanau / Luong / None)  |
+  Cosine Similarity Graph   Cosine Similarity Graph        GRU Decoder (512-d)      |
+        |                   |                              Decoding: greedy, beam,   |
+  PageRank Centrality       PageRank Centrality            top-k, nucleus,          |
+        |                   |                              trigram block, UNK replace |
+        v                   v                                   v                   v
+   Top-3 Sentences     Top-3 Sentences                    Generated Summary     Generated Summary
+        \_________________________________________  _____________________________/
+                                                  \/
+                       Unified evaluation: ROUGE, BLEU-4, distinct-n, perplexity,
+                       unsupported-number rate  (src.evaluate, src.gov_eval)
 ```
 
 ### Mathematical Formulation of Attention
@@ -115,6 +121,32 @@ Evaluated on the **CNN/DailyMail 3.0.0** test subset ($n=500$ articles, single s
 |:---:|:---:|
 | ![Loss Curves](results/loss_curves.png) | ![Attention Heatmap](results/attention_heatmap.png) |
 
+### 4. Extended Comparison
+
+One command produces the unified table (see Quickstart 7). Rows are appended to `results/metrics.md`; per-model rows are also saved to `results/partial/` as each model finishes. Unsupported-number rate is the share of numeric tokens in a summary that never occur in its source: a lexical hallucination proxy that ignores number words and cannot detect misused but present numbers.
+
+<!-- TODO(extended-table): fill from results/metrics.md "Extended comparison" section -->
+
+Sampling decoders (Bahdanau, mean ± std over seeds):
+
+<!-- TODO(sampling-table): fill from results/metrics.md "Extended comparison" sections for topk / nucleus -->
+
+TextRank preprocessing ablation (`python -m src.text_study`, `results/text_study.md`):
+
+<!-- TODO(text-study): summarise results/text_study.md -->
+
+Tokenizer study (`python -m src.tokenizer_study`, `results/tokenizers.md`):
+
+<!-- TODO(tokenizers): summarise results/tokenizers.md -->
+
+Word2Vec (`python -m src.embeddings`, `results/word2vec.md`, `results/word2vec_plots.png`):
+
+<!-- TODO(word2vec): neighbours / analogies / seq2seq-embedding comparison from results/word2vec.md -->
+
+Neural extractive summariser (`python -m src.neural_extractive`, `results/neural_extractive.md`):
+
+<!-- TODO(neural-extractive): from results/neural_extractive.md -->
+
 ---
 
 ## Government Circulars & Regulatory Benchmark
@@ -131,6 +163,8 @@ The model is trained only on CNN/DailyMail and never fine-tuned on government te
 
 **How to read these numbers:** the 9 documents have no reference summaries, so no ROUGE is computed. Compression ratio and the keyword audit are descriptive checks, not quality scores; a higher compression ratio only means shorter output.
 
+<!-- TODO(gov-extended): fill from the 'Extended comparison' section of results/government/metrics.md -->
+
 The pipeline includes:
 - **`src.gov_sources`**: Clean text extraction from official PIB releases and metadata manifests.
 - **`src.gov_eval`**: Evaluation suite with `--chunking` for long documents.
@@ -140,38 +174,17 @@ The pipeline includes:
 
 ## Course Syllabus Coverage
 
-Core PrecisAI (`src/*.py`, `checkpoints/`, `results/*`) is unchanged. Everything below is additive code in `src/extras/` with outputs in `results/extras/`. Single seed unless a mean ± std is stated. Reproduce with `python -m src.extras.<module>` (stage argument for `hf_baselines`).
+All additions are optional flags or new modules; defaults reproduce the original pipeline exactly. Dialogue systems, reasoning and text-classification topics are out of scope for this project.
 
-| Unit | Topic | Code | Results |
-|---|---|---|---|
-| I | Text preprocessing: TF-IDF/BoW, stop-words, stemming, lemmatization, n-grams | `src/textrank.py`, `src/extras/prep_study.py` | `results/extras/prep_study.md` (24-config TextRank ablation) |
-| I, V | Tokenization: word-level vs WordPiece vs BPE vs SentencePiece | `src/vocab.py`, `src/extras/tokenizer_study.py` | `results/extras/tokenizers.md` |
-| II | Word embeddings: CBOW, Skip-Gram, GloVe, neighbours, analogies, PCA/t-SNE, W2V-TextRank | `src/extras/w2v_study.py` | `results/extras/word2vec.md`, `word2vec_plots.png` |
-| III | Neural extractive (SummaRuNNer-lite, BiGRU vs BiLSTM sentence encoders) | `src/extras/neural_extractive.py` | `results/extras/neural_extractive.md` |
-| IV | Seq2Seq, attention, decoding (greedy, beam, top-k, nucleus) | `src/model.py`, `src/decode.py`, `src/extras/decoding_study.py` | `results/metrics.md`, `results/tuning.md`, `results/extras/decoding.md` |
-| V | Transformers: self-attention, positional encoding, BERT, pretrained/fine-tuned T5 | `src/extras/transformer_demo.py`, `src/extras/hf_baselines.py` | `results/extras/hf_baselines.md`, `bert_attention.png` |
-| VI | Evaluation: ROUGE, BLEU-4, perplexity, diversity, hallucination proxy, human-eval protocol | `src/evaluate.py`, `src/extras/decoding_study.py`, `src/extras/human_eval.py` | `results/extras/decoding.md`; `human_eval.csv` (ratings blank) |
-
-### Extras: headline results (CNN/DM test, n=500)
-
-Full table (with compression and unsupported-number rates, including the government documents) is in `results/extras/hf_baselines.md`.
-
-| System | R-1 | R-2 | R-L |
-|---|:---:|:---:|:---:|
-| TextRank (TF-IDF) | 35.80 | 14.10 | 23.38 |
-| W2V-TextRank (Skip-Gram) | 31.27 | 10.06 | 18.96 |
-| BERT-embedding TextRank | 32.84 | 11.24 | 20.13 |
-| BiGRU Bahdanau beam 4 | 28.65 | 7.93 | 19.30 |
-| t5-small pretrained (beam 4) | 37.29 | 16.54 | 26.51 |
-| t5-small fine-tuned on the same 40k articles, 1 epoch (beam 4) | 39.17 | 18.05 | 27.81 |
-
-- The greedy and beam-4 rows in `results/extras/decoding.md` reproduce `results/metrics.md` exactly (R-1/R-2/R-L).
-- Sampling (Bahdanau, 3 seeds, mean ± std) is reported in `decoding.md`; top-k and nucleus sampling score below beam search on ROUGE.
-- `t5-small` was pretrained on a multi-task mixture that includes CNN/DailyMail summarisation with the `summarize:` prefix, so the "pretrained" row is not a clean zero-shot result. T5 inputs are truncated to 400 SentencePiece tokens, BiGRU inputs to 400 words.
-- Unsupported-number rate is a lexical proxy for hallucination (numbers in the summary that never occur in the source). It ignores number words and cannot detect misused but present numbers. The government sample is under 40 numbers per system, so it is anecdotal.
-- Word2Vec neighbours and analogies are from a 40k-article corpus; see `word2vec.md` for the misses. The seq2seq encoder embedding shows almost no neighbour overlap with Word2Vec (0.01-0.02 top-10 overlap).
-- SummaRuNNer-lite (3 seeds) reaches R-1 38.66 ± 0.12 (GRU) and 38.82 ± 0.41 (LSTM); both beat TextRank but not Lead-3 (R-1 40.23). The GRU/LSTM difference is within seed noise.
-- Human evaluation has not been performed: `results/extras/human_eval.csv` (20 articles x 4 blinded systems) has blank ratings, and `python -m src.extras.human_eval aggregate` summarises them once filled.
+| Unit | Topic | Code | Result file | Status |
+|---|---|---|---|---|
+| I | TF-IDF/BoW, stop-words, stemming, lemmatization, n-grams | `src/textrank.py` (`stop_words`, `norm`, `weighting`, `ngram`), `src/text_study.py` | `results/text_study.md` | pending |
+| I, V | Tokenization: word-level vs WordPiece vs BPE vs SentencePiece | `src/vocab.py`, `src/tokenizer_study.py` | `results/tokenizers.md` | pending |
+| II | Word2Vec (CBOW, Skip-Gram), neighbours, analogies, PCA/t-SNE, W2V-TextRank | `src/embeddings.py`, `src/textrank.py` (`--repr w2v`) | `results/word2vec.md`, `results/word2vec_plots.png`, `results/metrics.md` | pending |
+| III | Neural extractive summarisation (SummaRuNNer-lite, BiGRU vs BiLSTM) | `src/neural_extractive.py` | `results/neural_extractive.md` | pending |
+| IV | Seq2Seq, attention, decoding (greedy, beam, top-k, nucleus) | `src/model.py`, `src/decode.py`, `src/sampling.py`, `src/evaluate.py` | `results/metrics.md`, `results/tuning.md` | pending (sampling rows) |
+| V | Transformers: self-attention, positional encoding, BERT, pretrained T5 | `src/transformer_demo.py`, `src/pretrained.py` | `results/bert_attention.png`, `results/metrics.md`, `results/government/metrics.md` | pending |
+| VI | Evaluation: ROUGE, BLEU-4, perplexity, diversity, hallucination proxy, human-eval protocol | `src/evaluate.py`, `src/gov_eval.py`, `src/metrics_extra.py`, `src/human_eval.py` | `results/metrics.md`, `results/human_eval.csv` (ratings blank, to be filled by raters) | pending |
 
 ---
 
@@ -189,13 +202,21 @@ Full table (with compression and unsupported-number rates, including the governm
 │   ├── model.py               # BiGRU Encoder, GRU Decoder, Bahdanau & Luong attention
 │   ├── vocab.py               # Vocabulary builder with UNK replacement decoder
 │   ├── decode.py              # Greedy decoding, tuned beam search, coverage penalties
-│   ├── textrank.py            # TF-IDF Cosine Graph + PageRank extractive model
+│   ├── textrank.py            # Cosine graph + PageRank extractive model (TF-IDF default; BoW, stemming, n-grams, W2V, BERT options)
 │   ├── preprocess.py          # CNN/DailyMail dataset loader and tensor cache builder
 │   ├── train.py               # Mixed-precision training pipeline with early stopping
 │   ├── evaluate.py            # ROUGE evaluation & parameter sweep CLI
 │   ├── gov_sources.py         # Government document scraper and text cleaner
 │   ├── gov_eval.py            # Government benchmark evaluation and policy audit
-│   └── extras/                # Syllabus-coverage studies (see Course Syllabus Coverage)
+│   ├── sampling.py            # Top-k / nucleus sampling decoders with temperature
+│   ├── metrics_extra.py       # Test perplexity, BLEU-4, distinct-n, unsupported-number rate
+│   ├── pretrained.py          # t5-small and BERT-embedding TextRank (inference only)
+│   ├── embeddings.py          # Word2Vec training/analysis, sentence-vector factories
+│   ├── text_study.py          # TextRank preprocessing ablation
+│   ├── tokenizer_study.py     # Word-level vs WordPiece vs BPE vs SentencePiece
+│   ├── transformer_demo.py    # From-scratch self-attention + positional encoding, BERT heatmap
+│   ├── neural_extractive.py   # SummaRuNNer-lite sentence scorer
+│   └── human_eval.py          # Blinded human-evaluation sheet and aggregation
 │
 ├── data/
 │   └── circulars/             # Official government documents & benchmark
@@ -211,7 +232,14 @@ Full table (with compression and unsupported-number rates, including the governm
     ├── beam_sweep.json        # Hyperparameter grid search logs
     ├── loss_curves.png        # Training/validation loss curves
     ├── attention_heatmap.png  # Decoder-to-encoder attention alignment matrix
-    ├── extras/                # Outputs of src/extras (decoding, prep, tokenizers, word2vec, hf_baselines)
+    ├── text_study.md          # TextRank preprocessing ablation
+    ├── tokenizers.md          # Tokenizer study
+    ├── word2vec.md            # Word2Vec neighbours, analogies, comparison
+    ├── word2vec_plots.png     # PCA / t-SNE
+    ├── bert_attention.png     # BERT self-attention heatmap
+    ├── neural_extractive.md   # Neural extractive results
+    ├── human_eval.csv         # Blinded rating sheet (ratings blank)
+    ├── extended_metrics.json  # Machine-readable extended comparison
     └── government/            # Government document evaluation artifacts
         ├── metrics.md         # Government benchmark summary
         ├── document_metrics.json
@@ -305,6 +333,30 @@ The web UI provides:
 1. **CNN/DailyMail Mode**: Compare extractive TextRank against trained Seq2Seq models, select decoding methods (greedy vs beam), and render attention heatmaps.
 2. **Government Document Mode**: Select an official PIB document from the manifest (or paste your own), inspect token compression ratios, and review real-time policy preservation flags.
 
+### 7. Extended Comparison (one command per flag)
+
+```bash
+# Unified table: extractive (TF-IDF, W2V, BERT), BiGRU models and pretrained t5-small, with extra metrics
+python -m src.evaluate --models bahdanau luong none t5-small bert-extractive --repr tfidf w2v bert --extra_metrics --no_repeat_ngram 0
+
+# Sampling decoders (mean +- std over --seeds 0 1 2)
+python -m src.evaluate --models bahdanau --decode topk --extra_metrics
+python -m src.evaluate --models bahdanau --decode nucleus --temperature 0.7 --extra_metrics
+
+# Government documents with the same models and the unsupported-number rate
+python -m src.gov_eval --models bahdanau luong none t5-small bert-extractive --extra_metrics
+
+# Studies
+python -m src.embeddings          # Word2Vec (trains CBOW/Skip-Gram on first use), neighbours, analogies, plots
+python -m src.text_study          # TextRank preprocessing ablation
+python -m src.tokenizer_study     # tokenizer comparison
+python -m src.transformer_demo    # self-attention shape tests + BERT heatmap
+python -m src.neural_extractive   # SummaRuNNer-lite
+python -m src.human_eval make     # blinded rating sheet; fill ratings, then:  python -m src.human_eval aggregate
+```
+
+Extended runs append to `results/metrics.md` and `results/government/metrics.md`; the original tables are never overwritten.
+
 ---
 
 ## Limitations
@@ -319,14 +371,13 @@ The web UI provides:
 
 ## Limitations of Classical Seq2Seq
 
-Numbers below are from existing result files.
+Numbers below come from existing result files (`results/metrics.md`, `results/tuning.md`, `results/government/document_metrics.json`).
 
-- **Attention is essential, and its implementation matters.** At beam 4 the Bahdanau model reaches R-1 28.65 versus 19.37 with no attention (`results/metrics.md`). Teacher-forced test perplexity is 72.03 (Bahdanau), 129.49 (no attention), 188.78 (Luong) (`results/extras/decoding.md`).
-- **Degenerate repetition under greedy decoding.** 91.6% of greedy Bahdanau summaries repeat a trigram; n-gram blocking and beam search remove this (`results/metrics.md`, `results/tuning.md`). Unconstrained sampling brings it down only partly, and lowering the temperature raises it again (`decoding.md`).
-- **Closed vocabulary.** The 30k word vocabulary leaves 2.44% of CNN/DM test tokens and 9.53% of government-document tokens out-of-vocabulary; subword tokenizers have none (`results/extras/tokenizers.md`). Attention-based `<unk>` replacement only patches this at decode time.
-- **Hard 400-token input limit.** 84.8% of CNN/DM test articles and 66.7% of government documents exceed 400 word tokens and are truncated (`tokenizers.md`), so content after the cut-off cannot be summarised.
-- **Weak factual grounding.** Without attention, or with the weaker Luong variant, 74-76% of the numbers in beam-4 summaries do not occur in the source, versus 14.8% for Bahdanau; TextRank copies sentences and has 0% (`decoding.md`).
-- **Small-data regime.** A pretrained transformer fine-tuned for one epoch on the same 40k articles beats the BiGRU by a wide margin (`hf_baselines.md`).
+- **Attention is essential.** At beam 4 the Bahdanau model reaches ROUGE-1 28.65 versus 19.37 with no attention (`results/metrics.md`).
+- **Degenerate repetition under greedy decoding.** 91.6% of greedy Bahdanau summaries repeat a trigram; n-gram blocking brings this to 0.0% at the cost of a hand-written decoding rule (`results/metrics.md`, `results/tuning.md`).
+- **Closed vocabulary.** Greedy and beam summaries contain `<unk>` tokens at a rate of 4.40% and 4.08% of output tokens; attention-based replacement removes them only at decode time (`results/metrics.md`, `results/tuning.md`). <!-- TODO(oov): add tokenizer OOV rates from results/tokenizers.md -->
+- **Hard 400-token input limit.** 6 of the 9 government documents exceed 400 tokens and lose up to 97.1% of their text without `--chunking` (`results/government/document_metrics.json`). <!-- TODO(truncation): add CNN/DM share over 400 tokens from results/tokenizers.md -->
+- **No ground-truth guarantee.** The model can generate content absent from the source; the unsupported-number rate is a proxy only. <!-- TODO(unsupported): add rates from results/metrics.md -->
 
 ---
 
@@ -335,6 +386,11 @@ Numbers below are from existing result files.
 - **CNN/DailyMail Dataset**: Hermann et al. (2015), *Teaching Machines to Read and Comprehend*; See et al. (2017), *Get To The Point: Summarization with Pointer-Generator Networks*.
 - **TextRank**: Mihalcea and Tarau (2004), *TextRank: Bringing Order into Texts*.
 - **Neural Attention Mechanisms**: Bahdanau et al. (2014); Luong et al. (2015).
+- **Word2Vec**: Mikolov et al. (2013), *Efficient Estimation of Word Representations in Vector Space*.
+- **BERT**: Devlin et al. (2019), *BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding*.
+- **T5**: Raffel et al. (2020), *Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer*.
+- **Nucleus sampling**: Holtzman et al. (2020), *The Curious Case of Neural Text Degeneration*.
+- **Transformer**: Vaswani et al. (2017), *Attention Is All You Need*.
 - **Government Sources**: Press Information Bureau (PIB), Government of India public portals.
 
 ---

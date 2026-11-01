@@ -63,11 +63,19 @@ def main():
     refs, arts, N = d["ref"], d["article"], len(d["ref"])
     metrics, preds_all = {}, {}
 
+    def save_partial(name):
+        """Extended runs persist each row immediately so a late failure keeps earlier results."""
+        if extended:
+            os.makedirs(os.path.join(res, "partial"), exist_ok=True)
+            with open(os.path.join(res, "partial", f"{name}.json"), "w") as f:
+                json.dump(metrics[name], f)
+
     def record(name, preds, ppl=None):
         metrics[name] = {**rouge(preds, refs), **stats(preds)}
         if a.extra_metrics:
             metrics[name].update(extra_columns(preds, refs, arts))
             metrics[name]["ppl"] = ppl if ppl is not None else "-"
+        save_partial(name)
         preds_all[name] = preds
         print(name, metrics[name], flush=True)
 
@@ -101,6 +109,7 @@ def main():
             metrics[name] = {c: f"{np.mean([r[c] for r in sampled]):.2f} ± {np.std([r[c] for r in sampled]):.2f}" for c in sampled[0]}
             if a.extra_metrics:
                 metrics[name]["ppl"] = ppl
+            save_partial(name)
             print(name, metrics[name], flush=True)
             continue
         if a.decode in (None, "greedy"):
